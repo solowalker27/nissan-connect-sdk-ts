@@ -4,6 +4,8 @@
 
 import { py as $ } from "./_runtime";
 
+import {adaptHttpSession} from "./http";
+
 
 
 const asyncio = $.asyncio;
@@ -64,7 +66,7 @@ let {"session": session, "profile": profile, "tokens": tokens, "token_listener":
 if ($.truth($.and(() => ((request_proof !== null)), () => ((request_proof_provider !== null))))) {
 throw $.call($.ValueError, ["request_proof cannot be combined with request_proof_provider"], null);
 }
-this["_session"] = session;
+this["_session"] = adaptHttpSession(session);
 this["_profile"] = profile;
 this["_tokens"] = tokens;
 this["_token_listener"] = token_listener;

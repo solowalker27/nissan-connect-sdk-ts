@@ -41,3 +41,13 @@ export class FetchSession implements HttpSession {
   }
   close():void {this.closed=true;for(const controller of this.pending) controller.abort();this.pending.clear();}
 }
+/** Adapt the generated keyword-call convention at the native HTTP boundary. */
+export function adaptHttpSession(session:HttpSession):HttpSession {
+  // Mechanically translated test sessions already implement the keyword convention.
+  if ((session as any).constructor?.__class) return session;
+  return {post(url,options){
+    const nativeOptions=py.isKw(options)?py.keywordValues(options):options;
+    const headers=nativeOptions.headers?Object.fromEntries(Object.entries(nativeOptions.headers).map(([key,value])=>[key,String(value)])):nativeOptions.headers;
+    return session.post(url,{...nativeOptions,headers});
+  }};
+}

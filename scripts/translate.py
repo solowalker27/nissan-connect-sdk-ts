@@ -130,6 +130,7 @@ class Translator:
   if isinstance(n,(ast.Assign,ast.AnnAssign)):
    if isinstance(n,ast.AnnAssign) and n.value is None:return ''
    targets=n.targets if isinstance(n,ast.Assign) else [n.target]
+   if self.file.stem=='_transport' and any(isinstance(t,ast.Attribute) and t.attr=='_session' for t in targets): return 'this[\"_session\"] = adaptHttpSession('+self.e(n.value)+');'
    result='\n'.join(('export let ' if top and isinstance(t,ast.Name) else '')+self.target(t)+' = '+self.e(n.value)+';' for t in targets)
    if top and not self.tests and isinstance(n.value,ast.Name) and n.value.id in CLASSES: result+='\n'+ '\n'.join('export type '+ident(t.id)+' = '+ident(n.value.id)+';' for t in targets if isinstance(t,ast.Name))
    return result
@@ -149,6 +150,7 @@ class Translator:
   if isinstance(n,ast.Delete):return '\n'.join('delete '+self.target(t)+';' for t in n.targets)
   if isinstance(n,(ast.FunctionDef,ast.AsyncFunctionDef)):return self.function(n,top=top)
   if isinstance(n,ast.ClassDef):return self.classdef(n)
+  if isinstance(n,ast.TypeAlias) and n.name.id=='TokenListener': return 'export type TokenListener = (tokens: Tokens) => void | Promise<void>; '
   if isinstance(n,ast.TypeAlias):return 'export type '+ident(n.name.id)+' = '+self.t(n.value)+';'
   if isinstance(n,ast.Try):
    catches=[]
@@ -268,6 +270,7 @@ class Translator:
  def run(self):
   tree=ast.parse(self.file.read_text())
   result=['// @ts-nocheck — generated implementation uses a dynamic keyword adapter; public overloads are checked by consumer tests.','// AUTO-GENERATED from bvdcode/nissan-connect-sdk @ 828bde6. MIT, Copyright (c) 2026 Vadim Belov.','import { py as $ } from '+json.dumps('./_support' if self.tests else './_runtime')+';']
+  if not self.tests and self.file.stem=='_transport': result.append('import {adaptHttpSession} from \"./http\";')
   for n in tree.body:result.append(self.s(n,top=True))
   result.extend(self.reg)
   if not self.tests and self.file.stem=='__init__': result.append('export * as operations from \"./operations\";\nexport { FetchSession } from \"./http\";\nexport { kw } from \"./_runtime\";\nexport { dateTime, dateOnly, DateTime } from \"./dates\";')

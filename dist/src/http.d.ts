@@ -21,3 +21,5 @@ export declare class FetchSession implements HttpSession {
     post(url: string, options?: HttpRequestOptions): Promise<HttpResponse>;
     close(): void;
 }
+/** Adapt the generated keyword-call convention at the native HTTP boundary. */
+export declare function adaptHttpSession(session: HttpSession): HttpSession;

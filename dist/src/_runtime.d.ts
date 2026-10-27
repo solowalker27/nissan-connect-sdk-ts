@@ -61,6 +61,7 @@ export declare namespace py {
         readonly [K in keyof T]: EnumValue<T[K]>;
     } & Iterable<EnumValue<T[keyof T]>>;
     export function enumType<const T extends Record<string, string>>(name: string, values: T, stringEnum?: boolean): EnumType<T>;
+    export const keywordValues: (v: any) => Record<string, any>;
     export const isKw: (v: any) => boolean;
     export const kw: (values: Record<string, any>) => any;
     export function bind(args: any[], positional: string[], defaults: Record<string, any>, keyword: string[], vararg: string | null, kwarg: string | null): any;

@@ -47,6 +47,7 @@ export namespace py {
     type.__enum = name;
     return type;
   }
+  export const keywordValues = (v:any):Record<string,any> => v?.[KW] ? v.values : v;
   export const isKw = (v:any):boolean => Boolean(v?.[KW]);
   export const kw = (values: Record<string, any>): any => ({[KW]: true, values});
   export function bind(args: any[], positional: string[], defaults: Record<string, any>, keyword: string[], vararg: string | null, kwarg: string | null): any {

@@ -76,6 +76,7 @@ var py;
         return type;
     }
     py.enumType = enumType;
+    py.keywordValues = (v) => v?.[KW] ? v.values : v;
     py.isKw = (v) => Boolean(v?.[KW]);
     py.kw = (values) => ({ [KW]: true, values });
     function bind(args, positional, defaults, keyword, vararg, kwarg) {

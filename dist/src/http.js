@@ -1,6 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.FetchSession = void 0;
+exports.adaptHttpSession = adaptHttpSession;
 /** Native Node.js fetch transport. A session can be closed to abort all in-flight requests. */
 const _runtime_1 = require("./_runtime");
 class FetchSession {
@@ -61,4 +62,15 @@ class FetchSession {
         controller.abort(); this.pending.clear(); }
 }
 exports.FetchSession = FetchSession;
+/** Adapt the generated keyword-call convention at the native HTTP boundary. */
+function adaptHttpSession(session) {
+    // Mechanically translated test sessions already implement the keyword convention.
+    if (session.constructor?.__class)
+        return session;
+    return { post(url, options) {
+            const nativeOptions = _runtime_1.py.isKw(options) ? _runtime_1.py.keywordValues(options) : options;
+            const headers = nativeOptions.headers ? Object.fromEntries(Object.entries(nativeOptions.headers).map(([key, value]) => [key, String(value)])) : nativeOptions.headers;
+            return session.post(url, { ...nativeOptions, headers });
+        } };
+}
 //# sourceMappingURL=http.js.map

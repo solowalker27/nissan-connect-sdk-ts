@@ -8,6 +8,7 @@ exports._jwt_is_expired = _jwt_is_expired;
 exports._tokens_have_expired_jwt = _tokens_have_expired_jwt;
 // AUTO-GENERATED from bvdcode/nissan-connect-sdk @ 828bde6. MIT, Copyright (c) 2026 Vadim Belov.
 const _runtime_1 = require("./_runtime");
+const http_1 = require("./http");
 const asyncio = _runtime_1.py.asyncio;
 const base64 = _runtime_1.py.base64;
 const inspect = _runtime_1.py.inspect;
@@ -54,7 +55,7 @@ class _NissanTransport {
         if (_runtime_1.py.truth(_runtime_1.py.and(() => ((request_proof !== null)), () => ((request_proof_provider !== null))))) {
             throw _runtime_1.py.call(_runtime_1.py.ValueError, ["request_proof cannot be combined with request_proof_provider"], null);
         }
-        this["_session"] = session;
+        this["_session"] = (0, http_1.adaptHttpSession)(session);
         this["_profile"] = profile;
         this["_tokens"] = tokens;
         this["_token_listener"] = token_listener;
