@@ -1,0 +1,10 @@
+import { _list, _nullable_aware_datetime, _nullable_graphql_bool, _nullable_graphql_string, _nullable_product_type, _nullable_purchase_type, _object, _optional_bool, _optional_object, _required_aware_datetime, _required_datetime, _required_float, _required_graphql_string } from "./_parsing_values";
+export { _list, _nullable_aware_datetime, _nullable_graphql_bool, _nullable_graphql_string, _nullable_product_type, _nullable_purchase_type, _object, _optional_bool, _optional_object, _required_aware_datetime, _required_datetime, _required_float, _required_graphql_string };
+import { VehiclePreferences, VehicleSubscription, VehicleSubscriptionPendingOrder, VehicleSubscriptionProduct, VehicleSubscriptions, VehicleWifiConsumption } from "./models";
+export { VehiclePreferences, VehicleSubscription, VehicleSubscriptionPendingOrder, VehicleSubscriptionProduct, VehicleSubscriptions, VehicleWifiConsumption };
+export declare function parse_vehicle_wifi_consumption(data: Record<string, unknown>): VehicleWifiConsumption | null;
+export declare function parse_vehicle_preferences(data: Record<string, unknown>): VehiclePreferences | null;
+export declare function parse_vehicle_subscriptions(data: Record<string, unknown>, vin: string): VehicleSubscriptions | null;
+export declare function _parse_vehicle_subscription(value: Record<string, unknown>, path: string): VehicleSubscription;
+export declare function _parse_vehicle_subscription_product(value: Record<string, unknown>, path: string): VehicleSubscriptionProduct;
+export declare function _parse_vehicle_subscription_pending_order(value: Record<string, unknown>, path: string): VehicleSubscriptionPendingOrder;

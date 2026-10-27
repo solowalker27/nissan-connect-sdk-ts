@@ -1,6 +1,8 @@
+// @ts-nocheck — generated implementation uses a dynamic keyword adapter; public overloads are checked by consumer tests.
+
 // AUTO-GENERATED from bvdcode/nissan-connect-sdk @ 828bde6. MIT, Copyright (c) 2026 Vadim Belov.
 
-import { py as $ } from "../src/_runtime";
+import { py as $ } from "./_support";
 
 
 
@@ -23,7 +25,7 @@ import { parse_add_vehicle, parse_apc_agreement, parse_apc_document_url, parse_c
 /** Translated upstream test_union_parsers_preserve_unselected_typenames. */
 export function test_union_parsers_preserve_unselected_typenames(...__args: any[]): any {
 let {"parser": parser, "root_field": root_field, "typename": typename} = $.bind(__args, ["parser", "root_field", "typename"], {}, [], null, null);
-$.assert(($.eq($.call(parser, [$.call(_union_payload, [root_field, typename, {}], null)], null), $.call(UnselectedGarageResult, [typename], null))), "test_garage_part_03.py:71: parser(_union_payload(root_field, typename, {})) == UnselectedGarageResult(typename)");
+$.assertEqual($.call(parser, [$.call(_union_payload, [root_field, typename, {}], null)], null), $.call(UnselectedGarageResult, [typename], null), "test_garage_part_03.py:71: parser(_union_payload(root_field, typename, {})) == UnselectedGarageResult(typename)");
 }
 
 /** Translated upstream test_garage_parsers_reject_malformed_responses. */

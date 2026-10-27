@@ -1,0 +1,16 @@
+import { _nullable_bool, _nullable_enum, _nullable_float, _nullable_int, _nullable_list, _nullable_string, _optional_typed_object, _parse_nullable_string_items, _typed_object } from "./_extended_vehicle_value_parsing";
+export { _nullable_bool, _nullable_enum, _nullable_float, _nullable_int, _nullable_list, _nullable_string, _optional_typed_object, _parse_nullable_string_items, _typed_object };
+import { EmpConnector, EmpEvse, EmpEvseStatus, EmpLocation, EmpLocationCoordinates, EmpLocationOpeningTiming, EmpLocationStatus, EVChargeStation, EVChargeStationAddress, EVChargeStationConnector, EVChargeStationCoordinate } from "./extended_vehicle_models";
+export { EmpConnector, EmpEvse, EmpEvseStatus, EmpLocation, EmpLocationCoordinates, EmpLocationOpeningTiming, EmpLocationStatus, EVChargeStation, EVChargeStationAddress, EVChargeStationConnector, EVChargeStationCoordinate };
+import { PlugConnectorType } from "./navigation_inputs";
+export { PlugConnectorType };
+export declare function _parse_ev_charge_station(value: unknown, path: string): EVChargeStation;
+export declare function _parse_optional_station_address(value: unknown, path: string): EVChargeStationAddress | null;
+export declare function _parse_optional_station_coordinate(value: unknown, path: string): EVChargeStationCoordinate | null;
+export declare function _parse_ev_charge_station_connector(value: unknown, path: string): EVChargeStationConnector;
+export declare function _parse_emp_location(value: unknown, path: string): EmpLocation;
+export declare function _parse_emp_opening_timings(value: unknown, path: string): ReadonlyArray<EmpLocationOpeningTiming | null> | null;
+export declare function _parse_optional_emp_coordinates(value: unknown, path: string): EmpLocationCoordinates | null;
+export declare function _parse_emp_evses(value: unknown, path: string): ReadonlyArray<EmpEvse | null> | null;
+export declare function _parse_emp_evse(value: unknown, path: string): EmpEvse;
+export declare function _parse_emp_connector(value: unknown, path: string): EmpConnector;

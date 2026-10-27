@@ -1,6 +1,8 @@
+// @ts-nocheck — generated implementation uses a dynamic keyword adapter; public overloads are checked by consumer tests.
+
 // AUTO-GENERATED from bvdcode/nissan-connect-sdk @ 828bde6. MIT, Copyright (c) 2026 Vadim Belov.
 
-import { py as $ } from "../src/_runtime";
+import { py as $ } from "./_support";
 
 
 
@@ -18,12 +20,12 @@ if ($.truth($.and(() => $.call($.isinstance, [value, $.str], null), () => $.call
 $.call($.attr(documents, "append"), [[constant, value]], null);
 }
 }
-$.assert(($.eq($.call($.len, [documents], null), 285)), "test_operation_catalog.py:14: len(documents) == 285");
-$.assert(($.eq($.call($.sum, [(() => { const __out: any = []; for (const [_, document] of $.iterable(documents)) { __out.push($.call($.attr(document, "startswith"), ["query "], null)); } return __out; })()], null), 129)), "test_operation_catalog.py:15: sum((document.startswith('query ') for _, document in documents)) == 129");
-$.assert(($.eq($.call($.sum, [(() => { const __out: any = []; for (const [_, document] of $.iterable(documents)) { __out.push($.call($.attr(document, "startswith"), ["mutation "], null)); } return __out; })()], null), 156)), "test_operation_catalog.py:16: sum((document.startswith('mutation ') for _, document in documents)) == 156");
+$.assertEqual($.call($.len, [documents], null), 285, "test_operation_catalog.py:14: len(documents) == 285");
+$.assertEqual($.call($.sum, [(() => { const __out: any = []; for (const [_, document] of $.iterable(documents)) { __out.push($.call($.attr(document, "startswith"), ["query "], null)); } return __out; })()], null), 129, "test_operation_catalog.py:15: sum((document.startswith('query ') for _, document in documents)) == 129");
+$.assertEqual($.call($.sum, [(() => { const __out: any = []; for (const [_, document] of $.iterable(documents)) { __out.push($.call($.attr(document, "startswith"), ["mutation "], null)); } return __out; })()], null), 156, "test_operation_catalog.py:16: sum((document.startswith('mutation ') for _, document in documents)) == 156");
 for ([constant, document] of $.iterable(documents)) {
 operation_id = $.call($.getattr, [operations, ($.str(constant) + "_OPERATION_ID")], null);
-$.assert(($.eq($.call($.attr($.call($.attr(hashlib, "sha256"), [$.call($.attr(document, "encode"), [], null)], null), "hexdigest"), [], null), operation_id)), "test_operation_catalog.py:19: hashlib.sha256(document.encode()).hexdigest() == operation_id");
+$.assertEqual($.call($.attr($.call($.attr(hashlib, "sha256"), [$.call($.attr(document, "encode"), [], null)], null), "hexdigest"), [], null), operation_id, "test_operation_catalog.py:19: hashlib.sha256(document.encode()).hexdigest() == operation_id");
 }
 }
 

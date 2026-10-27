@@ -1,0 +1,18 @@
+import { _enum, _float, _int, _nullable_datetime, _nullable_enum, _nullable_float, _nullable_int, _nullable_list, _nullable_string, _object, _optional_object, _string } from "./_navigation_value_parsing";
+export { _enum, _float, _int, _nullable_datetime, _nullable_enum, _nullable_float, _nullable_int, _nullable_list, _nullable_string, _object, _optional_object, _string };
+import { ResponseError } from "./exceptions";
+export { ResponseError };
+import { DistanceUnit, TemperatureUnit } from "./models";
+export { DistanceUnit, TemperatureUnit };
+import { NotificationIntervalUnit, RecalculatedWaypointType } from "./navigation_inputs";
+export { NotificationIntervalUnit, RecalculatedWaypointType };
+import { EVWaypoint, EVWaypointErrorDetails, EVWaypointRoute, EVWaypointRouteType, EVWaypointStatus, MissingBatteryDetailsErrorDetails, NavigationAddress, NavigationCoordinate, NavigationDistance, NavigationNotificationInterval, NavigationRouteWaypoint, NavigationTemperature, NoChargingStationWithinRangeErrorDetails, UnableToCompleteSubStepErrorDetails } from "./navigation_models";
+export { EVWaypoint, EVWaypointErrorDetails, EVWaypointRoute, EVWaypointRouteType, EVWaypointStatus, MissingBatteryDetailsErrorDetails, NavigationAddress, NavigationCoordinate, NavigationDistance, NavigationNotificationInterval, NavigationRouteWaypoint, NavigationTemperature, NoChargingStationWithinRangeErrorDetails, UnableToCompleteSubStepErrorDetails };
+export declare function _parse_ev_waypoint(value: Record<string, unknown>): EVWaypoint;
+export declare function _parse_ev_waypoint_error_details(value: unknown): EVWaypointErrorDetails | null;
+export declare function _parse_navigation_route_waypoints(value: unknown, path: string): ReadonlyArray<NavigationRouteWaypoint | null> | null;
+export declare function _parse_optional_address(value: unknown, path: string): NavigationAddress | null;
+export declare function _parse_optional_coordinate(value: unknown, path: string): NavigationCoordinate | null;
+export declare function _parse_optional_distance(value: unknown, path: string): NavigationDistance | null;
+export declare function _parse_optional_temperature(value: unknown, path: string): NavigationTemperature | null;
+export declare function _parse_optional_notification_interval(value: unknown, path: string): NavigationNotificationInterval | null;

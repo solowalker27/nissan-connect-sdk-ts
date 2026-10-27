@@ -1,0 +1,15 @@
+import { _nullable_list, _required_date, _required_nullable_date, _required_nullable_datetime, _required_nullable_float } from "./_finance_value_parsing";
+export { _nullable_list, _required_date, _required_nullable_date, _required_nullable_datetime, _required_nullable_float };
+import { _required_nullable_int, _required_nullable_string, _required_optional_typed_object, _required_string, _typename } from "./account_parsing";
+export { _required_nullable_int, _required_nullable_string, _required_optional_typed_object, _required_string, _typename };
+import { NCFAccountStatement, NCFAccountStatementAccount, NCFAccountStatementSummary, NCFAccountStatementVehicle, NCFBillingStatement, NCFInvoiceSummary, NCFLeaseBillingStatementDetails, NCFLeaseTransactionDetails, NCFPaymentHistoryEntry, NCFPaymentHistoryLoanDetails, NCFStatementTransaction, UnselectedFinanceResult, VehicleCredit, VehicleCreditInfo } from "./finance_models";
+export { NCFAccountStatement, NCFAccountStatementAccount, NCFAccountStatementSummary, NCFAccountStatementVehicle, NCFBillingStatement, NCFInvoiceSummary, NCFLeaseBillingStatementDetails, NCFLeaseTransactionDetails, NCFPaymentHistoryEntry, NCFPaymentHistoryLoanDetails, NCFStatementTransaction, UnselectedFinanceResult, VehicleCredit, VehicleCreditInfo };
+export declare function _parse_statement_summary(value: Record<string, unknown>, path: string): NCFAccountStatementSummary;
+export declare function _parse_vehicle_credit_info(value: Record<string, unknown>, path: string): VehicleCreditInfo;
+export declare function _parse_credit(value: Record<string, unknown> | null, path: string): VehicleCredit | null;
+export declare function _parse_invoice_summary(value: Record<string, unknown>, path: string): NCFInvoiceSummary;
+export declare function _parse_account_statement_vehicle(value: Record<string, unknown>, path: string): NCFAccountStatementVehicle;
+export declare function _parse_account_statement(value: Record<string, unknown> | null, path: string): NCFAccountStatement | null;
+export declare function _parse_billing_statement(value: Record<string, unknown>, path: string): NCFBillingStatement;
+export declare function _parse_statement_transaction(value: Record<string, unknown>, path: string): NCFStatementTransaction;
+export declare function _parse_payment_history_entry(value: Record<string, unknown>, path: string): NCFPaymentHistoryEntry;

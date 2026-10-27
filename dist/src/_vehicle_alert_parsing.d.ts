@@ -1,0 +1,13 @@
+import { _list, _object, _optional_bool, _optional_datetime, _optional_float, _optional_int, _optional_list, _optional_object, _optional_str, _required_bool, _required_datetime, _required_str } from "./_parsing_values";
+export { _list, _object, _optional_bool, _optional_datetime, _optional_float, _optional_int, _optional_list, _optional_object, _optional_str, _required_bool, _required_datetime, _required_str };
+import { AlertAddress, AlertDistance, AlertLocation, BoundaryAlert, CurfewAlert, CurfewSchedule, RemoteServiceHistory, RemoteServiceHistoryEntry, SpeedAlert, SpeedThreshold, ValetAlert } from "./models";
+export { AlertAddress, AlertDistance, AlertLocation, BoundaryAlert, CurfewAlert, CurfewSchedule, RemoteServiceHistory, RemoteServiceHistoryEntry, SpeedAlert, SpeedThreshold, ValetAlert };
+export declare function _parse_boundary_alerts(value: unknown): ReadonlyArray<BoundaryAlert | null> | null;
+export declare function _parse_curfew_alerts(value: unknown): ReadonlyArray<CurfewAlert | null> | null;
+export declare function _parse_speed_alerts(value: unknown): ReadonlyArray<SpeedAlert | null> | null;
+export declare function _parse_valet_alert(value: Record<string, unknown>): ValetAlert;
+export declare function _parse_alert_address(value: Record<string, unknown>): AlertAddress;
+export declare function _parse_alert_location(value: Record<string, unknown>): AlertLocation;
+export declare function _parse_alert_distance(value: Record<string, unknown>): AlertDistance;
+export declare function _parse_curfew_schedule(value: Record<string, unknown>, path: string): CurfewSchedule;
+export declare function parse_remote_service_history(data: Record<string, unknown>): RemoteServiceHistory | null;

@@ -1,6 +1,8 @@
+// @ts-nocheck — generated implementation uses a dynamic keyword adapter; public overloads are checked by consumer tests.
+
 // AUTO-GENERATED from bvdcode/nissan-connect-sdk @ 828bde6. MIT, Copyright (c) 2026 Vadim Belov.
 
-import { py as $ } from "../src/_runtime";
+import { py as $ } from "./_support";
 
 
 
@@ -19,6 +21,7 @@ import { parse_service_request_result } from "../src/parsing";
 
 /** Translated upstream NoNetworkSession. */
 export class NoNetworkSession {
+constructor(...__args: any[]) { if (__args[0] === $.SKIP) return; if (this.__init__) this.__init__(...__args); else $.superInit(this, NoNetworkSession, __args); }
 /** Translated upstream post. */
 post(...__args: any[]): any {
 let {"url": url, "kwargs": kwargs} = $.bind(__args, ["url"], {}, [], null, "kwargs");

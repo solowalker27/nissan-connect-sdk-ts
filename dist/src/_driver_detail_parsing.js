@@ -1,0 +1,58 @@
+"use strict";
+// @ts-nocheck — generated implementation uses a dynamic keyword adapter; public overloads are checked by consumer tests.
+Object.defineProperty(exports, "__esModule", { value: true });
+exports._DRIVER_INVITE_ACTION_ERROR_TYPES = exports._INVITE_DRIVER_ERROR_TYPES = exports._DRIVER_INVITES_ERROR_TYPES = exports._BASE_CONNECTED_VEHICLE_TYPES = exports.InviteStatus = exports.InviteNotificationType = exports.InviteDriverSuccess = exports.EmergencyContactRelationship = exports.EmergencyContact = exports.DriverOperationError = exports.DriverInvite = exports._typename = exports._typed_object = exports._required_string_tuple = exports._required_string = exports._required_nullable_string = exports._required_nullable_enum = exports._required_enum = exports._required_datetime = exports._required_bool = void 0;
+exports._parse_emergency_contact = _parse_emergency_contact;
+exports._parse_driver_invite = _parse_driver_invite;
+exports._parse_invite_driver_success = _parse_invite_driver_success;
+exports._parse_error = _parse_error;
+// AUTO-GENERATED from bvdcode/nissan-connect-sdk @ 828bde6. MIT, Copyright (c) 2026 Vadim Belov.
+const _runtime_1 = require("./_runtime");
+const Mapping = _runtime_1.py.Mapping;
+const _driver_value_parsing_1 = require("./_driver_value_parsing");
+Object.defineProperty(exports, "_required_bool", { enumerable: true, get: function () { return _driver_value_parsing_1._required_bool; } });
+Object.defineProperty(exports, "_required_datetime", { enumerable: true, get: function () { return _driver_value_parsing_1._required_datetime; } });
+Object.defineProperty(exports, "_required_enum", { enumerable: true, get: function () { return _driver_value_parsing_1._required_enum; } });
+Object.defineProperty(exports, "_required_nullable_enum", { enumerable: true, get: function () { return _driver_value_parsing_1._required_nullable_enum; } });
+Object.defineProperty(exports, "_required_nullable_string", { enumerable: true, get: function () { return _driver_value_parsing_1._required_nullable_string; } });
+Object.defineProperty(exports, "_required_string", { enumerable: true, get: function () { return _driver_value_parsing_1._required_string; } });
+Object.defineProperty(exports, "_required_string_tuple", { enumerable: true, get: function () { return _driver_value_parsing_1._required_string_tuple; } });
+Object.defineProperty(exports, "_typed_object", { enumerable: true, get: function () { return _driver_value_parsing_1._typed_object; } });
+Object.defineProperty(exports, "_typename", { enumerable: true, get: function () { return _driver_value_parsing_1._typename; } });
+const driver_models_1 = require("./driver_models");
+Object.defineProperty(exports, "DriverInvite", { enumerable: true, get: function () { return driver_models_1.DriverInvite; } });
+Object.defineProperty(exports, "DriverOperationError", { enumerable: true, get: function () { return driver_models_1.DriverOperationError; } });
+Object.defineProperty(exports, "EmergencyContact", { enumerable: true, get: function () { return driver_models_1.EmergencyContact; } });
+Object.defineProperty(exports, "EmergencyContactRelationship", { enumerable: true, get: function () { return driver_models_1.EmergencyContactRelationship; } });
+Object.defineProperty(exports, "InviteDriverSuccess", { enumerable: true, get: function () { return driver_models_1.InviteDriverSuccess; } });
+Object.defineProperty(exports, "InviteNotificationType", { enumerable: true, get: function () { return driver_models_1.InviteNotificationType; } });
+Object.defineProperty(exports, "InviteStatus", { enumerable: true, get: function () { return driver_models_1.InviteStatus; } });
+exports._BASE_CONNECTED_VEHICLE_TYPES = _runtime_1.py.call(_runtime_1.py.frozenset, [new Set(["AVK2Vehicle", "AVKVehicle", "ConnectedVehicle", "ElectricAVK2Vehicle", "ElectricEVOVehicle", "ElectricVehicle", "EVOVehicle"])], null);
+exports._DRIVER_INVITES_ERROR_TYPES = _runtime_1.py.call(_runtime_1.py.frozenset, [new Set(["GeneralErrors", "DatabaseError", "BrandError", "TokenError", "VinValidationError"])], null);
+exports._INVITE_DRIVER_ERROR_TYPES = _runtime_1.py.call(_runtime_1.py.frozenset, [new Set(["FirstNameValidationError", "LastNameValidationError", "EmailValidationError", "PhoneValidationError", "ExistingInviteError", "MaxInvitesReachedError"])], null);
+exports._DRIVER_INVITE_ACTION_ERROR_TYPES = _runtime_1.py.call(_runtime_1.py.frozenset, [new Set(["GeneralErrors", "DatabaseError", "InvalidInviteIdError", "TokenError", "BrandError", "TermsAndConditionsError", "CountryError"])], null);
+/** Translated upstream _parse_emergency_contact. */
+function _parse_emergency_contact(...__args) {
+    let contact;
+    let { "value": value, "path": path } = _runtime_1.py.bind(__args, ["value", "path"], {}, [], null, null);
+    contact = _runtime_1.py.call(_driver_value_parsing_1._typed_object, [value, path], null);
+    return _runtime_1.py.call(driver_models_1.EmergencyContact, [], Object.assign({}, { "typename": _runtime_1.py.call(_driver_value_parsing_1._typename, [contact, path], null) }, { "id": _runtime_1.py.call(_driver_value_parsing_1._required_nullable_string, [contact, "id", (_runtime_1.py.str(path) + ".id")], null) }, { "first_name": _runtime_1.py.call(_driver_value_parsing_1._required_nullable_string, [contact, "firstName", (_runtime_1.py.str(path) + ".firstName")], null) }, { "last_name": _runtime_1.py.call(_driver_value_parsing_1._required_nullable_string, [contact, "lastName", (_runtime_1.py.str(path) + ".lastName")], null) }, { "primary_phone": _runtime_1.py.call(_driver_value_parsing_1._required_nullable_string, [contact, "primaryPhone", (_runtime_1.py.str(path) + ".primaryPhone")], null) }, { "secondary_phone": _runtime_1.py.call(_driver_value_parsing_1._required_nullable_string, [contact, "secondaryPhone", (_runtime_1.py.str(path) + ".secondaryPhone")], null) }, { "relationship": _runtime_1.py.call(_driver_value_parsing_1._required_nullable_enum, [contact, "relationship", driver_models_1.EmergencyContactRelationship, (_runtime_1.py.str(path) + ".relationship")], null) }));
+}
+/** Translated upstream _parse_driver_invite. */
+function _parse_driver_invite(...__args) {
+    let invite;
+    let { "value": value, "path": path } = _runtime_1.py.bind(__args, ["value", "path"], {}, [], null, null);
+    invite = _runtime_1.py.call(_driver_value_parsing_1._typed_object, [value, path], null);
+    return _runtime_1.py.call(driver_models_1.DriverInvite, [], Object.assign({}, { "typename": _runtime_1.py.call(_driver_value_parsing_1._typename, [invite, path], null) }, { "invite_id": _runtime_1.py.call(_driver_value_parsing_1._required_string, [invite, "inviteId", (_runtime_1.py.str(path) + ".inviteId")], null) }, { "driver_first_name": _runtime_1.py.call(_driver_value_parsing_1._required_string, [invite, "driverFirstName", (_runtime_1.py.str(path) + ".driverFirstName")], null) }, { "driver_last_name": _runtime_1.py.call(_driver_value_parsing_1._required_string, [invite, "driverLastName", (_runtime_1.py.str(path) + ".driverLastName")], null) }, { "driver_email": _runtime_1.py.call(_driver_value_parsing_1._required_string, [invite, "driverEmail", (_runtime_1.py.str(path) + ".driverEmail")], null) }, { "driver_phone_number": _runtime_1.py.call(_driver_value_parsing_1._required_string, [invite, "driverPhoneNumber", (_runtime_1.py.str(path) + ".driverPhoneNumber")], null) }, { "invite_date_time": _runtime_1.py.call(_driver_value_parsing_1._required_datetime, [invite, "inviteDateTime", (_runtime_1.py.str(path) + ".inviteDateTime")], null) }, { "invite_expiry_date_time": _runtime_1.py.call(_driver_value_parsing_1._required_datetime, [invite, "inviteExpiryDateTime", (_runtime_1.py.str(path) + ".inviteExpiryDateTime")], null) }, { "invite_type": _runtime_1.py.call(_driver_value_parsing_1._required_enum, [invite, "inviteType", driver_models_1.InviteNotificationType, (_runtime_1.py.str(path) + ".inviteType")], null) }, { "notifications_to_primary": _runtime_1.py.call(_driver_value_parsing_1._required_bool, [invite, "notificationsToPrimary", (_runtime_1.py.str(path) + ".notificationsToPrimary")], null) }, { "usage_history": _runtime_1.py.call(_driver_value_parsing_1._required_bool, [invite, "usageHistory", (_runtime_1.py.str(path) + ".usageHistory")], null) }, { "status": _runtime_1.py.call(_driver_value_parsing_1._required_enum, [invite, "status", driver_models_1.InviteStatus, (_runtime_1.py.str(path) + ".status")], null) }, { "cdiid": _runtime_1.py.call(_driver_value_parsing_1._required_nullable_string, [invite, "cdiid", (_runtime_1.py.str(path) + ".cdiid")], null) }));
+}
+/** Translated upstream _parse_invite_driver_success. */
+function _parse_invite_driver_success(...__args) {
+    let { "result": result, "path": path } = _runtime_1.py.bind(__args, ["result", "path"], {}, [], null, null);
+    return _runtime_1.py.call(driver_models_1.InviteDriverSuccess, [], Object.assign({}, { "vin": _runtime_1.py.call(_driver_value_parsing_1._required_string, [result, "vin", (_runtime_1.py.str(path) + ".vin")], null) }, { "invite_id": _runtime_1.py.call(_driver_value_parsing_1._required_string, [result, "inviteId", (_runtime_1.py.str(path) + ".inviteId")], null) }, { "driver_first_name": _runtime_1.py.call(_driver_value_parsing_1._required_string, [result, "driverFirstName", (_runtime_1.py.str(path) + ".driverFirstName")], null) }, { "driver_last_name": _runtime_1.py.call(_driver_value_parsing_1._required_string, [result, "driverLastName", (_runtime_1.py.str(path) + ".driverLastName")], null) }, { "driver_email": _runtime_1.py.call(_driver_value_parsing_1._required_string, [result, "driverEmail", (_runtime_1.py.str(path) + ".driverEmail")], null) }, { "driver_phone_number": _runtime_1.py.call(_driver_value_parsing_1._required_string, [result, "driverPhoneNumber", (_runtime_1.py.str(path) + ".driverPhoneNumber")], null) }, { "entitlements": _runtime_1.py.call(_driver_value_parsing_1._required_string_tuple, [result, "entitlements", (_runtime_1.py.str(path) + ".entitlements")], null) }, { "invite_type": _runtime_1.py.call(_driver_value_parsing_1._required_enum, [result, "inviteType", driver_models_1.InviteNotificationType, (_runtime_1.py.str(path) + ".inviteType")], null) }, { "usage_history": _runtime_1.py.call(_driver_value_parsing_1._required_bool, [result, "usageHistory", (_runtime_1.py.str(path) + ".usageHistory")], null) }, { "notifications_to_primary": _runtime_1.py.call(_driver_value_parsing_1._required_bool, [result, "notificationsToPrimary", (_runtime_1.py.str(path) + ".notificationsToPrimary")], null) }, { "invite_date_time": _runtime_1.py.call(_driver_value_parsing_1._required_datetime, [result, "inviteDateTime", (_runtime_1.py.str(path) + ".inviteDateTime")], null) }, { "status": _runtime_1.py.call(_driver_value_parsing_1._required_enum, [result, "status", driver_models_1.InviteStatus, (_runtime_1.py.str(path) + ".status")], null) }));
+}
+/** Translated upstream _parse_error. */
+function _parse_error(...__args) {
+    let { "result": result, "path": path, "typename": typename } = _runtime_1.py.bind(__args, ["result", "path", "typename"], {}, [], null, null);
+    return _runtime_1.py.call(driver_models_1.DriverOperationError, [typename, _runtime_1.py.call(_driver_value_parsing_1._required_string, [result, "errorMessage", (_runtime_1.py.str(path) + ".errorMessage")], null)], null);
+}
+//# sourceMappingURL=_driver_detail_parsing.js.map

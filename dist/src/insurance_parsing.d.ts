@@ -1,0 +1,14 @@
+import { _required_enum, _required_field, _required_nullable_string, _required_optional_typed_object, _required_string, _root, _typed_object, _typename } from "./account_parsing";
+export { _required_enum, _required_field, _required_nullable_string, _required_optional_typed_object, _required_string, _root, _typed_object, _typename };
+import { ResponseError } from "./exceptions";
+export { ResponseError };
+import { InsuranceContact, InsuranceStatus, UnselectedInsuranceResult, VehicleInsurance, VehicleInsuranceMutationError, VehicleInsuranceMutationResult, VehicleInsuranceMutationSuccess, VehicleInsurer } from "./insurance_models";
+export { InsuranceContact, InsuranceStatus, UnselectedInsuranceResult, VehicleInsurance, VehicleInsuranceMutationError, VehicleInsuranceMutationResult, VehicleInsuranceMutationSuccess, VehicleInsurer };
+export declare function parse_add_vehicle_insurance(data: Record<string, unknown>): VehicleInsuranceMutationResult | null;
+export declare function parse_update_vehicle_insurance(data: Record<string, unknown>): VehicleInsuranceMutationResult | null;
+export declare function parse_vehicle_insurance(data: Record<string, unknown>): VehicleInsurance | null;
+export declare function parse_insurers(data: Record<string, unknown>): ReadonlyArray<VehicleInsurer | null> | null;
+export declare function _parse_insurance_mutation(data: Record<string, unknown>, field: string, success_typename: string, error_typename: string): VehicleInsuranceMutationResult | null;
+export declare function _parse_vehicle_insurance(value: Record<string, unknown>, path: string): VehicleInsurance;
+export declare function _parse_insurer(value: Record<string, unknown>, path: string): VehicleInsurer;
+export declare function _required_bool(container: Record<string, unknown>, field: string, path: string): boolean;

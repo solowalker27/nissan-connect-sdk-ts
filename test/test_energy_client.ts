@@ -1,6 +1,8 @@
+// @ts-nocheck — generated implementation uses a dynamic keyword adapter; public overloads are checked by consumer tests.
+
 // AUTO-GENERATED from bvdcode/nissan-connect-sdk @ 828bde6. MIT, Copyright (c) 2026 Vadim Belov.
 
-import { py as $ } from "../src/_runtime";
+import { py as $ } from "./_support";
 
 
 
@@ -16,8 +18,9 @@ import { EnergyAccountStatus, NissanClient, ReadOnlyError, Tokens, V1GNotificati
 
 /** Translated upstream FakeResponse. */
 export class FakeResponse {
+constructor(...__args: any[]) { if (__args[0] === $.SKIP) return; if (this.__init__) this.__init__(...__args); else $.superInit(this, FakeResponse, __args); }
 /** Translated upstream __init__. */
-constructor(...__args: any[]) {
+__init__(...__args: any[]): any {
 let {"payload": payload} = $.bind(__args, ["payload"], {}, [], null, null);
 this["status"] = 200;
 this["_payload"] = payload;
@@ -42,8 +45,9 @@ $.classType(FakeResponse);
 
 /** Translated upstream FakeSession. */
 export class FakeSession {
+constructor(...__args: any[]) { if (__args[0] === $.SKIP) return; if (this.__init__) this.__init__(...__args); else $.superInit(this, FakeSession, __args); }
 /** Translated upstream __init__. */
-constructor(...__args: any[]) {
+__init__(...__args: any[]): any {
 let {"responses": responses} = $.bind(__args, [], {}, [], "responses", null);
 this["responses"] = $.call($.list, [responses], null);
 this["calls"] = [];
@@ -87,8 +91,8 @@ $.assert((((await $.call($.attr(client, "async_cancel_v1g_monitored_charging_pla
 $.assert((((await $.call($.attr(client, "async_update_v1g_notification_preferences"), ["VIN"], Object.assign({}, {"preferences": [$.call(V1GNotificationPreferenceInput, [$.attr(V1GNotificationCategory, "MONTHLY_INSIGHTS")], Object.assign({}, {"email_status": null}, {"push_status": true})), null]}))) === null)), "test_energy_client.py:84: await client.async_update_v1g_notification_preferences('VIN', preferences=(V1GNotificationPreferenceInput(V1GNotificationCategory.MONTHLY_INSIGHTS, email_status=None, push_status=True), None)) is None");
 payloads = (() => { const __out: any = []; for (const call of $.iterable($.attr(session, "calls"))) { __out.push($.get(call, "json")); } return __out; })();
 $.assert($.call($.all, [(() => { const __out: any = []; for (const payload of $.iterable(payloads)) { __out.push($.call($.isinstance, [payload, Mapping], null)); } return __out; })()], null), "test_energy_client.py:100: all((isinstance(payload, Mapping) for payload in payloads))");
-$.assert(($.eq((() => { const __out: any = []; for (const payload of $.iterable(payloads)) { __out.push($.get(payload, "operationName")); } return __out; })(), ["AccountStatus", "V1GMonitoredChargingAccountStatus", "V1GTokenizedUrl", "WearableVehicles", "V1GEnrollMonitoredChargingPlan", "V1GCancelMonitoredChargingPlan", "V1GUpdateNotificationPreferences"])), "test_energy_client.py:101: [payload['operationName'] for payload in payloads] == ['AccountStatus', 'V1GMonitoredChargingAccountStatus', 'V1GTokenizedUrl', 'WearableVehicles', 'V1GEnrollMonitoredChargingPlan', 'V1GCancelMonitoredChargingPlan', 'V1GUpdateNotificationPreferences']");
-$.assert(($.eq((() => { const __out: any = []; for (const payload of $.iterable(payloads)) { __out.push($.get(payload, "variables")); } return __out; })(), [Object.assign({}, {["vin"]: "VIN"}), Object.assign({}, {["vin"]: "VIN"}), Object.assign({}, {["vin"]: "VIN"}), {}, Object.assign({}, {["config"]: Object.assign({}, {["vin"]: "VIN"}, {["plan"]: "CUSTOM-PLAN"}, {["model"]: "ARIYA"}, {["year"]: "2026"})}), Object.assign({}, {["config"]: Object.assign({}, {["vin"]: "VIN"})}), Object.assign({}, {["config"]: Object.assign({}, {["vin"]: "VIN"}, {["v1GNotificationPreferences"]: [Object.assign({}, {["v1GNotificationCategory"]: "Monthly Insights"}, {["v1GEmailStatus"]: null}, {["v1GPushStatus"]: true}), null]})})])), "test_energy_client.py:110: [payload['variables'] for payload in payloads] == [{'vin': 'VIN'}, {'vin': 'VIN'}, {'vin': 'VIN'}, {}, {'config': {'vin': 'VIN', 'plan': 'CUSTOM-PLAN', 'model': 'ARIYA', 'year': '2026'}}, {'config': {'vin': 'VIN'}}, {'config': {'vin': 'VIN', 'v1GNotificationPreferences': [{'v1GNotificationCategory': 'Monthly Insights', 'v1GEmailStatus': None, 'v1GPushStatus': True}, None]}}]");
+$.assertEqual((() => { const __out: any = []; for (const payload of $.iterable(payloads)) { __out.push($.get(payload, "operationName")); } return __out; })(), ["AccountStatus", "V1GMonitoredChargingAccountStatus", "V1GTokenizedUrl", "WearableVehicles", "V1GEnrollMonitoredChargingPlan", "V1GCancelMonitoredChargingPlan", "V1GUpdateNotificationPreferences"], "test_energy_client.py:101: [payload['operationName'] for payload in payloads] == ['AccountStatus', 'V1GMonitoredChargingAccountStatus', 'V1GTokenizedUrl', 'WearableVehicles', 'V1GEnrollMonitoredChargingPlan', 'V1GCancelMonitoredChargingPlan', 'V1GUpdateNotificationPreferences']");
+$.assertEqual((() => { const __out: any = []; for (const payload of $.iterable(payloads)) { __out.push($.get(payload, "variables")); } return __out; })(), [Object.assign({}, {["vin"]: "VIN"}), Object.assign({}, {["vin"]: "VIN"}), Object.assign({}, {["vin"]: "VIN"}), {}, Object.assign({}, {["config"]: Object.assign({}, {["vin"]: "VIN"}, {["plan"]: "CUSTOM-PLAN"}, {["model"]: "ARIYA"}, {["year"]: "2026"})}), Object.assign({}, {["config"]: Object.assign({}, {["vin"]: "VIN"})}), Object.assign({}, {["config"]: Object.assign({}, {["vin"]: "VIN"}, {["v1GNotificationPreferences"]: [Object.assign({}, {["v1GNotificationCategory"]: "Monthly Insights"}, {["v1GEmailStatus"]: null}, {["v1GPushStatus"]: true}), null]})})], "test_energy_client.py:110: [payload['variables'] for payload in payloads] == [{'vin': 'VIN'}, {'vin': 'VIN'}, {'vin': 'VIN'}, {}, {'config': {'vin': 'VIN', 'plan': 'CUSTOM-PLAN', 'model': 'ARIYA', 'year': '2026'}}, {'config': {'vin': 'VIN'}}, {'config': {'vin': 'VIN', 'v1GNotificationPreferences': [{'v1GNotificationCategory': 'Monthly Insights', 'v1GEmailStatus': None, 'v1GPushStatus': True}, None]}}]");
 }
 
 /** Translated upstream test_v1g_mutations_respect_read_only_before_io. */
@@ -106,7 +110,7 @@ await $.raises(ReadOnlyError, null, async () => {
 await $.raises(ReadOnlyError, null, async () => {
 (await $.call($.attr(client, "async_update_v1g_notification_preferences"), ["VIN"], null));
 });
-$.assert(($.eq($.attr(session, "calls"), [])), "test_energy_client.py:151: session.calls == []");
+$.assertEqual($.attr(session, "calls"), [], "test_energy_client.py:151: session.calls == []");
 }
 
 /** Translated upstream test_energy_account_waiter_matches_service_retry_states. */
@@ -123,7 +127,7 @@ result = (await $.call($.attr($.call(make_client, [session], null), "async_wait_
 $.assert(((result !== null)), "test_energy_client.py:180: result is not None");
 $.assert((($.attr(result, "data") !== null)), "test_energy_client.py:181: result.data is not None");
 $.assert((($.attr($.attr(result, "data"), "status") === $.attr(EnergyAccountStatus, "ACTIVE"))), "test_energy_client.py:182: result.data.status is EnergyAccountStatus.ACTIVE");
-$.assert(($.eq($.call($.len, [$.attr(session, "calls")], null), 3)), "test_energy_client.py:183: len(session.calls) == 3");
+$.assertEqual($.call($.len, [$.attr(session, "calls")], null), 3, "test_energy_client.py:183: len(session.calls) == 3");
 }
 
 /** Translated upstream test_energy_account_waiter_validates_and_times_out_without_extra_io. */
@@ -138,12 +142,12 @@ await $.raises($.ValueError, "poll_interval_seconds", async () => {
 await $.raises($.ValueError, "timeout_seconds", async () => {
 (await $.call($.attr(invalid_client, "async_wait_for_energy_account_status"), ["VIN"], Object.assign({}, {"timeout_seconds": $.call($.float, ["nan"], null)})));
 });
-$.assert(($.eq($.attr(invalid_session, "calls"), [])), "test_energy_client.py:200: invalid_session.calls == []");
+$.assertEqual($.attr(invalid_session, "calls"), [], "test_energy_client.py:200: invalid_session.calls == []");
 timeout_session = $.call(FakeSession, [$.call(graphql_response, [Object.assign({}, {["accountStatus"]: null})], null)], null);
 await $.raises($.TimeoutError, null, async () => {
 (await $.call($.attr($.call(make_client, [timeout_session], null), "async_wait_for_energy_account_status"), ["VIN"], Object.assign({}, {"poll_interval_seconds": 1}, {"timeout_seconds": 0.001})));
 });
-$.assert(($.eq($.call($.len, [$.attr(timeout_session, "calls")], null), 1)), "test_energy_client.py:209: len(timeout_session.calls) == 1");
+$.assertEqual($.call($.len, [$.attr(timeout_session, "calls")], null), 1, "test_energy_client.py:209: len(timeout_session.calls) == 1");
 }
 
 $.register("test_energy_client.py::test_energy_and_v1g_client_wires_exact_operations", test_energy_and_v1g_client_wires_exact_operations, []);

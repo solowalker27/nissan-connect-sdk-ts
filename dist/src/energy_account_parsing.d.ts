@@ -1,0 +1,13 @@
+import { EnergyAccountConnector, EnergyAccountData, EnergyAccountStatus, EnergyAccountStatusReason, EnergyAccountStatusResult, EnergyNacsStatus, EnergyPncStatus, EnergyToggleStatus } from "./energy_account_models";
+export { EnergyAccountConnector, EnergyAccountData, EnergyAccountStatus, EnergyAccountStatusReason, EnergyAccountStatusResult, EnergyNacsStatus, EnergyPncStatus, EnergyToggleStatus };
+import { ResponseError } from "./exceptions";
+export { ResponseError };
+export declare function parse_account_status(data: Record<string, unknown>): EnergyAccountStatusResult | null;
+export declare function _parse_connector(value: unknown, path: string): EnergyAccountConnector;
+export declare function _root(data: Record<string, unknown>, root_field: string): Record<string, unknown> | null;
+export declare function _typed_object(value: unknown, path: string): Record<string, unknown>;
+export declare function _optional_typed_object(value: unknown, path: string): Record<string, unknown> | null;
+export declare function _nullable_list(value: unknown, path: string): ReadonlyArray<unknown> | null;
+export declare function _string(value: unknown, path: string): string;
+export declare function _nullable_string(value: unknown, path: string): string | null;
+export declare function _nullable_enum(value: unknown, enum_type: any, path: string): any | null;

@@ -1,6 +1,8 @@
+// @ts-nocheck — generated implementation uses a dynamic keyword adapter; public overloads are checked by consumer tests.
+
 // AUTO-GENERATED from bvdcode/nissan-connect-sdk @ 828bde6. MIT, Copyright (c) 2026 Vadim Belov.
 
-import { py as $ } from "../src/_runtime";
+import { py as $ } from "./_support";
 
 
 
@@ -39,7 +41,7 @@ $.assert(((location !== null)), "test_extended_vehicle_reads_part_04.py:105: loc
 $.assert((($.attr(location, "evses") !== null)), "test_extended_vehicle_reads_part_04.py:106: location.evses is not None");
 evse = $.get($.attr(location, "evses"), 0);
 $.assert(((evse !== null)), "test_extended_vehicle_reads_part_04.py:108: evse is not None");
-$.assert(($.eq($.attr(evse, "evse_capability"), [null, "REMOTE_START"])), "test_extended_vehicle_reads_part_04.py:109: evse.evse_capability == (None, 'REMOTE_START')");
+$.assertEqual($.attr(evse, "evse_capability"), [null, "REMOTE_START"], "test_extended_vehicle_reads_part_04.py:109: evse.evse_capability == (None, 'REMOTE_START')");
 tariff_pricing = $.call(parse_tariff_pricing, [Object.assign({}, {["tariffPricing"]: Object.assign({}, {["__typename"]: "TariffPricingResponse"}, {["statusCode"]: null}, {["statusMessage"]: null}, {["timestamp"]: null}, {["data"]: Object.assign({}, {["__typename"]: "TariffPricingData"}, {["tariffDetails"]: [Object.assign({}, {["__typename"]: "TariffDetail"}, {["energyFees"]: Object.assign({}, {["__typename"]: "EnergyFees"}, {["energyFeeTier"]: [Object.assign({}, {["__typename"]: "EnergyFeeTier"}, {["applicableDay"]: [1, null]})]})})]})})})], null);
 $.assert(((tariff_pricing !== null)), "test_extended_vehicle_reads_part_04.py:138: tariff_pricing is not None");
 $.assert((($.attr(tariff_pricing, "data") !== null)), "test_extended_vehicle_reads_part_04.py:139: tariff_pricing.data is not None");
@@ -50,7 +52,7 @@ $.assert((($.attr(detail, "energy_fees") !== null)), "test_extended_vehicle_read
 $.assert((($.attr($.attr(detail, "energy_fees"), "tiers") !== null)), "test_extended_vehicle_reads_part_04.py:144: detail.energy_fees.tiers is not None");
 tier = $.get($.attr($.attr(detail, "energy_fees"), "tiers"), 0);
 $.assert(((tier !== null)), "test_extended_vehicle_reads_part_04.py:146: tier is not None");
-$.assert(($.eq($.attr(tier, "applicable_day"), [1, null])), "test_extended_vehicle_reads_part_04.py:147: tier.applicable_day == (1, None)");
+$.assertEqual($.attr(tier, "applicable_day"), [1, null], "test_extended_vehicle_reads_part_04.py:147: tier.applicable_day == (1, None)");
 }
 
 /** Translated upstream test_extended_parsers_reject_naive_datetime_and_wrong_nullable_scalar_type. */

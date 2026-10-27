@@ -1,6 +1,8 @@
+// @ts-nocheck — generated implementation uses a dynamic keyword adapter; public overloads are checked by consumer tests.
+
 // AUTO-GENERATED from bvdcode/nissan-connect-sdk @ 828bde6. MIT, Copyright (c) 2026 Vadim Belov.
 
-import { py as $ } from "../src/_runtime";
+import { py as $ } from "./_support";
 
 
 
@@ -21,9 +23,9 @@ let {} = $.bind(__args, [], {}, [], null, null);
 session = $.call(FakeSession, [$.call(FakeResponse, [200, Object.assign({}, {["data"]: Object.assign({}, {["vehicle"]: Object.assign({}, {["boundaryAlert"]: Object.assign({}, {["status"]: "SUCCESS"})})})})], null)], null);
 client = $.call(make_client, [session], null);
 status = (await $.call($.attr(client, "async_wait_for_alert_request"), ["JN1TESTVIN", $.call(VehicleAlertRequest, ["operation-2", $.attr(VehicleAlertKind, "BOUNDARY")], null)], null));
-$.assert(($.eq(status, "SUCCESS")), "test_client_part_05.py:39: status == 'SUCCESS'");
+$.assertEqual(status, "SUCCESS", "test_client_part_05.py:39: status == 'SUCCESS'");
 payload = $.get($.get($.attr(session, "calls"), 0), "json");
-$.assert(($.eq($.get(payload, "variables"), Object.assign({}, {["vin"]: "JN1TESTVIN"}, {["serviceRequestId"]: "operation-2"}))), "test_client_part_05.py:41: payload['variables'] == {'vin': 'JN1TESTVIN', 'serviceRequestId': 'operation-2'}");
+$.assertEqual($.get(payload, "variables"), Object.assign({}, {["vin"]: "JN1TESTVIN"}, {["serviceRequestId"]: "operation-2"}), "test_client_part_05.py:41: payload['variables'] == {'vin': 'JN1TESTVIN', 'serviceRequestId': 'operation-2'}");
 }
 
 /** Translated upstream test_get_reminder_notifications_after_leaving_vehicle_parses_service_contract. */
@@ -32,10 +34,10 @@ let field, payload, query, result, session;
 let {} = $.bind(__args, [], {}, [], null, null);
 session = $.call(FakeSession, [$.call(FakeResponse, [200, Object.assign({}, {["data"]: Object.assign({}, {["vehicle"]: Object.assign({}, {["reminderNotificationsAfterLeavingVehicle"]: Object.assign({}, {["lock"]: true}, {["door"]: false}, {["trunk"]: null}, {["sunroof"]: true}, {["window"]: false})})})})], null)], null);
 result = (await $.call($.attr($.call(make_client, [session], null), "async_get_reminder_notifications_after_leaving_vehicle"), ["JN1TESTVIN"], null));
-$.assert(($.eq(result, $.call(ReminderNotificationsAfterLeavingVehicle, [], Object.assign({}, {"lock": true}, {"door": false}, {"trunk": null}, {"sunroof": true}, {"window": false})))), "test_client_part_05.py:72: result == ReminderNotificationsAfterLeavingVehicle(lock=True, door=False, trunk=None, sunroof=True, window=False)");
+$.assertEqual(result, $.call(ReminderNotificationsAfterLeavingVehicle, [], Object.assign({}, {"lock": true}, {"door": false}, {"trunk": null}, {"sunroof": true}, {"window": false})), "test_client_part_05.py:72: result == ReminderNotificationsAfterLeavingVehicle(lock=True, door=False, trunk=None, sunroof=True, window=False)");
 payload = $.get($.get($.attr(session, "calls"), 0), "json");
-$.assert(($.eq($.get(payload, "operationName"), "ReminderNotificationsAfterLeavingVehicle")), "test_client_part_05.py:80: payload['operationName'] == 'ReminderNotificationsAfterLeavingVehicle'");
-$.assert(($.eq($.get(payload, "variables"), Object.assign({}, {["vin"]: "JN1TESTVIN"}))), "test_client_part_05.py:81: payload['variables'] == {'vin': 'JN1TESTVIN'}");
+$.assertEqual($.get(payload, "operationName"), "ReminderNotificationsAfterLeavingVehicle", "test_client_part_05.py:80: payload['operationName'] == 'ReminderNotificationsAfterLeavingVehicle'");
+$.assertEqual($.get(payload, "variables"), Object.assign({}, {["vin"]: "JN1TESTVIN"}), "test_client_part_05.py:81: payload['variables'] == {'vin': 'JN1TESTVIN'}");
 query = $.get(payload, "query");
 $.assert(($.contains(query, "... on BaseAVK2Vehicle")), "test_client_part_05.py:83: '... on BaseAVK2Vehicle' in query");
 $.assert(($.contains(query, "reminderNotificationsAfterLeavingVehicle")), "test_client_part_05.py:84: 'reminderNotificationsAfterLeavingVehicle' in query");
@@ -61,8 +63,8 @@ session = $.call(FakeSession, [$.call(FakeResponse, [200, Object.assign({}, {["d
 result = (await $.call($.attr($.call(make_client, [session], Object.assign({}, {"read_only": false})), "async_toggle_reminder_notifications_after_leaving_vehicle"), ["JN1TESTVIN"], Object.assign({}, {"enable_door": false}, {"enable_window": true})));
 $.assert(((result === false)), "test_client_part_05.py:135: result is False");
 payload = $.get($.get($.attr(session, "calls"), 0), "json");
-$.assert(($.eq($.get(payload, "operationName"), "ToggleReminderNotificationsAfterLeavingVehicle")), "test_client_part_05.py:137: payload['operationName'] == 'ToggleReminderNotificationsAfterLeavingVehicle'");
-$.assert(($.eq($.get(payload, "variables"), Object.assign({}, {["vin"]: "JN1TESTVIN"}, {["reminderNotifications"]: Object.assign({}, {["enableDoor"]: false}, {["enableWindow"]: true})}))), "test_client_part_05.py:138: payload['variables'] == {'vin': 'JN1TESTVIN', 'reminderNotifications': {'enableDoor': False, 'enableWindow': True}}");
+$.assertEqual($.get(payload, "operationName"), "ToggleReminderNotificationsAfterLeavingVehicle", "test_client_part_05.py:137: payload['operationName'] == 'ToggleReminderNotificationsAfterLeavingVehicle'");
+$.assertEqual($.get(payload, "variables"), Object.assign({}, {["vin"]: "JN1TESTVIN"}, {["reminderNotifications"]: Object.assign({}, {["enableDoor"]: false}, {["enableWindow"]: true})}), "test_client_part_05.py:138: payload['variables'] == {'vin': 'JN1TESTVIN', 'reminderNotifications': {'enableDoor': False, 'enableWindow': True}}");
 query = $.get(payload, "query");
 $.assert(($.contains(query, "$reminderNotifications: ToggleReminderNotificationsAfterLeavingVehicleInput!")), "test_client_part_05.py:146: '$reminderNotifications: ToggleReminderNotificationsAfterLeavingVehicleInput!' in query");
 $.assert(($.contains(query, "toggleReminderNotificationsAfterLeavingVehicle")), "test_client_part_05.py:147: 'toggleReminderNotificationsAfterLeavingVehicle' in query");
@@ -88,7 +90,7 @@ session = $.call(FakeSession, [], null);
 await $.raises($.ValueError, "At least one reminder notification setting", async () => {
 (await $.call($.attr($.call(make_client, [session], Object.assign({}, {"read_only": false})), "async_toggle_reminder_notifications_after_leaving_vehicle"), ["VIN"], null));
 });
-$.assert(($.eq($.attr(session, "calls"), [])), "test_client_part_05.py:193: session.calls == []");
+$.assertEqual($.attr(session, "calls"), [], "test_client_part_05.py:193: session.calls == []");
 }
 
 /** Translated upstream test_toggle_reminder_notifications_respects_read_only_mode. */
@@ -99,7 +101,7 @@ session = $.call(FakeSession, [], null);
 await $.raises(ReadOnlyError, null, async () => {
 (await $.call($.attr($.call(make_client, [session], null), "async_toggle_reminder_notifications_after_leaving_vehicle"), ["VIN"], Object.assign({}, {"enable_trunk": true})));
 });
-$.assert(($.eq($.attr(session, "calls"), [])), "test_client_part_05.py:206: session.calls == []");
+$.assertEqual($.attr(session, "calls"), [], "test_client_part_05.py:206: session.calls == []");
 }
 
 /** Translated upstream test_get_vehicle_data_privacy_mode_is_typed_without_on_fallback. */
@@ -112,8 +114,8 @@ $.assert((((await $.call($.attr(client, "async_get_vehicle_data_privacy_mode"), 
 $.assert((((await $.call($.attr(client, "async_get_vehicle_data_privacy_mode"), ["VIN"], null)) === $.attr(DataPrivacyMode, "UNKNOWN_VALUE"))), "test_client_part_05.py:219: await client.async_get_vehicle_data_privacy_mode('VIN') is DataPrivacyMode.UNKNOWN_VALUE");
 $.assert((((await $.call($.attr(client, "async_get_vehicle_data_privacy_mode"), ["VIN"], null)) === null)), "test_client_part_05.py:220: await client.async_get_vehicle_data_privacy_mode('VIN') is None");
 payload = $.get($.get($.attr(session, "calls"), 0), "json");
-$.assert(($.eq($.get(payload, "operationName"), "VehicleDataPrivacyMode")), "test_client_part_05.py:223: payload['operationName'] == 'VehicleDataPrivacyMode'");
-$.assert(($.eq($.get(payload, "variables"), Object.assign({}, {["vin"]: "VIN"}))), "test_client_part_05.py:224: payload['variables'] == {'vin': 'VIN'}");
+$.assertEqual($.get(payload, "operationName"), "VehicleDataPrivacyMode", "test_client_part_05.py:223: payload['operationName'] == 'VehicleDataPrivacyMode'");
+$.assertEqual($.get(payload, "variables"), Object.assign({}, {["vin"]: "VIN"}), "test_client_part_05.py:224: payload['variables'] == {'vin': 'VIN'}");
 $.assert(($.contains($.get(payload, "query"), "dataPrivacyMode")), "test_client_part_05.py:225: 'dataPrivacyMode' in cast(str, payload['query'])");
 }
 
@@ -134,11 +136,11 @@ let {} = $.bind(__args, [], {}, [], null, null);
 session = $.call(FakeSession, [$.call(FakeResponse, [200, Object.assign({}, {["data"]: Object.assign({}, {["vehicle"]: Object.assign({}, {["capabilities"]: Object.assign({}, {["wifiConsumption"]: Object.assign({}, {["usagePercent"]: 12.5}, {["usageAmount"]: 1}, {["dataCapAmount"]: 8.0}, {["updatedAt"]: "2026-07-31T22:15:00Z"})})})})})], null)], null);
 result = (await $.call($.attr($.call(make_client, [session], null), "async_get_vehicle_wifi_consumption"), ["JN1TESTVIN"], null));
 $.assert(((result !== null)), "test_client_part_05.py:260: result is not None");
-$.assert(($.eq(result, $.call(VehicleWifiConsumption, [], Object.assign({}, {"usage_percent": 12.5}, {"usage_amount_gb": 1.0}, {"data_cap_amount_gb": 8.0}, {"updated_at": $.attr(result, "updated_at")})))), "test_client_part_05.py:261: result == VehicleWifiConsumption(usage_percent=12.5, usage_amount_gb=1.0, data_cap_amount_gb=8.0, updated_at=result.updated_at)");
-$.assert(($.eq($.call($.attr($.attr(result, "updated_at"), "isoformat"), [], null), "2026-07-31T22:15:00+00:00")), "test_client_part_05.py:267: result.updated_at.isoformat() == '2026-07-31T22:15:00+00:00'");
+$.assertEqual(result, $.call(VehicleWifiConsumption, [], Object.assign({}, {"usage_percent": 12.5}, {"usage_amount_gb": 1.0}, {"data_cap_amount_gb": 8.0}, {"updated_at": $.attr(result, "updated_at")})), "test_client_part_05.py:261: result == VehicleWifiConsumption(usage_percent=12.5, usage_amount_gb=1.0, data_cap_amount_gb=8.0, updated_at=result.updated_at)");
+$.assertEqual($.call($.attr($.attr(result, "updated_at"), "isoformat"), [], null), "2026-07-31T22:15:00+00:00", "test_client_part_05.py:267: result.updated_at.isoformat() == '2026-07-31T22:15:00+00:00'");
 payload = $.get($.get($.attr(session, "calls"), 0), "json");
-$.assert(($.eq($.get(payload, "operationName"), "VehicleWifiConsumption")), "test_client_part_05.py:269: payload['operationName'] == 'VehicleWifiConsumption'");
-$.assert(($.eq($.get(payload, "variables"), Object.assign({}, {["vin"]: "JN1TESTVIN"}))), "test_client_part_05.py:270: payload['variables'] == {'vin': 'JN1TESTVIN'}");
+$.assertEqual($.get(payload, "operationName"), "VehicleWifiConsumption", "test_client_part_05.py:269: payload['operationName'] == 'VehicleWifiConsumption'");
+$.assertEqual($.get(payload, "variables"), Object.assign({}, {["vin"]: "JN1TESTVIN"}), "test_client_part_05.py:270: payload['variables'] == {'vin': 'JN1TESTVIN'}");
 query = $.get(payload, "query");
 $.assert(($.contains(query, "wifiConsumption")), "test_client_part_05.py:272: 'wifiConsumption' in query");
 $.assert($.call($.all, [(() => { const __out: any = []; for (const field of $.iterable(["usagePercent", "usageAmount", "dataCapAmount", "updatedAt"])) { __out.push(($.contains(query, field))); } return __out; })()], null), "test_client_part_05.py:273: all((field in query for field in ('usagePercent', 'usageAmount', 'dataCapAmount', 'updatedAt')))");

@@ -1,0 +1,4 @@
+/** Extended vehicle response parsers. */
+import { parse_driving_history, parse_e_vehicle_eligibility, parse_ev_charge_stations, parse_last_known_camera_usage_counter, parse_location_details, parse_parking_chargeable, parse_shareable_capabilities, parse_tariff_pricing } from "./_extended_vehicle_public_parsing";
+export { parse_driving_history, parse_e_vehicle_eligibility, parse_ev_charge_stations, parse_last_known_camera_usage_counter, parse_location_details, parse_parking_chargeable, parse_shareable_capabilities, parse_tariff_pricing };
+export declare let __all__: string[];

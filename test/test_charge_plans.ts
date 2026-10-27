@@ -1,6 +1,8 @@
+// @ts-nocheck — generated implementation uses a dynamic keyword adapter; public overloads are checked by consumer tests.
+
 // AUTO-GENERATED from bvdcode/nissan-connect-sdk @ 828bde6. MIT, Copyright (c) 2026 Vadim Belov.
 
-import { py as $ } from "../src/_runtime";
+import { py as $ } from "./_support";
 
 
 
@@ -33,8 +35,9 @@ export let EXPECTED_OPERATIONS = Object.assign({}, {["ChargeProduct"]: [$.attr(o
 
 /** Translated upstream FakeResponse. */
 export class FakeResponse {
+constructor(...__args: any[]) { if (__args[0] === $.SKIP) return; if (this.__init__) this.__init__(...__args); else $.superInit(this, FakeResponse, __args); }
 /** Translated upstream __init__. */
-constructor(...__args: any[]) {
+__init__(...__args: any[]): any {
 let {"payload": payload} = $.bind(__args, ["payload"], {}, [], null, null);
 this["status"] = 200;
 this["_payload"] = payload;
@@ -59,8 +62,9 @@ $.classType(FakeResponse);
 
 /** Translated upstream FakeSession. */
 export class FakeSession {
+constructor(...__args: any[]) { if (__args[0] === $.SKIP) return; if (this.__init__) this.__init__(...__args); else $.superInit(this, FakeSession, __args); }
 /** Translated upstream __init__. */
-constructor(...__args: any[]) {
+__init__(...__args: any[]): any {
 let {"responses": responses} = $.bind(__args, [], {}, [], "responses", null);
 this["responses"] = $.call($.list, [responses], null);
 this["calls"] = [];
@@ -94,18 +98,18 @@ export function test_charge_plan_operations_match_service_documents_and_ids(..._
 let tokens;
 let {"operation_name": operation_name, "document": document, "operation_id": operation_id, "token_hash": token_hash} = $.bind(__args, ["operation_name", "document", "operation_id", "token_hash"], {}, [], null, null);
 $.assert($.call($.attr(document, "startswith"), [[("query " + $.str(operation_name)), ("mutation " + $.str(operation_name))]], null), "test_charge_plans.py:117: document.startswith((f'query {operation_name}', f'mutation {operation_name}'))");
-$.assert(($.eq($.call($.attr($.call($.attr(hashlib, "sha256"), [$.call($.attr(document, "encode"), [], null)], null), "hexdigest"), [], null), operation_id)), "test_charge_plans.py:118: hashlib.sha256(document.encode()).hexdigest() == operation_id");
+$.assertEqual($.call($.attr($.call($.attr(hashlib, "sha256"), [$.call($.attr(document, "encode"), [], null)], null), "hexdigest"), [], null), operation_id, "test_charge_plans.py:118: hashlib.sha256(document.encode()).hexdigest() == operation_id");
 tokens = $.call($.attr(" ", "join"), [$.call($.attr(re, "findall"), ["\\.\\.\\.|[_A-Za-z][_0-9A-Za-z]*|[$!():{}\\[\\]]", document], null)], null);
-$.assert(($.eq($.call($.attr($.call($.attr(hashlib, "sha256"), [$.call($.attr(tokens, "encode"), [], null)], null), "hexdigest"), [], null), token_hash)), "test_charge_plans.py:120: hashlib.sha256(tokens.encode()).hexdigest() == token_hash");
+$.assertEqual($.call($.attr($.call($.attr(hashlib, "sha256"), [$.call($.attr(tokens, "encode"), [], null)], null), "hexdigest"), [], null), token_hash, "test_charge_plans.py:120: hashlib.sha256(tokens.encode()).hexdigest() == token_hash");
 }
 
 /** Translated upstream test_charge_plan_variables_match_non_null_service_inputs. */
 export function test_charge_plan_variables_match_non_null_service_inputs(...__args: any[]): any {
 let {} = $.bind(__args, [], {}, [], null, null);
-$.assert(($.eq($.call(charge_product_variables, ["VIN"], null), Object.assign({}, {["vin"]: "VIN"}))), "test_charge_plans.py:124: charge_product_variables('VIN') == {'vin': 'VIN'}");
-$.assert(($.eq($.call(pricing_details_variables, ["VIN", "LOCATION-1"], null), Object.assign({}, {["locationId"]: "LOCATION-1"}, {["vin"]: "VIN"}))), "test_charge_plans.py:125: pricing_details_variables('VIN', 'LOCATION-1') == {'locationId': 'LOCATION-1', 'vin': 'VIN'}");
-$.assert(($.eq($.call(enroll_charge_plan_variables, ["VIN", "SKU-1", "ARIYA", "2026"], null), Object.assign({}, {["config"]: Object.assign({}, {["vin"]: "VIN"}, {["productSku"]: "SKU-1"}, {["model"]: "ARIYA"}, {["year"]: "2026"})}))), "test_charge_plans.py:129: enroll_charge_plan_variables('VIN', 'SKU-1', 'ARIYA', '2026') == {'config': {'vin': 'VIN', 'productSku': 'SKU-1', 'model': 'ARIYA', 'year': '2026'}}");
-$.assert(($.eq($.call(cancel_charge_plan_variables, ["VIN"], null), Object.assign({}, {["config"]: Object.assign({}, {["vin"]: "VIN"})}))), "test_charge_plans.py:142: cancel_charge_plan_variables('VIN') == {'config': {'vin': 'VIN'}}");
+$.assertEqual($.call(charge_product_variables, ["VIN"], null), Object.assign({}, {["vin"]: "VIN"}), "test_charge_plans.py:124: charge_product_variables('VIN') == {'vin': 'VIN'}");
+$.assertEqual($.call(pricing_details_variables, ["VIN", "LOCATION-1"], null), Object.assign({}, {["locationId"]: "LOCATION-1"}, {["vin"]: "VIN"}), "test_charge_plans.py:125: pricing_details_variables('VIN', 'LOCATION-1') == {'locationId': 'LOCATION-1', 'vin': 'VIN'}");
+$.assertEqual($.call(enroll_charge_plan_variables, ["VIN", "SKU-1", "ARIYA", "2026"], null), Object.assign({}, {["config"]: Object.assign({}, {["vin"]: "VIN"}, {["productSku"]: "SKU-1"}, {["model"]: "ARIYA"}, {["year"]: "2026"})}), "test_charge_plans.py:129: enroll_charge_plan_variables('VIN', 'SKU-1', 'ARIYA', '2026') == {'config': {'vin': 'VIN', 'productSku': 'SKU-1', 'model': 'ARIYA', 'year': '2026'}}");
+$.assertEqual($.call(cancel_charge_plan_variables, ["VIN"], null), Object.assign({}, {["config"]: Object.assign({}, {["vin"]: "VIN"})}), "test_charge_plans.py:142: cancel_charge_plan_variables('VIN') == {'config': {'vin': 'VIN'}}");
 }
 
 /** Translated upstream test_charge_plan_client_wires_all_four_operations. */
@@ -120,8 +124,8 @@ $.assert((((await $.call($.attr(client, "async_enroll_charge_plan"), ["VIN", "SK
 $.assert((((await $.call($.attr(client, "async_cancel_charge_plan"), ["VIN"], null)) === null)), "test_charge_plans.py:157: await client.async_cancel_charge_plan('VIN') is None");
 payloads = (() => { const __out: any = []; for (const call of $.iterable($.attr(session, "calls"))) { __out.push($.get(call, "json")); } return __out; })();
 $.assert($.call($.all, [(() => { const __out: any = []; for (const payload of $.iterable(payloads)) { __out.push($.call($.isinstance, [payload, Mapping], null)); } return __out; })()], null), "test_charge_plans.py:160: all((isinstance(payload, Mapping) for payload in payloads))");
-$.assert(($.eq((() => { const __out: any = []; for (const payload of $.iterable(payloads)) { __out.push($.get(payload, "operationName")); } return __out; })(), ["ChargeProduct", "PricingDetails", "EnrollChargePlan", "CancelChargePlan"])), "test_charge_plans.py:161: [payload['operationName'] for payload in payloads] == ['ChargeProduct', 'PricingDetails', 'EnrollChargePlan', 'CancelChargePlan']");
-$.assert(($.eq((() => { const __out: any = []; for (const payload of $.iterable(payloads)) { __out.push($.get(payload, "variables")); } return __out; })(), [Object.assign({}, {["vin"]: "VIN"}), Object.assign({}, {["locationId"]: "LOCATION-1"}, {["vin"]: "VIN"}), Object.assign({}, {["config"]: Object.assign({}, {["vin"]: "VIN"}, {["productSku"]: "SKU-1"}, {["model"]: "ARIYA"}, {["year"]: "2026"})}), Object.assign({}, {["config"]: Object.assign({}, {["vin"]: "VIN"})})])), "test_charge_plans.py:167: [payload['variables'] for payload in payloads] == [{'vin': 'VIN'}, {'locationId': 'LOCATION-1', 'vin': 'VIN'}, {'config': {'vin': 'VIN', 'productSku': 'SKU-1', 'model': 'ARIYA', 'year': '2026'}}, {'config': {'vin': 'VIN'}}]");
+$.assertEqual((() => { const __out: any = []; for (const payload of $.iterable(payloads)) { __out.push($.get(payload, "operationName")); } return __out; })(), ["ChargeProduct", "PricingDetails", "EnrollChargePlan", "CancelChargePlan"], "test_charge_plans.py:161: [payload['operationName'] for payload in payloads] == ['ChargeProduct', 'PricingDetails', 'EnrollChargePlan', 'CancelChargePlan']");
+$.assertEqual((() => { const __out: any = []; for (const payload of $.iterable(payloads)) { __out.push($.get(payload, "variables")); } return __out; })(), [Object.assign({}, {["vin"]: "VIN"}), Object.assign({}, {["locationId"]: "LOCATION-1"}, {["vin"]: "VIN"}), Object.assign({}, {["config"]: Object.assign({}, {["vin"]: "VIN"}, {["productSku"]: "SKU-1"}, {["model"]: "ARIYA"}, {["year"]: "2026"})}), Object.assign({}, {["config"]: Object.assign({}, {["vin"]: "VIN"})})], "test_charge_plans.py:167: [payload['variables'] for payload in payloads] == [{'vin': 'VIN'}, {'locationId': 'LOCATION-1', 'vin': 'VIN'}, {'config': {'vin': 'VIN', 'productSku': 'SKU-1', 'model': 'ARIYA', 'year': '2026'}}, {'config': {'vin': 'VIN'}}]");
 }
 
 /** Translated upstream test_charge_plan_mutations_respect_read_only_before_io. */
@@ -136,7 +140,7 @@ await $.raises(ReadOnlyError, null, async () => {
 await $.raises(ReadOnlyError, null, async () => {
 (await $.call($.attr(client, "async_cancel_charge_plan"), ["VIN"], null));
 });
-$.assert(($.eq($.attr(session, "calls"), [])), "test_charge_plans.py:191: session.calls == []");
+$.assertEqual($.attr(session, "calls"), [], "test_charge_plans.py:191: session.calls == []");
 }
 
 /** Translated upstream test_parse_charge_product_preserves_nullable_status_and_product_fields. */
@@ -144,7 +148,7 @@ export function test_parse_charge_product_preserves_nullable_status_and_product_
 let result;
 let {} = $.bind(__args, [], {}, [], null, null);
 result = $.call(parse_charge_product, [Object.assign({}, {["chargeProduct"]: Object.assign({}, {["__typename"]: "EmpChargeProductResponse"}, {["statusCode"]: "1000"}, {["statusMessage"]: null}, {["timestamp"]: "2026-07-31T12:00:00Z"}, {["data"]: Object.assign({}, {["__typename"]: "EmpChargeProductData"}, {["productSKU"]: "SKU-1"}, {["price"]: "12.50"}, {["description"]: null})})})], null);
-$.assert(($.eq(result, $.call(ChargeProductResult, [], Object.assign({}, {"status_code": "1000"}, {"status_message": null}, {"timestamp": "2026-07-31T12:00:00Z"}, {"data": $.call(ChargeProductData, [], Object.assign({}, {"product_sku": "SKU-1"}, {"price": "12.50"}, {"description": null}))})))), "test_charge_plans.py:212: result == ChargeProductResult(status_code='1000', status_message=None, timestamp='2026-07-31T12:00:00Z', data=ChargeProductData(product_sku='SKU-1', price='12.50', description=None))");
+$.assertEqual(result, $.call(ChargeProductResult, [], Object.assign({}, {"status_code": "1000"}, {"status_message": null}, {"timestamp": "2026-07-31T12:00:00Z"}, {"data": $.call(ChargeProductData, [], Object.assign({}, {"product_sku": "SKU-1"}, {"price": "12.50"}, {"description": null}))})), "test_charge_plans.py:212: result == ChargeProductResult(status_code='1000', status_message=None, timestamp='2026-07-31T12:00:00Z', data=ChargeProductData(product_sku='SKU-1', price='12.50', description=None))");
 }
 
 /** Translated upstream test_parse_pricing_details_preserves_nullable_lists_and_items. */
@@ -152,7 +156,7 @@ export function test_parse_pricing_details_preserves_nullable_lists_and_items(..
 let result;
 let {} = $.bind(__args, [], {}, [], null, null);
 result = $.call(parse_pricing_details, [Object.assign({}, {["pricingDetails"]: Object.assign({}, {["__typename"]: "EmpPricingDetailsResponse"}, {["data"]: Object.assign({}, {["__typename"]: "EmpPricingDetailsData"}, {["parkingTariff"]: "5.00"}, {["flatFee"]: null}, {["congestionFee"]: "2.00"}, {["evses"]: [null, Object.assign({}, {["__typename"]: "EmpEVSE"}, {["connectors"]: [null, Object.assign({}, {["__typename"]: "EmpConnector"}, {["connectorId"]: "CONNECTOR-1"}, {["tariff"]: null})]})]})})})], null);
-$.assert(($.eq(result, $.call(ChargePlanPricingDetails, [], Object.assign({}, {"parking_tariff": "5.00"}, {"flat_fee": null}, {"congestion_fee": "2.00"}, {"evses": [null, $.call(ChargePlanPricingEvse, [], Object.assign({}, {"connectors": [null, $.call(ChargePlanPricingConnector, ["CONNECTOR-1", null], null)]}))]})))), "test_charge_plans.py:253: result == ChargePlanPricingDetails(parking_tariff='5.00', flat_fee=None, congestion_fee='2.00', evses=(None, ChargePlanPricingEvse(connectors=(None, ChargePlanPricingConnector('CONNECTOR-1', None)))))");
+$.assertEqual(result, $.call(ChargePlanPricingDetails, [], Object.assign({}, {"parking_tariff": "5.00"}, {"flat_fee": null}, {"congestion_fee": "2.00"}, {"evses": [null, $.call(ChargePlanPricingEvse, [], Object.assign({}, {"connectors": [null, $.call(ChargePlanPricingConnector, ["CONNECTOR-1", null], null)]}))]})), "test_charge_plans.py:253: result == ChargePlanPricingDetails(parking_tariff='5.00', flat_fee=None, congestion_fee='2.00', evses=(None, ChargePlanPricingEvse(connectors=(None, ChargePlanPricingConnector('CONNECTOR-1', None)))))");
 }
 
 /** Translated upstream test_parse_enrollment_maps_every_service_account_status. */
@@ -160,7 +164,7 @@ export function test_parse_enrollment_maps_every_service_account_status(...__arg
 let result;
 let {"raw_status": raw_status} = $.bind(__args, ["raw_status"], {}, [], null, null);
 result = $.call(parse_enroll_charge_plan, [Object.assign({}, {["enrollChargePlan"]: Object.assign({}, {["__typename"]: "EmpEnrollChargePlanResponse"}, {["statusCode"]: "1000"}, {["statusMessage"]: "accepted"}, {["timestamp"]: "now"}, {["data"]: Object.assign({}, {["__typename"]: "EmpEnrollChargePlanData"}, {["vin"]: "VIN"}, {["status"]: raw_status})})})], null);
-$.assert(($.eq(result, $.call(ChargePlanEnrollmentResult, ["1000", "accepted", "now", $.call(ChargePlanEnrollmentData, ["VIN", $.call(ChargePlanAccountStatus, [raw_status], null)], null)], null))), "test_charge_plans.py:299: result == ChargePlanEnrollmentResult('1000', 'accepted', 'now', ChargePlanEnrollmentData('VIN', ChargePlanAccountStatus(raw_status)))");
+$.assertEqual(result, $.call(ChargePlanEnrollmentResult, ["1000", "accepted", "now", $.call(ChargePlanEnrollmentData, ["VIN", $.call(ChargePlanAccountStatus, [raw_status], null)], null)], null), "test_charge_plans.py:299: result == ChargePlanEnrollmentResult('1000', 'accepted', 'now', ChargePlanEnrollmentData('VIN', ChargePlanAccountStatus(raw_status)))");
 }
 
 /** Translated upstream test_parse_enrollment_maps_future_status_to_unknown_value. */
@@ -168,7 +172,7 @@ export function test_parse_enrollment_maps_future_status_to_unknown_value(...__a
 let result;
 let {} = $.bind(__args, [], {}, [], null, null);
 result = $.call(parse_enroll_charge_plan, [Object.assign({}, {["enrollChargePlan"]: Object.assign({}, {["__typename"]: "EmpEnrollChargePlanResponse"}, {["data"]: Object.assign({}, {["__typename"]: "EmpEnrollChargePlanData"}, {["vin"]: null}, {["status"]: "FUTURE_STATE"})})})], null);
-$.assert(($.eq(result, $.call(ChargePlanEnrollmentResult, [null, null, null, $.call(ChargePlanEnrollmentData, [null, $.attr(ChargePlanAccountStatus, "UNKNOWN_VALUE")], null)], null))), "test_charge_plans.py:321: result == ChargePlanEnrollmentResult(None, None, None, ChargePlanEnrollmentData(None, ChargePlanAccountStatus.UNKNOWN_VALUE))");
+$.assertEqual(result, $.call(ChargePlanEnrollmentResult, [null, null, null, $.call(ChargePlanEnrollmentData, [null, $.attr(ChargePlanAccountStatus, "UNKNOWN_VALUE")], null)], null), "test_charge_plans.py:321: result == ChargePlanEnrollmentResult(None, None, None, ChargePlanEnrollmentData(None, ChargePlanAccountStatus.UNKNOWN_VALUE))");
 }
 
 /** Translated upstream test_cancel_charge_plan_outcome_matches_service. */
@@ -176,7 +180,7 @@ export function test_cancel_charge_plan_outcome_matches_service(...__args: any[]
 let result;
 let {"status_code": status_code, "outcome": outcome} = $.bind(__args, ["status_code", "outcome"], {}, [], null, null);
 result = $.call(parse_cancel_charge_plan, [Object.assign({}, {["cancelChargePlan"]: Object.assign({}, {["__typename"]: "EmpCancelChargePlanResponse"}, {["statusCode"]: status_code}, {["statusMessage"]: null}, {["timestamp"]: null})})], null);
-$.assert(($.eq(result, $.call(ChargePlanCancellationResult, [status_code, null, null], null))), "test_charge_plans.py:354: result == ChargePlanCancellationResult(status_code, None, None)");
+$.assertEqual(result, $.call(ChargePlanCancellationResult, [status_code, null, null], null), "test_charge_plans.py:354: result == ChargePlanCancellationResult(status_code, None, None)");
 $.assert(((result !== null)), "test_charge_plans.py:355: result is not None");
 $.assert((($.attr(result, "outcome") === outcome)), "test_charge_plans.py:356: result.outcome is outcome");
 }
@@ -196,11 +200,11 @@ let details, enrollment, product;
 let {} = $.bind(__args, [], {}, [], null, null);
 $.assert((($.call(parse_pricing_details, [Object.assign({}, {["pricingDetails"]: Object.assign({}, {["__typename"]: "EmpPricingDetailsResponse"}, {["data"]: null})})], null) === null)), "test_charge_plans.py:378: parse_pricing_details({'pricingDetails': {'__typename': 'EmpPricingDetailsResponse', 'data': None}}) is None");
 details = $.call(parse_pricing_details, [Object.assign({}, {["pricingDetails"]: Object.assign({}, {["__typename"]: "EmpPricingDetailsResponse"}, {["data"]: Object.assign({}, {["__typename"]: "EmpPricingDetailsData"}, {["evses"]: []})})})], null);
-$.assert(($.eq(details, $.call(ChargePlanPricingDetails, [null, null, null, []], null))), "test_charge_plans.py:400: details == ChargePlanPricingDetails(None, None, None, ())");
+$.assertEqual(details, $.call(ChargePlanPricingDetails, [null, null, null, []], null), "test_charge_plans.py:400: details == ChargePlanPricingDetails(None, None, None, ())");
 product = $.call(parse_charge_product, [Object.assign({}, {["chargeProduct"]: Object.assign({}, {["__typename"]: "EmpChargeProductResponse"}, {["data"]: null})})], null);
 enrollment = $.call(parse_enroll_charge_plan, [Object.assign({}, {["enrollChargePlan"]: Object.assign({}, {["__typename"]: "EmpEnrollChargePlanResponse"}, {["data"]: null})})], null);
-$.assert(($.eq(product, $.call(ChargeProductResult, [null, null, null, null], null))), "test_charge_plans.py:418: product == ChargeProductResult(None, None, None, None)");
-$.assert(($.eq(enrollment, $.call(ChargePlanEnrollmentResult, [null, null, null, null], null))), "test_charge_plans.py:419: enrollment == ChargePlanEnrollmentResult(None, None, None, None)");
+$.assertEqual(product, $.call(ChargeProductResult, [null, null, null, null], null), "test_charge_plans.py:418: product == ChargeProductResult(None, None, None, None)");
+$.assertEqual(enrollment, $.call(ChargePlanEnrollmentResult, [null, null, null, null], null), "test_charge_plans.py:419: enrollment == ChargePlanEnrollmentResult(None, None, None, None)");
 }
 
 /** Translated upstream test_charge_plan_parsers_reject_malformed_responses. */

@@ -1,6 +1,8 @@
+// @ts-nocheck — generated implementation uses a dynamic keyword adapter; public overloads are checked by consumer tests.
+
 // AUTO-GENERATED from bvdcode/nissan-connect-sdk @ 828bde6. MIT, Copyright (c) 2026 Vadim Belov.
 
-import { py as $ } from "../src/_runtime";
+import { py as $ } from "./_support";
 
 
 
@@ -20,8 +22,9 @@ import { UNSET, NissanClient, NissanEnergyNotificationPreferences, NissanEnergyN
 
 /** Translated upstream FakeResponse. */
 export class FakeResponse {
+constructor(...__args: any[]) { if (__args[0] === $.SKIP) return; if (this.__init__) this.__init__(...__args); else $.superInit(this, FakeResponse, __args); }
 /** Translated upstream __init__. */
-constructor(...__args: any[]) {
+__init__(...__args: any[]): any {
 let {"payload": payload} = $.bind(__args, ["payload"], {}, [], null, null);
 this["status"] = 200;
 this["_payload"] = payload;
@@ -46,8 +49,9 @@ $.classType(FakeResponse);
 
 /** Translated upstream FakeSession. */
 export class FakeSession {
+constructor(...__args: any[]) { if (__args[0] === $.SKIP) return; if (this.__init__) this.__init__(...__args); else $.superInit(this, FakeSession, __args); }
 /** Translated upstream __init__. */
-constructor(...__args: any[]) {
+__init__(...__args: any[]): any {
 let {"responses": responses} = $.bind(__args, [], {}, [], "responses", null);
 this["responses"] = $.call($.list, [responses], null);
 this["calls"] = [];
@@ -86,12 +90,12 @@ let document, payload, tokens;
 let {"session": session, "index": index, "operation_name": operation_name, "variables": variables} = $.bind(__args, ["session", "index", "operation_name", "variables"], {}, [], null, null);
 payload = $.call($.attr($.get($.attr(session, "calls"), index), "get"), ["json"], null);
 $.assert($.call($.isinstance, [payload, Mapping], null), "test_energy_notifications.py:79: isinstance(payload, Mapping)");
-$.assert(($.eq($.get(payload, "operationName"), operation_name)), "test_energy_notifications.py:80: payload['operationName'] == operation_name");
-$.assert(($.eq($.get(payload, "variables"), variables)), "test_energy_notifications.py:81: payload['variables'] == variables");
+$.assertEqual($.get(payload, "operationName"), operation_name, "test_energy_notifications.py:80: payload['operationName'] == operation_name");
+$.assertEqual($.get(payload, "variables"), variables, "test_energy_notifications.py:81: payload['variables'] == variables");
 document = $.get(payload, "query");
 $.assert($.call($.isinstance, [document, $.str], null), "test_energy_notifications.py:83: isinstance(document, str)");
 tokens = $.call($.attr(" ", "join"), [$.call($.attr(re, "findall"), ["\\.\\.\\.|[_A-Za-z][_0-9A-Za-z]*|[$!():{}\\[\\]]", document], null)], null);
-$.assert(($.eq($.call($.attr($.call($.attr(hashlib, "sha256"), [$.call($.attr(tokens, "encode"), [], null)], null), "hexdigest"), [], null), $.get(EXPECTED_QUERY_TOKEN_HASHES, operation_name))), "test_energy_notifications.py:85: hashlib.sha256(tokens.encode()).hexdigest() == EXPECTED_QUERY_TOKEN_HASHES[operation_name]");
+$.assertEqual($.call($.attr($.call($.attr(hashlib, "sha256"), [$.call($.attr(tokens, "encode"), [], null)], null), "hexdigest"), [], null), $.get(EXPECTED_QUERY_TOKEN_HASHES, operation_name), "test_energy_notifications.py:85: hashlib.sha256(tokens.encode()).hexdigest() == EXPECTED_QUERY_TOKEN_HASHES[operation_name]");
 }
 
 /** Translated upstream test_get_nissan_energy_notification_preferences_uses_exact_contract. */
@@ -100,7 +104,7 @@ let result, session;
 let {} = $.bind(__args, [], {}, [], null, null);
 session = $.call(FakeSession, [$.call(graphql_response, [Object.assign({}, {["accountStatus"]: Object.assign({}, {["__typename"]: "EmpAccountStatusResponse"}, {["data"]: Object.assign({}, {["__typename"]: "EmpAccountStatusData"}, {["notificationPreferences"]: Object.assign({}, {["__typename"]: "EmpNotificationPreferencesData"}, {["emailStatus"]: true}, {["pushStatus"]: null}, {["smsStatus"]: false})})})})], null)], null);
 result = (await $.call($.attr($.call(make_client, [session], null), "async_get_nissan_energy_notification_preferences"), ["VIN"], null));
-$.assert(($.eq(result, $.call(NissanEnergyNotificationPreferences, [], Object.assign({}, {"email_status": true}, {"push_status": null}, {"sms_status": false})))), "test_energy_notifications.py:112: result == NissanEnergyNotificationPreferences(email_status=True, push_status=None, sms_status=False)");
+$.assertEqual(result, $.call(NissanEnergyNotificationPreferences, [], Object.assign({}, {"email_status": true}, {"push_status": null}, {"sms_status": false})), "test_energy_notifications.py:112: result == NissanEnergyNotificationPreferences(email_status=True, push_status=None, sms_status=False)");
 $.call(assert_graphql_call, [session, 0, "NissanEnergyNotificationPreferences", Object.assign({}, {["vin"]: "VIN"})], null);
 }
 
@@ -123,7 +127,7 @@ session = $.call(FakeSession, [$.call(graphql_response, [Object.assign({}, {["up
 client = $.call(make_client, [session], Object.assign({}, {"read_only": false}));
 result = (await $.call($.attr(client, "async_update_nissan_energy_notification_preferences"), ["VIN"], Object.assign({}, {"email_status": true}, {"push_status": null}, {"sms_status": false})));
 null_result = (await $.call($.attr(client, "async_update_nissan_energy_notification_preferences"), ["VIN"], Object.assign({}, {"email_status": UNSET}, {"push_status": UNSET}, {"sms_status": UNSET})));
-$.assert(($.eq(result, $.call(NissanEnergyNotificationPreferencesUpdate, [], Object.assign({}, {"status_code": "1000"}, {"status_message": null}, {"timestamp": "2026-07-31T18:30:00Z"}, {"preferences": $.call(NissanEnergyNotificationPreferences, [true, null, false], null)})))), "test_energy_notifications.py:190: result == NissanEnergyNotificationPreferencesUpdate(status_code='1000', status_message=None, timestamp='2026-07-31T18:30:00Z', preferences=NissanEnergyNotificationPreferences(True, None, False))");
+$.assertEqual(result, $.call(NissanEnergyNotificationPreferencesUpdate, [], Object.assign({}, {"status_code": "1000"}, {"status_message": null}, {"timestamp": "2026-07-31T18:30:00Z"}, {"preferences": $.call(NissanEnergyNotificationPreferences, [true, null, false], null)})), "test_energy_notifications.py:190: result == NissanEnergyNotificationPreferencesUpdate(status_code='1000', status_message=None, timestamp='2026-07-31T18:30:00Z', preferences=NissanEnergyNotificationPreferences(True, None, False))");
 $.assert(((null_result === null)), "test_energy_notifications.py:196: null_result is None");
 $.call(assert_graphql_call, [session, 0, "UpdateNotificationPreferences", Object.assign({}, {["config"]: Object.assign({}, {["vin"]: "VIN"}, {["emailStatus"]: true}, {["pushStatus"]: null}, {["smsStatus"]: false})})], null);
 $.call(assert_graphql_call, [session, 1, "UpdateNotificationPreferences", Object.assign({}, {["config"]: Object.assign({}, {["vin"]: "VIN"})})], null);
@@ -137,7 +141,7 @@ session = $.call(FakeSession, [], null);
 await $.raises(ReadOnlyError, null, async () => {
 (await $.call($.attr($.call(make_client, [session], null), "async_update_nissan_energy_notification_preferences"), ["VIN"], Object.assign({}, {"push_status": true})));
 });
-$.assert(($.eq($.attr(session, "calls"), [])), "test_energy_notifications.py:227: session.calls == []");
+$.assertEqual($.attr(session, "calls"), [], "test_energy_notifications.py:227: session.calls == []");
 }
 
 /** Translated upstream test_nissan_energy_preferences_reject_malformed_response_fields. */

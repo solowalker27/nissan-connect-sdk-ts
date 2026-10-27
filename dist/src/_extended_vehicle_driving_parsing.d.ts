@@ -1,0 +1,12 @@
+import { _enum, _float, _nullable_datetime, _nullable_enum, _nullable_float, _nullable_int, _nullable_string, _optional_typed_object, _typed_object } from "./_extended_vehicle_value_parsing";
+export { _enum, _float, _nullable_datetime, _nullable_enum, _nullable_float, _nullable_int, _nullable_string, _optional_typed_object, _typed_object };
+import { DrivingHistoryAverageSpeed, DrivingHistoryCo2Saved, DrivingHistoryCoordinate, DrivingHistoryDistance, DrivingHistoryTrip, DrivingHistoryTripSummary, WeightUnit } from "./extended_vehicle_models";
+export { DrivingHistoryAverageSpeed, DrivingHistoryCo2Saved, DrivingHistoryCoordinate, DrivingHistoryDistance, DrivingHistoryTrip, DrivingHistoryTripSummary, WeightUnit };
+import { DistanceUnit, SpeedUnit } from "./models";
+export { DistanceUnit, SpeedUnit };
+export declare function _parse_driving_history_summary(value: unknown, path: string): DrivingHistoryTripSummary;
+export declare function _parse_driving_history_trip(value: unknown, path: string): DrivingHistoryTrip;
+export declare function _parse_optional_driving_distance(value: unknown, path: string): DrivingHistoryDistance | null;
+export declare function _parse_optional_average_speed(value: unknown, path: string): DrivingHistoryAverageSpeed | null;
+export declare function _parse_optional_co2_saved(value: unknown, path: string): DrivingHistoryCo2Saved | null;
+export declare function _parse_optional_driving_coordinate(value: unknown, path: string): DrivingHistoryCoordinate | null;

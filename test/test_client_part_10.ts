@@ -1,6 +1,8 @@
+// @ts-nocheck — generated implementation uses a dynamic keyword adapter; public overloads are checked by consumer tests.
+
 // AUTO-GENERATED from bvdcode/nissan-connect-sdk @ 828bde6. MIT, Copyright (c) 2026 Vadim Belov.
 
-import { py as $ } from "../src/_runtime";
+import { py as $ } from "./_support";
 
 
 
@@ -23,10 +25,10 @@ let {} = $.bind(__args, [], {}, [], null, null);
 session = $.call(FakeSession, [$.call(FakeResponse, [401, Object.assign({}, {["message"]: "expired"})], null), $.call(FakeResponse, [200, Object.assign({}, {["access_token"]: "replacement-access"}, {["refresh_token"]: "replacement-refresh"}, {["id_token"]: "replacement-id"})], null), $.call(FakeResponse, [200, Object.assign({}, {["data"]: Object.assign({}, {["vehicles"]: []})})], null)], null);
 client = $.call(make_client, [session], null);
 vehicles = (await $.call($.attr(client, "async_get_vehicles"), [], null));
-$.assert(($.eq(vehicles, [])), "test_client_part_10.py:58: vehicles == ()");
-$.assert(($.eq($.call($.len, [$.attr(session, "calls")], null), 3)), "test_client_part_10.py:59: len(session.calls) == 3");
+$.assertEqual(vehicles, [], "test_client_part_10.py:58: vehicles == ()");
+$.assertEqual($.call($.len, [$.attr(session, "calls")], null), 3, "test_client_part_10.py:59: len(session.calls) == 3");
 retry_headers = $.get($.get($.attr(session, "calls"), 2), "headers");
-$.assert(($.eq($.get(retry_headers, "Authorization"), "Bearer replacement-access")), "test_client_part_10.py:61: retry_headers['Authorization'] == 'Bearer replacement-access'");
+$.assertEqual($.get(retry_headers, "Authorization"), "Bearer replacement-access", "test_client_part_10.py:61: retry_headers['Authorization'] == 'Bearer replacement-access'");
 }
 
 /** Translated upstream test_expired_jwt_refreshes_before_graphql_request. */
@@ -36,12 +38,12 @@ let {} = $.bind(__args, [], {}, [], null, null);
 session = $.call(FakeSession, [$.call(FakeResponse, [200, Object.assign({}, {["access_token"]: "replacement-access"}, {["refresh_token"]: "replacement-refresh"}, {["id_token"]: "replacement-id"})], null), $.call(FakeResponse, [200, Object.assign({}, {["data"]: Object.assign({}, {["vehicles"]: []})})], null)], null);
 client = $.call(make_client, [session], Object.assign({}, {"tokens": $.call(Tokens, [$.call(jwt_with_expiration, [0], null), "refresh-token", "id-token"], null)}));
 vehicles = (await $.call($.attr(client, "async_get_vehicles"), [], null));
-$.assert(($.eq(vehicles, [])), "test_client_part_10.py:84: vehicles == ()");
-$.assert(($.eq($.call($.len, [$.attr(session, "calls")], null), 2)), "test_client_part_10.py:85: len(session.calls) == 2");
+$.assertEqual(vehicles, [], "test_client_part_10.py:84: vehicles == ()");
+$.assertEqual($.call($.len, [$.attr(session, "calls")], null), 2, "test_client_part_10.py:85: len(session.calls) == 2");
 $.assert($.call($.attr($.call($.str, [$.get($.get($.attr(session, "calls"), 0), "url")], null), "endswith"), ["/token"], null), "test_client_part_10.py:86: str(session.calls[0]['url']).endswith('/token')");
-$.assert(($.eq($.get($.get($.attr(session, "calls"), 0), "data"), Object.assign({}, {["refresh_token"]: "refresh-token"}, {["grant_type"]: "refresh_token"}))), "test_client_part_10.py:87: session.calls[0]['data'] == {'refresh_token': 'refresh-token', 'grant_type': 'refresh_token'}");
+$.assertEqual($.get($.get($.attr(session, "calls"), 0), "data"), Object.assign({}, {["refresh_token"]: "refresh-token"}, {["grant_type"]: "refresh_token"}), "test_client_part_10.py:87: session.calls[0]['data'] == {'refresh_token': 'refresh-token', 'grant_type': 'refresh_token'}");
 graphql_headers = $.get($.get($.attr(session, "calls"), 1), "headers");
-$.assert(($.eq($.get(graphql_headers, "Authorization"), "Bearer replacement-access")), "test_client_part_10.py:92: graphql_headers['Authorization'] == 'Bearer replacement-access'");
+$.assertEqual($.get(graphql_headers, "Authorization"), "Bearer replacement-access", "test_client_part_10.py:92: graphql_headers['Authorization'] == 'Bearer replacement-access'");
 }
 
 /** Translated upstream test_expired_id_token_refreshes_before_graphql_request. */
@@ -51,12 +53,12 @@ let {} = $.bind(__args, [], {}, [], null, null);
 session = $.call(FakeSession, [$.call(FakeResponse, [200, Object.assign({}, {["access_token"]: "replacement-access"}, {["refresh_token"]: "replacement-refresh"}, {["id_token"]: "replacement-id"})], null), $.call(FakeResponse, [200, Object.assign({}, {["data"]: Object.assign({}, {["vehicles"]: []})})], null)], null);
 client = $.call(make_client, [session], Object.assign({}, {"tokens": $.call(Tokens, ["opaque-access-token", "refresh-token", $.call(jwt_with_expiration, [0], null)], null)}));
 vehicles = (await $.call($.attr(client, "async_get_vehicles"), [], null));
-$.assert(($.eq(vehicles, [])), "test_client_part_10.py:119: vehicles == ()");
-$.assert(($.eq($.call($.len, [$.attr(session, "calls")], null), 2)), "test_client_part_10.py:120: len(session.calls) == 2");
+$.assertEqual(vehicles, [], "test_client_part_10.py:119: vehicles == ()");
+$.assertEqual($.call($.len, [$.attr(session, "calls")], null), 2, "test_client_part_10.py:120: len(session.calls) == 2");
 $.assert($.call($.attr($.call($.str, [$.get($.get($.attr(session, "calls"), 0), "url")], null), "endswith"), ["/token"], null), "test_client_part_10.py:121: str(session.calls[0]['url']).endswith('/token')");
 graphql_headers = $.get($.get($.attr(session, "calls"), 1), "headers");
-$.assert(($.eq($.get(graphql_headers, "Authorization"), "Bearer replacement-access")), "test_client_part_10.py:123: graphql_headers['Authorization'] == 'Bearer replacement-access'");
-$.assert(($.eq($.get(graphql_headers, "id-token"), "replacement-id")), "test_client_part_10.py:124: graphql_headers['id-token'] == 'replacement-id'");
+$.assertEqual($.get(graphql_headers, "Authorization"), "Bearer replacement-access", "test_client_part_10.py:123: graphql_headers['Authorization'] == 'Bearer replacement-access'");
+$.assertEqual($.get(graphql_headers, "id-token"), "replacement-id", "test_client_part_10.py:124: graphql_headers['id-token'] == 'replacement-id'");
 }
 
 /** Translated upstream test_send_journey_serializes_optional_inputs_and_kmr_header. */
@@ -69,10 +71,10 @@ arrival = $.call($.attr(datetime, "fromisoformat"), ["2026-08-01T09:30:00-07:00"
 success = (await $.call($.attr(client, "async_send_journey"), ["JN1TESTVIN", [$.call(DestinationInput, ["Home", $.call(CoordinateInput, [32.7157, -(117.1611)], null), $.call(AddressInput, [], Object.assign({}, {"address1": "1 Main St"}, {"city": "San Diego"}, {"country": "US"}))], Object.assign({}, {"phone_number": null}, {"recalculated_waypoint_type": $.attr(RecalculatedWaypointType, "WAYPOINT")}))]], Object.assign({}, {"avoid_tolls": null}, {"estimated_time_of_arrival": arrival}, {"arrival_flag": false}, {"data_source": $.attr(NavigationDataSource, "KMR")})));
 $.assert(((success === true)), "test_client_part_10.py:152: success is True");
 payload = $.get($.get($.attr(session, "calls"), 0), "json");
-$.assert(($.eq($.get(payload, "operationName"), "SendJourney")), "test_client_part_10.py:154: payload['operationName'] == 'SendJourney'");
-$.assert(($.eq($.get(payload, "variables"), Object.assign({}, {["vin"]: "JN1TESTVIN"}, {["waypoints"]: [Object.assign({}, {["name"]: "Home"}, {["phoneNumber"]: null}, {["coordinate"]: Object.assign({}, {["latitude"]: 32.7157}, {["longitude"]: -(117.1611)})}, {["address"]: Object.assign({}, {["address1"]: "1 Main St"}, {["city"]: "San Diego"}, {["country"]: "US"})}, {["recalculatedWaypointType"]: "WAYPOINT"})]}, {["avoidTolls"]: null}, {["estimatedTimeOfArrival"]: "2026-08-01T09:30:00-07:00"}, {["arrivalFlag"]: false}))), "test_client_part_10.py:155: payload['variables'] == {'vin': 'JN1TESTVIN', 'waypoints': [{'name': 'Home', 'phoneNumber': None, 'coordinate': {'latitude': 32.7157, 'longitude': -117.1611}, 'address': {'address1': '1 Main St', 'city': 'San Diego', 'country': 'US'}, 'recalculatedWaypointType': 'WAYPOINT'}], 'avoidTolls': None, 'estimatedTimeOfArrival': '2026-08-01T09:30:00-07:00', 'arrivalFlag': False}");
+$.assertEqual($.get(payload, "operationName"), "SendJourney", "test_client_part_10.py:154: payload['operationName'] == 'SendJourney'");
+$.assertEqual($.get(payload, "variables"), Object.assign({}, {["vin"]: "JN1TESTVIN"}, {["waypoints"]: [Object.assign({}, {["name"]: "Home"}, {["phoneNumber"]: null}, {["coordinate"]: Object.assign({}, {["latitude"]: 32.7157}, {["longitude"]: -(117.1611)})}, {["address"]: Object.assign({}, {["address1"]: "1 Main St"}, {["city"]: "San Diego"}, {["country"]: "US"})}, {["recalculatedWaypointType"]: "WAYPOINT"})]}, {["avoidTolls"]: null}, {["estimatedTimeOfArrival"]: "2026-08-01T09:30:00-07:00"}, {["arrivalFlag"]: false}), "test_client_part_10.py:155: payload['variables'] == {'vin': 'JN1TESTVIN', 'waypoints': [{'name': 'Home', 'phoneNumber': None, 'coordinate': {'latitude': 32.7157, 'longitude': -117.1611}, 'address': {'address1': '1 Main St', 'city': 'San Diego', 'country': 'US'}, 'recalculatedWaypointType': 'WAYPOINT'}], 'avoidTolls': None, 'estimatedTimeOfArrival': '2026-08-01T09:30:00-07:00', 'arrivalFlag': False}");
 headers = $.get($.get($.attr(session, "calls"), 0), "headers");
-$.assert(($.eq($.get(headers, "x-tsp-datasource"), "KMR")), "test_client_part_10.py:175: headers['x-tsp-datasource'] == 'KMR'");
+$.assertEqual($.get(headers, "x-tsp-datasource"), "KMR", "test_client_part_10.py:175: headers['x-tsp-datasource'] == 'KMR'");
 }
 
 /** Translated upstream test_save_and_update_route_preserve_omitted_and_null_fields. */
@@ -86,16 +88,16 @@ arrival = $.call($.attr(datetime, "fromisoformat"), ["2026-08-02T09:15:00-07:00"
 route = $.call(PlannedRouteInput, [], Object.assign({}, {"name": "Morning route"}, {"routes": [$.call(RouteWaypointInput, [], Object.assign({}, {"name": "Quick charger"}, {"coordinate": $.call(CoordinateInput, [32.8, -(117.2)], null)}, {"phone_number": null}, {"charging_output": 150}, {"charging_time": $.call(RouteChargingTimeInput, [25], null)}, {"charger_type": $.attr(ChargingConnectorType, "QUICK")}, {"state_of_charge_difference": 35})), null]}, {"estimated_time_of_departure": departure}, {"estimated_time_of_arrival": arrival}, {"distance": $.call(RouteDistanceInput, [42, $.attr(DistanceUnit, "MILE")], null)}, {"temperature": $.call(RouteTemperatureInput, [70.0, null], null)}, {"notification_interval": $.call(RouteNotificationIntervalInput, [15, $.attr(NotificationIntervalUnit, "MINUTE")], null)}, {"avoid_highway": false}));
 created = (await $.call($.attr(client, "async_save_route"), ["JN1TESTVIN", route], Object.assign({}, {"arrival_flag": null}, {"data_source": $.attr(NavigationDataSource, "KMR")})));
 updated = (await $.call($.attr(client, "async_update_route"), ["JN1TESTVIN", $.call(PlannedRouteUpdate, ["route-1"], Object.assign({}, {"name": null}, {"routes": null}, {"avoid_tolls": false}))], Object.assign({}, {"departure_flag": null})));
-$.assert(($.eq(created, $.call(ServiceRequest, ["save-1", $.attr(ServiceRequestKind, "ROUTE")], null))), "test_client_part_10.py:229: created == ServiceRequest('save-1', ServiceRequestKind.ROUTE)");
-$.assert(($.eq(updated, $.call(ServiceRequest, ["update-1", $.attr(ServiceRequestKind, "ROUTE")], null))), "test_client_part_10.py:230: updated == ServiceRequest('update-1', ServiceRequestKind.ROUTE)");
+$.assertEqual(created, $.call(ServiceRequest, ["save-1", $.attr(ServiceRequestKind, "ROUTE")], null), "test_client_part_10.py:229: created == ServiceRequest('save-1', ServiceRequestKind.ROUTE)");
+$.assertEqual(updated, $.call(ServiceRequest, ["update-1", $.attr(ServiceRequestKind, "ROUTE")], null), "test_client_part_10.py:230: updated == ServiceRequest('update-1', ServiceRequestKind.ROUTE)");
 save_payload = $.get($.get($.attr(session, "calls"), 0), "json");
-$.assert(($.eq($.get(save_payload, "variables"), Object.assign({}, {["vin"]: "JN1TESTVIN"}, {["plannedRoute"]: Object.assign({}, {["name"]: "Morning route"}, {["routes"]: [Object.assign({}, {["name"]: "Quick charger"}, {["coordinate"]: Object.assign({}, {["latitude"]: 32.8}, {["longitude"]: -(117.2)})}, {["address"]: {}}, {["phoneNumber"]: null}, {["chargingOutput"]: 150}, {["chargingTime"]: Object.assign({}, {["unit"]: "MIN"}, {["value"]: 25})}, {["chargerType"]: "QUICK"}, {["socDiff"]: 35}), null]}, {["estimatedTimeOfDeparture"]: "2026-08-02T08:00:00-07:00"}, {["estimatedTimeOfArrival"]: "2026-08-02T09:15:00-07:00"}, {["distance"]: Object.assign({}, {["value"]: 42}, {["unit"]: "MILE"})}, {["temperature"]: Object.assign({}, {["value"]: 70.0}, {["unit"]: null})}, {["notificationInterval"]: Object.assign({}, {["value"]: 15}, {["unit"]: "MIN"})}, {["avoidHighway"]: false})}, {["arrivalFlag"]: null}))), "test_client_part_10.py:232: save_payload['variables'] == {'vin': 'JN1TESTVIN', 'plannedRoute': {'name': 'Morning route', 'routes': [{'name': 'Quick charger', 'coordinate': {'latitude': 32.8, 'longitude': -117.2}, 'address': {}, 'phoneNumber': None, 'chargingOutput': 150, 'chargingTime': {'unit': 'MIN', 'value': 25}, 'chargerType': 'QUICK', 'socDiff': 35}, None], 'estimatedTimeOfDeparture': '2026-08-02T08:00:00-07:00', 'estimatedTimeOfArrival': '2026-08-02T09:15:00-07:00', 'distance': {'value': 42, 'unit': 'MILE'}, 'temperature': {'value': 70.0, 'unit': None}, 'notificationInterval': {'value': 15, 'unit': 'MIN'}, 'avoidHighway': False}, 'arrivalFlag': None}");
+$.assertEqual($.get(save_payload, "variables"), Object.assign({}, {["vin"]: "JN1TESTVIN"}, {["plannedRoute"]: Object.assign({}, {["name"]: "Morning route"}, {["routes"]: [Object.assign({}, {["name"]: "Quick charger"}, {["coordinate"]: Object.assign({}, {["latitude"]: 32.8}, {["longitude"]: -(117.2)})}, {["address"]: {}}, {["phoneNumber"]: null}, {["chargingOutput"]: 150}, {["chargingTime"]: Object.assign({}, {["unit"]: "MIN"}, {["value"]: 25})}, {["chargerType"]: "QUICK"}, {["socDiff"]: 35}), null]}, {["estimatedTimeOfDeparture"]: "2026-08-02T08:00:00-07:00"}, {["estimatedTimeOfArrival"]: "2026-08-02T09:15:00-07:00"}, {["distance"]: Object.assign({}, {["value"]: 42}, {["unit"]: "MILE"})}, {["temperature"]: Object.assign({}, {["value"]: 70.0}, {["unit"]: null})}, {["notificationInterval"]: Object.assign({}, {["value"]: 15}, {["unit"]: "MIN"})}, {["avoidHighway"]: false})}, {["arrivalFlag"]: null}), "test_client_part_10.py:232: save_payload['variables'] == {'vin': 'JN1TESTVIN', 'plannedRoute': {'name': 'Morning route', 'routes': [{'name': 'Quick charger', 'coordinate': {'latitude': 32.8, 'longitude': -117.2}, 'address': {}, 'phoneNumber': None, 'chargingOutput': 150, 'chargingTime': {'unit': 'MIN', 'value': 25}, 'chargerType': 'QUICK', 'socDiff': 35}, None], 'estimatedTimeOfDeparture': '2026-08-02T08:00:00-07:00', 'estimatedTimeOfArrival': '2026-08-02T09:15:00-07:00', 'distance': {'value': 42, 'unit': 'MILE'}, 'temperature': {'value': 70.0, 'unit': None}, 'notificationInterval': {'value': 15, 'unit': 'MIN'}, 'avoidHighway': False}, 'arrivalFlag': None}");
 save_headers = $.get($.get($.attr(session, "calls"), 0), "headers");
 update_headers = $.get($.get($.attr(session, "calls"), 1), "headers");
-$.assert(($.eq($.get(save_headers, "x-tsp-datasource"), "KMR")), "test_client_part_10.py:260: save_headers['x-tsp-datasource'] == 'KMR'");
+$.assertEqual($.get(save_headers, "x-tsp-datasource"), "KMR", "test_client_part_10.py:260: save_headers['x-tsp-datasource'] == 'KMR'");
 $.assert((!$.contains(update_headers, "x-tsp-datasource")), "test_client_part_10.py:261: 'x-tsp-datasource' not in update_headers");
 update_payload = $.get($.get($.attr(session, "calls"), 1), "json");
-$.assert(($.eq($.get(update_payload, "variables"), Object.assign({}, {["vin"]: "JN1TESTVIN"}, {["plannedRoute"]: Object.assign({}, {["id"]: "route-1"}, {["name"]: null}, {["routes"]: null}, {["avoidTolls"]: false})}, {["departureFlag"]: null}))), "test_client_part_10.py:263: update_payload['variables'] == {'vin': 'JN1TESTVIN', 'plannedRoute': {'id': 'route-1', 'name': None, 'routes': None, 'avoidTolls': False}, 'departureFlag': None}");
+$.assertEqual($.get(update_payload, "variables"), Object.assign({}, {["vin"]: "JN1TESTVIN"}, {["plannedRoute"]: Object.assign({}, {["id"]: "route-1"}, {["name"]: null}, {["routes"]: null}, {["avoidTolls"]: false})}, {["departureFlag"]: null}), "test_client_part_10.py:263: update_payload['variables'] == {'vin': 'JN1TESTVIN', 'plannedRoute': {'id': 'route-1', 'name': None, 'routes': None, 'avoidTolls': False}, 'departureFlag': None}");
 }
 
 /** Translated upstream test_navigation_nullable_success_and_limit_error. */
@@ -110,7 +112,7 @@ await $.raises(ResponseError, "Destination limit reached", async () => {
 });
 $.assert(((success === false)), "test_client_part_10.py:302: success is False");
 poi_payload = $.get($.get($.attr(session, "calls"), 1), "json");
-$.assert(($.eq($.get(poi_payload, "variables"), Object.assign({}, {["vin"]: "JN1TESTVIN"}, {["folderName"]: "FAVORITES"}, {["destinationInput"]: Object.assign({}, {["name"]: "Work"}, {["coordinate"]: Object.assign({}, {["latitude"]: 32.7}, {["longitude"]: -(117.1)})}, {["address"]: {}})}, {["calculationCondition"]: "FASTEST_ROUTE"}))), "test_client_part_10.py:304: poi_payload['variables'] == {'vin': 'JN1TESTVIN', 'folderName': 'FAVORITES', 'destinationInput': {'name': 'Work', 'coordinate': {'latitude': 32.7, 'longitude': -117.1}, 'address': {}}, 'calculationCondition': 'FASTEST_ROUTE'}");
+$.assertEqual($.get(poi_payload, "variables"), Object.assign({}, {["vin"]: "JN1TESTVIN"}, {["folderName"]: "FAVORITES"}, {["destinationInput"]: Object.assign({}, {["name"]: "Work"}, {["coordinate"]: Object.assign({}, {["latitude"]: 32.7}, {["longitude"]: -(117.1)})}, {["address"]: {}})}, {["calculationCondition"]: "FASTEST_ROUTE"}), "test_client_part_10.py:304: poi_payload['variables'] == {'vin': 'JN1TESTVIN', 'folderName': 'FAVORITES', 'destinationInput': {'name': 'Work', 'coordinate': {'latitude': 32.7, 'longitude': -117.1}, 'address': {}}, 'calculationCondition': 'FASTEST_ROUTE'}");
 }
 
 /** Translated upstream test_route_and_point_of_interest_deletes_return_upstream_success. */

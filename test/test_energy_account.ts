@@ -1,6 +1,8 @@
+// @ts-nocheck — generated implementation uses a dynamic keyword adapter; public overloads are checked by consumer tests.
+
 // AUTO-GENERATED from bvdcode/nissan-connect-sdk @ 828bde6. MIT, Copyright (c) 2026 Vadim Belov.
 
-import { py as $ } from "../src/_runtime";
+import { py as $ } from "./_support";
 
 
 
@@ -37,11 +39,11 @@ export function test_account_status_operation_matches_service_document_id_and_to
 let document, tokens;
 let {} = $.bind(__args, [], {}, [], null, null);
 document = $.attr(operations, "ACCOUNT_STATUS");
-$.assert(($.eq(document, "query AccountStatus($vin: String!) { accountStatus(vin: $vin) { __typename statusCode statusMessage timestamp data { __typename status statusReason pncStatus pncStatusReason toggleStatus nacsStatus connectors { __typename id connectorName } } } }")), "test_energy_account.py:43: document == 'query AccountStatus($vin: String!) { accountStatus(vin: $vin) { __typename statusCode statusMessage timestamp data { __typename status statusReason pncStatus pncStatusReason toggleStatus nacsStatus connectors { __typename id connectorName } } } }'");
-$.assert(($.eq($.attr(operations, "ACCOUNT_STATUS_OPERATION_ID"), "fa9270fd8f34b96477a72ee8b6f0207707e2173d34cc45b25fe5049db85a6def")), "test_energy_account.py:49: operations.ACCOUNT_STATUS_OPERATION_ID == 'fa9270fd8f34b96477a72ee8b6f0207707e2173d34cc45b25fe5049db85a6def'");
-$.assert(($.eq($.call($.attr($.call($.attr(hashlib, "sha256"), [$.call($.attr(document, "encode"), [], null)], null), "hexdigest"), [], null), $.attr(operations, "ACCOUNT_STATUS_OPERATION_ID"))), "test_energy_account.py:52: hashlib.sha256(document.encode()).hexdigest() == operations.ACCOUNT_STATUS_OPERATION_ID");
+$.assertEqual(document, "query AccountStatus($vin: String!) { accountStatus(vin: $vin) { __typename statusCode statusMessage timestamp data { __typename status statusReason pncStatus pncStatusReason toggleStatus nacsStatus connectors { __typename id connectorName } } } }", "test_energy_account.py:43: document == 'query AccountStatus($vin: String!) { accountStatus(vin: $vin) { __typename statusCode statusMessage timestamp data { __typename status statusReason pncStatus pncStatusReason toggleStatus nacsStatus connectors { __typename id connectorName } } } }'");
+$.assertEqual($.attr(operations, "ACCOUNT_STATUS_OPERATION_ID"), "fa9270fd8f34b96477a72ee8b6f0207707e2173d34cc45b25fe5049db85a6def", "test_energy_account.py:49: operations.ACCOUNT_STATUS_OPERATION_ID == 'fa9270fd8f34b96477a72ee8b6f0207707e2173d34cc45b25fe5049db85a6def'");
+$.assertEqual($.call($.attr($.call($.attr(hashlib, "sha256"), [$.call($.attr(document, "encode"), [], null)], null), "hexdigest"), [], null), $.attr(operations, "ACCOUNT_STATUS_OPERATION_ID"), "test_energy_account.py:52: hashlib.sha256(document.encode()).hexdigest() == operations.ACCOUNT_STATUS_OPERATION_ID");
 tokens = $.call($.attr(" ", "join"), [$.call($.attr(re, "findall"), ["\\.\\.\\.|[_A-Za-z][_0-9A-Za-z]*|[$!():{}\\[\\]]", document], null)], null);
-$.assert(($.eq($.call($.attr($.call($.attr(hashlib, "sha256"), [$.call($.attr(tokens, "encode"), [], null)], null), "hexdigest"), [], null), "8c8d9019a1fd539d4d5de07033c48f0ed2ee12d22f9a35e8adb59448262b1756")), "test_energy_account.py:54: hashlib.sha256(tokens.encode()).hexdigest() == '8c8d9019a1fd539d4d5de07033c48f0ed2ee12d22f9a35e8adb59448262b1756'");
+$.assertEqual($.call($.attr($.call($.attr(hashlib, "sha256"), [$.call($.attr(tokens, "encode"), [], null)], null), "hexdigest"), [], null), "8c8d9019a1fd539d4d5de07033c48f0ed2ee12d22f9a35e8adb59448262b1756", "test_energy_account.py:54: hashlib.sha256(tokens.encode()).hexdigest() == '8c8d9019a1fd539d4d5de07033c48f0ed2ee12d22f9a35e8adb59448262b1756'");
 }
 
 /** Translated upstream test_parse_account_status_preserves_exact_nullable_response_shape. */
@@ -49,14 +51,14 @@ export function test_parse_account_status_preserves_exact_nullable_response_shap
 let result;
 let {} = $.bind(__args, [], {}, [], null, null);
 result = $.call(parse_account_status, [Object.assign({}, {["accountStatus"]: Object.assign({}, {["__typename"]: "EmpAccountStatusResponse"}, {["statusCode"]: "1000"}, {["statusMessage"]: null}, {["timestamp"]: "2026-07-31T12:00:00Z"}, {["data"]: Object.assign({}, {["__typename"]: "EmpAccountStatusData"}, {["status"]: "ACTIVE"}, {["statusReason"]: "NA"}, {["pncStatus"]: "READY"}, {["pncStatusReason"]: null}, {["toggleStatus"]: "ENABLED"}, {["nacsStatus"]: "IN_ACTIVE"}, {["connectors"]: [null, Object.assign({}, {["__typename"]: "EmpConnector"}, {["id"]: "CONNECTOR-1"}, {["connectorName"]: null})]})})})], null);
-$.assert(($.eq(result, $.call(EnergyAccountStatusResult, [], Object.assign({}, {"status_code": "1000"}, {"status_message": null}, {"timestamp": "2026-07-31T12:00:00Z"}, {"data": $.call(EnergyAccountData, [], Object.assign({}, {"status": $.attr(EnergyAccountStatus, "ACTIVE")}, {"status_reason": $.attr(EnergyAccountStatusReason, "NA")}, {"pnc_status": $.attr(EnergyPncStatus, "READY")}, {"pnc_status_reason": null}, {"toggle_status": $.attr(EnergyToggleStatus, "ENABLED")}, {"nacs_status": $.attr(EnergyNacsStatus, "IN_ACTIVE")}, {"connectors": [null, $.call(EnergyAccountConnector, ["CONNECTOR-1", null], null)]}))})))), "test_energy_account.py:88: result == EnergyAccountStatusResult(status_code='1000', status_message=None, timestamp='2026-07-31T12:00:00Z', data=EnergyAccountData(status=EnergyAccountStatus.ACTIVE, status_reason=EnergyAccountStatusReason.NA, pnc_status=EnergyPncStatus.READY, pnc_status_reason=None, toggle_status=EnergyToggleStatus.ENABLED, nacs_status=EnergyNacsStatus.IN_ACTIVE, connectors=(None, EnergyAccountConnector('CONNECTOR-1', None))))");
+$.assertEqual(result, $.call(EnergyAccountStatusResult, [], Object.assign({}, {"status_code": "1000"}, {"status_message": null}, {"timestamp": "2026-07-31T12:00:00Z"}, {"data": $.call(EnergyAccountData, [], Object.assign({}, {"status": $.attr(EnergyAccountStatus, "ACTIVE")}, {"status_reason": $.attr(EnergyAccountStatusReason, "NA")}, {"pnc_status": $.attr(EnergyPncStatus, "READY")}, {"pnc_status_reason": null}, {"toggle_status": $.attr(EnergyToggleStatus, "ENABLED")}, {"nacs_status": $.attr(EnergyNacsStatus, "IN_ACTIVE")}, {"connectors": [null, $.call(EnergyAccountConnector, ["CONNECTOR-1", null], null)]}))})), "test_energy_account.py:88: result == EnergyAccountStatusResult(status_code='1000', status_message=None, timestamp='2026-07-31T12:00:00Z', data=EnergyAccountData(status=EnergyAccountStatus.ACTIVE, status_reason=EnergyAccountStatusReason.NA, pnc_status=EnergyPncStatus.READY, pnc_status_reason=None, toggle_status=EnergyToggleStatus.ENABLED, nacs_status=EnergyNacsStatus.IN_ACTIVE, connectors=(None, EnergyAccountConnector('CONNECTOR-1', None))))");
 }
 
 /** Translated upstream test_parse_account_status_preserves_nullable_root_envelope_and_data. */
 export function test_parse_account_status_preserves_nullable_root_envelope_and_data(...__args: any[]): any {
 let {} = $.bind(__args, [], {}, [], null, null);
 $.assert((($.call(parse_account_status, [Object.assign({}, {["accountStatus"]: null})], null) === null)), "test_energy_account.py:105: parse_account_status({'accountStatus': None}) is None");
-$.assert(($.eq($.call(parse_account_status, [Object.assign({}, {["accountStatus"]: Object.assign({}, {["__typename"]: "EmpAccountStatusResponse"}, {["statusCode"]: null}, {["statusMessage"]: null}, {["timestamp"]: null}, {["data"]: null})})], null), $.call(EnergyAccountStatusResult, [null, null, null, null], null))), "test_energy_account.py:106: parse_account_status({'accountStatus': {'__typename': 'EmpAccountStatusResponse', 'statusCode': None, 'statusMessage': None, 'timestamp': None, 'data': None}}) == EnergyAccountStatusResult(None, None, None, None)");
+$.assertEqual($.call(parse_account_status, [Object.assign({}, {["accountStatus"]: Object.assign({}, {["__typename"]: "EmpAccountStatusResponse"}, {["statusCode"]: null}, {["statusMessage"]: null}, {["timestamp"]: null}, {["data"]: null})})], null), $.call(EnergyAccountStatusResult, [null, null, null, null], null), "test_energy_account.py:106: parse_account_status({'accountStatus': {'__typename': 'EmpAccountStatusResponse', 'statusCode': None, 'statusMessage': None, 'timestamp': None, 'data': None}}) == EnergyAccountStatusResult(None, None, None, None)");
 $.raises(ResponseError, "^accountStatus is missing$", () => {
 $.call(parse_account_status, [{}], null);
 });
@@ -68,8 +70,8 @@ let empty, nullable;
 let {} = $.bind(__args, [], {}, [], null, null);
 nullable = $.call(parse_account_status, [$.call(account_status_payload, [], Object.assign({}, {"status": null}, {"statusReason": null}, {"pncStatus": null}, {"pncStatusReason": null}, {"toggleStatus": null}, {"nacsStatus": null}, {"connectors": null}))], null);
 empty = $.call(parse_account_status, [$.call(account_status_payload, [], Object.assign({}, {"connectors": []}))], null);
-$.assert(($.eq(nullable, $.call(EnergyAccountStatusResult, [null, null, null, $.call(EnergyAccountData, [null, null, null, null, null, null, null], null)], null))), "test_energy_account.py:136: nullable == EnergyAccountStatusResult(None, None, None, EnergyAccountData(None, None, None, None, None, None, None))");
-$.assert(($.eq(empty, $.call(EnergyAccountStatusResult, [null, null, null, $.call(EnergyAccountData, [null, null, null, null, null, null, []], null)], null))), "test_energy_account.py:142: empty == EnergyAccountStatusResult(None, None, None, EnergyAccountData(None, None, None, None, None, None, ()))");
+$.assertEqual(nullable, $.call(EnergyAccountStatusResult, [null, null, null, $.call(EnergyAccountData, [null, null, null, null, null, null, null], null)], null), "test_energy_account.py:136: nullable == EnergyAccountStatusResult(None, None, None, EnergyAccountData(None, None, None, None, None, None, None))");
+$.assertEqual(empty, $.call(EnergyAccountStatusResult, [null, null, null, $.call(EnergyAccountData, [null, null, null, null, null, null, []], null)], null), "test_energy_account.py:142: empty == EnergyAccountStatusResult(None, None, None, EnergyAccountData(None, None, None, None, None, None, ()))");
 }
 
 export let ENUM_FIELDS = [[EnergyAccountStatus, "status", ["PENDING", "FAILED", "ACTIVE", "INACTIVE", "CANCELLED", "CLOSED", "ENROLLING", "NOT_ENROLLED", "UNKNOWN__"]], [EnergyAccountStatusReason, "statusReason", ["DECLINED_PAYMENT", "SVT", "INVALID_PAYMENT", "NA", "UNKNOWN__"]], [EnergyPncStatus, "pncStatus", ["PENDING", "INSTALLING", "READY", "FAILED", "NA", "RENEWING", "UNKNOWN__"]], [EnergyToggleStatus, "toggleStatus", ["ENABLING", "ENABLED", "DISABLING", "DISABLED", "PENDING", "NA", "UNKNOWN__"]], [EnergyNacsStatus, "nacsStatus", ["ACTIVE", "IN_ACTIVE", "NOT_APPLICABLE", "UNKNOWN__"]]];
@@ -113,8 +115,8 @@ $.assert((($.call(account_status_polling_outcome, [result], null) === outcome)),
 /** Translated upstream test_account_status_polling_constants_match_service. */
 export function test_account_status_polling_constants_match_service(...__args: any[]): any {
 let {} = $.bind(__args, [], {}, [], null, null);
-$.assert(($.eq(ACCOUNT_STATUS_POLL_INTERVAL_SECONDS, 2.0)), "test_energy_account.py:370: ACCOUNT_STATUS_POLL_INTERVAL_SECONDS == 2.0");
-$.assert(($.eq(ACCOUNT_STATUS_POLL_TIMEOUT_SECONDS, 210.0)), "test_energy_account.py:371: ACCOUNT_STATUS_POLL_TIMEOUT_SECONDS == 210.0");
+$.assertEqual(ACCOUNT_STATUS_POLL_INTERVAL_SECONDS, 2.0, "test_energy_account.py:370: ACCOUNT_STATUS_POLL_INTERVAL_SECONDS == 2.0");
+$.assertEqual(ACCOUNT_STATUS_POLL_TIMEOUT_SECONDS, 210.0, "test_energy_account.py:371: ACCOUNT_STATUS_POLL_TIMEOUT_SECONDS == 210.0");
 }
 
 /** Translated upstream test_energy_account_models_are_frozen. */

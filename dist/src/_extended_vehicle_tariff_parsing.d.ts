@@ -1,0 +1,14 @@
+import { _list, _nullable_bool, _nullable_list, _nullable_string, _optional_typed_object, _parse_nullable_int_items, _string, _typed_object } from "./_extended_vehicle_value_parsing";
+export { _list, _nullable_bool, _nullable_list, _nullable_string, _optional_typed_object, _parse_nullable_int_items, _string, _typed_object };
+import { ShareableCapability, ShareableCapabilityGroup, TariffCongestionFees, TariffCongestionFeeTier, TariffDetail, TariffEnergyFees, TariffEnergyFeeTier, TariffIdleFees, TariffIdleFeeTier, TariffLocalizedText, TariffPricingData } from "./extended_vehicle_models";
+export { ShareableCapability, ShareableCapabilityGroup, TariffCongestionFees, TariffCongestionFeeTier, TariffDetail, TariffEnergyFees, TariffEnergyFeeTier, TariffIdleFees, TariffIdleFeeTier, TariffLocalizedText, TariffPricingData };
+export declare function _parse_shareable_capability_group(value: unknown, path: string): ShareableCapabilityGroup;
+export declare function _parse_tariff_pricing_data(value: Record<string, unknown>, path: string): TariffPricingData;
+export declare function _parse_tariff_detail(value: unknown, path: string): TariffDetail;
+export declare function _parse_optional_tariff_text(value: unknown, path: string): TariffLocalizedText | null;
+export declare function _parse_optional_idle_fees(value: unknown, path: string): TariffIdleFees | null;
+export declare function _parse_idle_fee_tier(value: unknown, path: string): TariffIdleFeeTier;
+export declare function _parse_optional_congestion_fees(value: unknown, path: string): TariffCongestionFees | null;
+export declare function _parse_congestion_fee_tier(value: unknown, path: string): TariffCongestionFeeTier;
+export declare function _parse_optional_energy_fees(value: unknown, path: string): TariffEnergyFees | null;
+export declare function _parse_energy_fee_tier(value: unknown, path: string): TariffEnergyFeeTier;

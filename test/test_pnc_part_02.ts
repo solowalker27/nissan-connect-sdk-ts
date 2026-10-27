@@ -1,6 +1,8 @@
+// @ts-nocheck — generated implementation uses a dynamic keyword adapter; public overloads are checked by consumer tests.
+
 // AUTO-GENERATED from bvdcode/nissan-connect-sdk @ 828bde6. MIT, Copyright (c) 2026 Vadim Belov.
 
-import { py as $ } from "../src/_runtime";
+import { py as $ } from "./_support";
 
 
 
@@ -24,7 +26,7 @@ result = (await $.call($.attr($.call(make_client, [session], null), "async_wait_
 $.assert(((result !== null)), "test_pnc_part_02.py:55: result is not None");
 $.assert((($.attr(result, "data") !== null)), "test_pnc_part_02.py:56: result.data is not None");
 $.assert((($.attr($.attr(result, "data"), "status") === $.attr(PublicChargeSessionState, "ACTIVE"))), "test_pnc_part_02.py:57: result.data.status is PublicChargeSessionState.ACTIVE");
-$.assert(($.eq($.call($.len, [$.attr(session, "calls")], null), 4)), "test_pnc_part_02.py:58: len(session.calls) == 4");
+$.assertEqual($.call($.len, [$.attr(session, "calls")], null), 4, "test_pnc_part_02.py:58: len(session.calls) == 4");
 }
 
 /** Translated upstream test_public_charge_waiter_preserves_service_null_boundaries. */
@@ -96,7 +98,7 @@ await $.raises($.ValueError, "poll_interval_seconds", async () => {
 await $.raises($.ValueError, "timeout_seconds", async () => {
 (await $.call($.attr(client, "async_wait_for_public_charge_session_status"), ["VIN"], Object.assign({}, {"timeout_seconds": $.call($.float, ["nan"], null)})));
 });
-$.assert(($.eq($.attr(session, "calls"), [])), "test_pnc_part_02.py:259: session.calls == []");
+$.assertEqual($.attr(session, "calls"), [], "test_pnc_part_02.py:259: session.calls == []");
 }
 
 /** Translated upstream test_pnc_mutations_respect_read_only_mode_before_io. */
@@ -117,7 +119,7 @@ await $.raises(ReadOnlyError, null, async () => {
 await $.raises(ReadOnlyError, null, async () => {
 (await $.call($.attr(client, "async_retry_pnc_certificate_install"), ["VIN"], null));
 });
-$.assert(($.eq($.attr(session, "calls"), [])), "test_pnc_part_02.py:278: session.calls == []");
+$.assertEqual($.attr(session, "calls"), [], "test_pnc_part_02.py:278: session.calls == []");
 }
 
 /** Translated upstream test_pnc_unknown_input_is_rejected_and_malformed_responses_fail. */
@@ -129,7 +131,7 @@ client = $.call(make_client, [session], Object.assign({}, {"read_only": false}))
 await $.raises($.ValueError, "UNKNOWN_VALUE", async () => {
 (await $.call($.attr(client, "async_update_pnc_service_status"), ["VIN", $.attr(PlugAndChargeStatusInput, "UNKNOWN_VALUE")], null));
 });
-$.assert(($.eq($.attr(session, "calls"), [])), "test_pnc_part_02.py:304: session.calls == []");
+$.assertEqual($.attr(session, "calls"), [], "test_pnc_part_02.py:304: session.calls == []");
 await $.raises(ResponseError, "pncServiceStatus is missing", async () => {
 (await $.call($.attr(client, "async_get_pnc_service_status"), ["VIN"], null));
 });

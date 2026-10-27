@@ -1,6 +1,8 @@
+// @ts-nocheck — generated implementation uses a dynamic keyword adapter; public overloads are checked by consumer tests.
+
 // AUTO-GENERATED from bvdcode/nissan-connect-sdk @ 828bde6. MIT, Copyright (c) 2026 Vadim Belov.
 
-import { py as $ } from "../src/_runtime";
+import { py as $ } from "./_support";
 
 
 
@@ -28,26 +30,26 @@ let document, operation_id;
 let {"constant": constant, "expected_id": expected_id} = $.bind(__args, ["constant", "expected_id"], {}, [], null, null);
 document = $.call($.getattr, [operations, constant], null);
 operation_id = $.call($.getattr, [operations, ($.str(constant) + "_OPERATION_ID")], null);
-$.assert(($.eq(operation_id, expected_id)), "test_vehicle_detail_reads.py:80: operation_id == expected_id");
-$.assert(($.eq($.call($.attr($.call($.attr(hashlib, "sha256"), [$.call($.attr(document, "encode"), [], null)], null), "hexdigest"), [], null), expected_id)), "test_vehicle_detail_reads.py:81: hashlib.sha256(document.encode()).hexdigest() == expected_id");
+$.assertEqual(operation_id, expected_id, "test_vehicle_detail_reads.py:80: operation_id == expected_id");
+$.assertEqual($.call($.attr($.call($.attr(hashlib, "sha256"), [$.call($.attr(document, "encode"), [], null)], null), "hexdigest"), [], null), expected_id, "test_vehicle_detail_reads.py:81: hashlib.sha256(document.encode()).hexdigest() == expected_id");
 }
 
 /** Translated upstream test_vehicle_detail_variables_preserve_apollo_optionality. */
 export function test_vehicle_detail_variables_preserve_apollo_optionality(...__args: any[]): any {
 let {} = $.bind(__args, [], {}, [], null, null);
-$.assert(($.eq($.call(vehicle_battery_status_variables, ["VIN"], null), Object.assign({}, {["vin"]: "VIN"}))), "test_vehicle_detail_reads.py:85: vehicle_battery_status_variables('VIN') == {'vin': 'VIN'}");
-$.assert(($.eq($.call(vehicle_battery_status_variables, ["VIN"], Object.assign({}, {"unit": null})), Object.assign({}, {["vin"]: "VIN"}, {["unit"]: null}))), "test_vehicle_detail_reads.py:86: vehicle_battery_status_variables('VIN', unit=None) == {'vin': 'VIN', 'unit': None}");
-$.assert(($.eq($.call(vehicle_battery_status_variables, ["VIN"], Object.assign({}, {"unit": $.attr(DistanceUnit, "MILE")})), Object.assign({}, {["vin"]: "VIN"}, {["unit"]: "MILE"}))), "test_vehicle_detail_reads.py:90: vehicle_battery_status_variables('VIN', unit=DistanceUnit.MILE) == {'vin': 'VIN', 'unit': 'MILE'}");
-$.assert(($.eq($.call(vehicle_boundary_alerts_variables, ["VIN"], Object.assign({}, {"distance_unit": $.attr(DistanceUnit, "KILOMETER")})), Object.assign({}, {["vin"]: "VIN"}, {["distanceUnit"]: "KILOMETER"}))), "test_vehicle_detail_reads.py:94: vehicle_boundary_alerts_variables('VIN', distance_unit=DistanceUnit.KILOMETER) == {'vin': 'VIN', 'distanceUnit': 'KILOMETER'}");
-$.assert(($.eq($.call(vehicle_climate_status_variables, ["VIN", $.attr(TemperatureUnit, "CELSIUS")], null), Object.assign({}, {["vin"]: "VIN"}, {["temperatureUnit"]: "CELSIUS"}))), "test_vehicle_detail_reads.py:98: vehicle_climate_status_variables('VIN', TemperatureUnit.CELSIUS) == {'vin': 'VIN', 'temperatureUnit': 'CELSIUS'}");
-$.assert(($.eq($.call(vehicle_curfew_alerts_variables, ["VIN"], null), Object.assign({}, {["vin"]: "VIN"}))), "test_vehicle_detail_reads.py:102: vehicle_curfew_alerts_variables('VIN') == {'vin': 'VIN'}");
-$.assert(($.eq($.call(vehicle_doors_status_variables, ["VIN"], null), Object.assign({}, {["vin"]: "VIN"}))), "test_vehicle_detail_reads.py:103: vehicle_doors_status_variables('VIN') == {'vin': 'VIN'}");
-$.assert(($.eq($.call(vehicle_model_year_variables, ["VIN"], null), Object.assign({}, {["vin"]: "VIN"}))), "test_vehicle_detail_reads.py:104: vehicle_model_year_variables('VIN') == {'vin': 'VIN'}");
-$.assert(($.eq($.call(vehicle_nickname_variables, ["VIN"], null), Object.assign({}, {["vin"]: "VIN"}))), "test_vehicle_detail_reads.py:105: vehicle_nickname_variables('VIN') == {'vin': 'VIN'}");
-$.assert(($.eq($.call(vehicle_speed_alerts_variables, ["VIN"], Object.assign({}, {"speed_unit": $.attr(SpeedUnit, "MPH")})), Object.assign({}, {["vin"]: "VIN"}, {["speedUnit"]: "MPH"}))), "test_vehicle_detail_reads.py:106: vehicle_speed_alerts_variables('VIN', speed_unit=SpeedUnit.MPH) == {'vin': 'VIN', 'speedUnit': 'MPH'}");
-$.assert(($.eq($.call(vehicle_status_variables, ["VIN"], Object.assign({}, {"unit": null})), Object.assign({}, {["vin"]: "VIN"}, {["unit"]: null}))), "test_vehicle_detail_reads.py:110: vehicle_status_variables('VIN', unit=None) == {'vin': 'VIN', 'unit': None}");
-$.assert(($.eq($.call(vehicle_status_and_recalls_variables, ["VIN"], null), Object.assign({}, {["vin"]: "VIN"}))), "test_vehicle_detail_reads.py:111: vehicle_status_and_recalls_variables('VIN') == {'vin': 'VIN'}");
-$.assert(($.eq($.call(vehicle_valet_alerts_variables, ["VIN"], null), Object.assign({}, {["vin"]: "VIN"}))), "test_vehicle_detail_reads.py:112: vehicle_valet_alerts_variables('VIN') == {'vin': 'VIN'}");
+$.assertEqual($.call(vehicle_battery_status_variables, ["VIN"], null), Object.assign({}, {["vin"]: "VIN"}), "test_vehicle_detail_reads.py:85: vehicle_battery_status_variables('VIN') == {'vin': 'VIN'}");
+$.assertEqual($.call(vehicle_battery_status_variables, ["VIN"], Object.assign({}, {"unit": null})), Object.assign({}, {["vin"]: "VIN"}, {["unit"]: null}), "test_vehicle_detail_reads.py:86: vehicle_battery_status_variables('VIN', unit=None) == {'vin': 'VIN', 'unit': None}");
+$.assertEqual($.call(vehicle_battery_status_variables, ["VIN"], Object.assign({}, {"unit": $.attr(DistanceUnit, "MILE")})), Object.assign({}, {["vin"]: "VIN"}, {["unit"]: "MILE"}), "test_vehicle_detail_reads.py:90: vehicle_battery_status_variables('VIN', unit=DistanceUnit.MILE) == {'vin': 'VIN', 'unit': 'MILE'}");
+$.assertEqual($.call(vehicle_boundary_alerts_variables, ["VIN"], Object.assign({}, {"distance_unit": $.attr(DistanceUnit, "KILOMETER")})), Object.assign({}, {["vin"]: "VIN"}, {["distanceUnit"]: "KILOMETER"}), "test_vehicle_detail_reads.py:94: vehicle_boundary_alerts_variables('VIN', distance_unit=DistanceUnit.KILOMETER) == {'vin': 'VIN', 'distanceUnit': 'KILOMETER'}");
+$.assertEqual($.call(vehicle_climate_status_variables, ["VIN", $.attr(TemperatureUnit, "CELSIUS")], null), Object.assign({}, {["vin"]: "VIN"}, {["temperatureUnit"]: "CELSIUS"}), "test_vehicle_detail_reads.py:98: vehicle_climate_status_variables('VIN', TemperatureUnit.CELSIUS) == {'vin': 'VIN', 'temperatureUnit': 'CELSIUS'}");
+$.assertEqual($.call(vehicle_curfew_alerts_variables, ["VIN"], null), Object.assign({}, {["vin"]: "VIN"}), "test_vehicle_detail_reads.py:102: vehicle_curfew_alerts_variables('VIN') == {'vin': 'VIN'}");
+$.assertEqual($.call(vehicle_doors_status_variables, ["VIN"], null), Object.assign({}, {["vin"]: "VIN"}), "test_vehicle_detail_reads.py:103: vehicle_doors_status_variables('VIN') == {'vin': 'VIN'}");
+$.assertEqual($.call(vehicle_model_year_variables, ["VIN"], null), Object.assign({}, {["vin"]: "VIN"}), "test_vehicle_detail_reads.py:104: vehicle_model_year_variables('VIN') == {'vin': 'VIN'}");
+$.assertEqual($.call(vehicle_nickname_variables, ["VIN"], null), Object.assign({}, {["vin"]: "VIN"}), "test_vehicle_detail_reads.py:105: vehicle_nickname_variables('VIN') == {'vin': 'VIN'}");
+$.assertEqual($.call(vehicle_speed_alerts_variables, ["VIN"], Object.assign({}, {"speed_unit": $.attr(SpeedUnit, "MPH")})), Object.assign({}, {["vin"]: "VIN"}, {["speedUnit"]: "MPH"}), "test_vehicle_detail_reads.py:106: vehicle_speed_alerts_variables('VIN', speed_unit=SpeedUnit.MPH) == {'vin': 'VIN', 'speedUnit': 'MPH'}");
+$.assertEqual($.call(vehicle_status_variables, ["VIN"], Object.assign({}, {"unit": null})), Object.assign({}, {["vin"]: "VIN"}, {["unit"]: null}), "test_vehicle_detail_reads.py:110: vehicle_status_variables('VIN', unit=None) == {'vin': 'VIN', 'unit': None}");
+$.assertEqual($.call(vehicle_status_and_recalls_variables, ["VIN"], null), Object.assign({}, {["vin"]: "VIN"}), "test_vehicle_detail_reads.py:111: vehicle_status_and_recalls_variables('VIN') == {'vin': 'VIN'}");
+$.assertEqual($.call(vehicle_valet_alerts_variables, ["VIN"], null), Object.assign({}, {["vin"]: "VIN"}), "test_vehicle_detail_reads.py:112: vehicle_valet_alerts_variables('VIN') == {'vin': 'VIN'}");
 }
 
 /** Translated upstream test_vehicle_detail_variables_reject_unknown_enum_inputs. */
@@ -64,16 +66,16 @@ $.call(vehicle_speed_alerts_variables, ["VIN"], Object.assign({}, {"speed_unit":
 /** Translated upstream test_parse_standalone_battery_climate_and_doors. */
 export function test_parse_standalone_battery_climate_and_doors(...__args: any[]): any {
 let {} = $.bind(__args, [], {}, [], null, null);
-$.assert(($.eq($.call(parse_vehicle_battery_status, [Object.assign({}, {["vehicle"]: Object.assign({}, {["__typename"]: "ElectricAVK2Vehicle"}, {["batteryStatus"]: Object.assign({}, {["__typename"]: "BatteryStatus"}, {["level"]: 81}, {["isPluggedIn"]: true}, {["isCharging"]: false}, {["remainingChargeTime"]: 25}, {["remainingMileage"]: Object.assign({}, {["__typename"]: "Distance"}, {["unit"]: "MILE"}, {["value"]: 220})})})}), "VIN"], null), $.call(BatteryStatus, [81, true, false, 25, $.call(DistanceReading, [220, "MILE"], null)], null))), "test_vehicle_detail_reads.py:123: parse_vehicle_battery_status({'vehicle': {'__typename': 'ElectricAVK2Vehicle', 'batteryStatus': {'__typename': 'BatteryStatus', 'level': 81, 'isPluggedIn': True, 'isCharging': False, 'remainingChargeTime': 25, 'remainingMileage': {'__typename': 'Distance', 'unit': 'MILE', 'value': 220}}}}, 'VIN') == BatteryStatus(81, True, False, 25, DistanceReading(220, 'MILE'))");
-$.assert(($.eq($.call(parse_vehicle_climate_status, [Object.assign({}, {["vehicle"]: Object.assign({}, {["__typename"]: "ElectricAVK2Vehicle"}, {["climateStatus"]: Object.assign({}, {["__typename"]: "ClimateStatus"}, {["state"]: "OFF"}, {["temperature"]: Object.assign({}, {["__typename"]: "Temperature"}, {["value"]: 21.5}, {["unit"]: "CELSIUS"})})})}), "VIN"], null), $.call(ClimateStatus, ["OFF", $.call(TemperatureReading, [21.5, "CELSIUS"], null)], null))), "test_vehicle_detail_reads.py:143: parse_vehicle_climate_status({'vehicle': {'__typename': 'ElectricAVK2Vehicle', 'climateStatus': {'__typename': 'ClimateStatus', 'state': 'OFF', 'temperature': {'__typename': 'Temperature', 'value': 21.5, 'unit': 'CELSIUS'}}}}, 'VIN') == ClimateStatus('OFF', TemperatureReading(21.5, 'CELSIUS'))");
-$.assert(($.eq($.call(parse_vehicle_doors_status, [Object.assign({}, {["vehicle"]: Object.assign({}, {["__typename"]: "AVK2Vehicle"}, {["doorsStatus"]: Object.assign({}, {["__typename"]: "DoorsStatus"}, {["lastUpdatedAt"]: null})})}), "VIN"], null), $.call(DoorsStatus, [null, null, null, null, null, null, null, null, null, null], null))), "test_vehicle_detail_reads.py:160: parse_vehicle_doors_status({'vehicle': {'__typename': 'AVK2Vehicle', 'doorsStatus': {'__typename': 'DoorsStatus', 'lastUpdatedAt': None}}}, 'VIN') == DoorsStatus(None, None, None, None, None, None, None, None, None, None)");
+$.assertEqual($.call(parse_vehicle_battery_status, [Object.assign({}, {["vehicle"]: Object.assign({}, {["__typename"]: "ElectricAVK2Vehicle"}, {["batteryStatus"]: Object.assign({}, {["__typename"]: "BatteryStatus"}, {["level"]: 81}, {["isPluggedIn"]: true}, {["isCharging"]: false}, {["remainingChargeTime"]: 25}, {["remainingMileage"]: Object.assign({}, {["__typename"]: "Distance"}, {["unit"]: "MILE"}, {["value"]: 220})})})}), "VIN"], null), $.call(BatteryStatus, [81, true, false, 25, $.call(DistanceReading, [220, "MILE"], null)], null), "test_vehicle_detail_reads.py:123: parse_vehicle_battery_status({'vehicle': {'__typename': 'ElectricAVK2Vehicle', 'batteryStatus': {'__typename': 'BatteryStatus', 'level': 81, 'isPluggedIn': True, 'isCharging': False, 'remainingChargeTime': 25, 'remainingMileage': {'__typename': 'Distance', 'unit': 'MILE', 'value': 220}}}}, 'VIN') == BatteryStatus(81, True, False, 25, DistanceReading(220, 'MILE'))");
+$.assertEqual($.call(parse_vehicle_climate_status, [Object.assign({}, {["vehicle"]: Object.assign({}, {["__typename"]: "ElectricAVK2Vehicle"}, {["climateStatus"]: Object.assign({}, {["__typename"]: "ClimateStatus"}, {["state"]: "OFF"}, {["temperature"]: Object.assign({}, {["__typename"]: "Temperature"}, {["value"]: 21.5}, {["unit"]: "CELSIUS"})})})}), "VIN"], null), $.call(ClimateStatus, ["OFF", $.call(TemperatureReading, [21.5, "CELSIUS"], null)], null), "test_vehicle_detail_reads.py:143: parse_vehicle_climate_status({'vehicle': {'__typename': 'ElectricAVK2Vehicle', 'climateStatus': {'__typename': 'ClimateStatus', 'state': 'OFF', 'temperature': {'__typename': 'Temperature', 'value': 21.5, 'unit': 'CELSIUS'}}}}, 'VIN') == ClimateStatus('OFF', TemperatureReading(21.5, 'CELSIUS'))");
+$.assertEqual($.call(parse_vehicle_doors_status, [Object.assign({}, {["vehicle"]: Object.assign({}, {["__typename"]: "AVK2Vehicle"}, {["doorsStatus"]: Object.assign({}, {["__typename"]: "DoorsStatus"}, {["lastUpdatedAt"]: null})})}), "VIN"], null), $.call(DoorsStatus, [null, null, null, null, null, null, null, null, null, null], null), "test_vehicle_detail_reads.py:160: parse_vehicle_doors_status({'vehicle': {'__typename': 'AVK2Vehicle', 'doorsStatus': {'__typename': 'DoorsStatus', 'lastUpdatedAt': None}}}, 'VIN') == DoorsStatus(None, None, None, None, None, None, None, None, None, None)");
 }
 
 /** Translated upstream test_parse_vehicle_model_year_and_nickname_preserve_nullability. */
 export function test_parse_vehicle_model_year_and_nickname_preserve_nullability(...__args: any[]): any {
 let {} = $.bind(__args, [], {}, [], null, null);
-$.assert(($.eq($.call(parse_vehicle_model_year, [Object.assign({}, {["vehicle"]: Object.assign({}, {["__typename"]: "ElectricAVK2Vehicle"}, {["model"]: "ARIYA"}, {["year"]: "2026"})})], null), $.call(VehicleModelYear, ["ElectricAVK2Vehicle", "ARIYA", "2026"], null))), "test_vehicle_detail_reads.py:175: parse_vehicle_model_year({'vehicle': {'__typename': 'ElectricAVK2Vehicle', 'model': 'ARIYA', 'year': '2026'}}) == VehicleModelYear('ElectricAVK2Vehicle', 'ARIYA', '2026')");
-$.assert(($.eq($.call(parse_vehicle_nickname, [Object.assign({}, {["vehicle"]: Object.assign({}, {["__typename"]: "ElectricAVK2Vehicle"}, {["nickname"]: null})})], null), $.call(VehicleNickname, ["ElectricAVK2Vehicle", null], null))), "test_vehicle_detail_reads.py:184: parse_vehicle_nickname({'vehicle': {'__typename': 'ElectricAVK2Vehicle', 'nickname': None}}) == VehicleNickname('ElectricAVK2Vehicle', None)");
+$.assertEqual($.call(parse_vehicle_model_year, [Object.assign({}, {["vehicle"]: Object.assign({}, {["__typename"]: "ElectricAVK2Vehicle"}, {["model"]: "ARIYA"}, {["year"]: "2026"})})], null), $.call(VehicleModelYear, ["ElectricAVK2Vehicle", "ARIYA", "2026"], null), "test_vehicle_detail_reads.py:175: parse_vehicle_model_year({'vehicle': {'__typename': 'ElectricAVK2Vehicle', 'model': 'ARIYA', 'year': '2026'}}) == VehicleModelYear('ElectricAVK2Vehicle', 'ARIYA', '2026')");
+$.assertEqual($.call(parse_vehicle_nickname, [Object.assign({}, {["vehicle"]: Object.assign({}, {["__typename"]: "ElectricAVK2Vehicle"}, {["nickname"]: null})})], null), $.call(VehicleNickname, ["ElectricAVK2Vehicle", null], null), "test_vehicle_detail_reads.py:184: parse_vehicle_nickname({'vehicle': {'__typename': 'ElectricAVK2Vehicle', 'nickname': None}}) == VehicleNickname('ElectricAVK2Vehicle', None)");
 $.assert((($.call(parse_vehicle_model_year, [Object.assign({}, {["vehicle"]: null})], null) === null)), "test_vehicle_detail_reads.py:192: parse_vehicle_model_year({'vehicle': None}) is None");
 $.assert((($.call(parse_vehicle_nickname, [Object.assign({}, {["vehicle"]: null})], null) === null)), "test_vehicle_detail_reads.py:193: parse_vehicle_nickname({'vehicle': None}) is None");
 $.raises(ResponseError, "vehicle\\.model is not a string", () => {
@@ -84,9 +86,9 @@ $.call(parse_vehicle_model_year, [Object.assign({}, {["vehicle"]: Object.assign(
 /** Translated upstream test_parse_standalone_alerts_preserves_null_and_empty_values. */
 export function test_parse_standalone_alerts_preserves_null_and_empty_values(...__args: any[]): any {
 let {} = $.bind(__args, [], {}, [], null, null);
-$.assert(($.eq($.call(parse_vehicle_boundary_alerts, [Object.assign({}, {["vehicle"]: Object.assign({}, {["__typename"]: "AVK2Vehicle"}, {["boundaryAlerts"]: []})})], null), [])), "test_vehicle_detail_reads.py:207: parse_vehicle_boundary_alerts({'vehicle': {'__typename': 'AVK2Vehicle', 'boundaryAlerts': []}}) == ()");
+$.assertEqual($.call(parse_vehicle_boundary_alerts, [Object.assign({}, {["vehicle"]: Object.assign({}, {["__typename"]: "AVK2Vehicle"}, {["boundaryAlerts"]: []})})], null), [], "test_vehicle_detail_reads.py:207: parse_vehicle_boundary_alerts({'vehicle': {'__typename': 'AVK2Vehicle', 'boundaryAlerts': []}}) == ()");
 $.assert((($.call(parse_vehicle_curfew_alerts, [Object.assign({}, {["vehicle"]: Object.assign({}, {["__typename"]: "AVK2Vehicle"}, {["curfewAlerts"]: null})})], null) === null)), "test_vehicle_detail_reads.py:213: parse_vehicle_curfew_alerts({'vehicle': {'__typename': 'AVK2Vehicle', 'curfewAlerts': None}}) is None");
-$.assert(($.eq($.call(parse_vehicle_speed_alerts, [Object.assign({}, {["vehicle"]: Object.assign({}, {["__typename"]: "AVK2Vehicle"}, {["speedAlerts"]: []})})], null), [])), "test_vehicle_detail_reads.py:219: parse_vehicle_speed_alerts({'vehicle': {'__typename': 'AVK2Vehicle', 'speedAlerts': []}}) == ()");
+$.assertEqual($.call(parse_vehicle_speed_alerts, [Object.assign({}, {["vehicle"]: Object.assign({}, {["__typename"]: "AVK2Vehicle"}, {["speedAlerts"]: []})})], null), [], "test_vehicle_detail_reads.py:219: parse_vehicle_speed_alerts({'vehicle': {'__typename': 'AVK2Vehicle', 'speedAlerts': []}}) == ()");
 $.assert((($.call(parse_vehicle_valet_alert, [Object.assign({}, {["vehicle"]: Object.assign({}, {["__typename"]: "AVK2Vehicle"}, {["valetAlert"]: null})})], null) === null)), "test_vehicle_detail_reads.py:223: parse_vehicle_valet_alert({'vehicle': {'__typename': 'AVK2Vehicle', 'valetAlert': None}}) is None");
 }
 
@@ -96,16 +98,17 @@ let expected_status, vehicle;
 let {} = $.bind(__args, [], {}, [], null, null);
 vehicle = Object.assign({}, {["__typename"]: "AVK2Vehicle"}, {["doorsStatus"]: null}, {["fuelAutonomy"]: null}, {["mileage"]: null}, {["tirePressure"]: null}, {["mils"]: []});
 expected_status = $.call(VehicleStatus, [], Object.assign({}, {"vin": "VIN"}, {"vehicle_type": "AVK2Vehicle"}, {"battery": null}, {"climate": null}, {"doors": null}, {"fuel_range": null}, {"mileage": null}, {"tire_pressure": null}, {"maintenance_indicators": []}));
-$.assert(($.eq($.call(parse_vehicle_core_status, [Object.assign({}, {["vehicle"]: vehicle}), "VIN"], null), expected_status)), "test_vehicle_detail_reads.py:250: parse_vehicle_core_status({'vehicle': vehicle}, 'VIN') == expected_status");
-$.assert(($.eq($.call(parse_vehicle_status_and_recalls, [Object.assign({}, {["vehicle"]: Object.assign({}, vehicle, {["recalls"]: []})}), "VIN"], null), $.call(VehicleStatusAndRecalls, [expected_status, []], null))), "test_vehicle_detail_reads.py:251: parse_vehicle_status_and_recalls({'vehicle': {**vehicle, 'recalls': []}}, 'VIN') == VehicleStatusAndRecalls(expected_status, ())");
+$.assertEqual($.call(parse_vehicle_core_status, [Object.assign({}, {["vehicle"]: vehicle}), "VIN"], null), expected_status, "test_vehicle_detail_reads.py:250: parse_vehicle_core_status({'vehicle': vehicle}, 'VIN') == expected_status");
+$.assertEqual($.call(parse_vehicle_status_and_recalls, [Object.assign({}, {["vehicle"]: Object.assign({}, vehicle, {["recalls"]: []})}), "VIN"], null), $.call(VehicleStatusAndRecalls, [expected_status, []], null), "test_vehicle_detail_reads.py:251: parse_vehicle_status_and_recalls({'vehicle': {**vehicle, 'recalls': []}}, 'VIN') == VehicleStatusAndRecalls(expected_status, ())");
 $.assert((($.call(parse_vehicle_core_status, [Object.assign({}, {["vehicle"]: null}), "VIN"], null) === null)), "test_vehicle_detail_reads.py:255: parse_vehicle_core_status({'vehicle': None}, 'VIN') is None");
 $.assert((($.call(parse_vehicle_status_and_recalls, [Object.assign({}, {["vehicle"]: null}), "VIN"], null) === null)), "test_vehicle_detail_reads.py:256: parse_vehicle_status_and_recalls({'vehicle': None}, 'VIN') is None");
 }
 
 /** Translated upstream FakeResponse. */
 export class FakeResponse {
+constructor(...__args: any[]) { if (__args[0] === $.SKIP) return; if (this.__init__) this.__init__(...__args); else $.superInit(this, FakeResponse, __args); }
 /** Translated upstream __init__. */
-constructor(...__args: any[]) {
+__init__(...__args: any[]): any {
 let {} = $.bind(__args, [], {}, [], null, null);
 this["status"] = 200;
 }
@@ -129,8 +132,9 @@ $.classType(FakeResponse);
 
 /** Translated upstream FakeSession. */
 export class FakeSession {
+constructor(...__args: any[]) { if (__args[0] === $.SKIP) return; if (this.__init__) this.__init__(...__args); else $.superInit(this, FakeSession, __args); }
 /** Translated upstream __init__. */
-constructor(...__args: any[]) {
+__init__(...__args: any[]): any {
 let _;
 let {"response_count": response_count} = $.bind(__args, ["response_count"], {}, [], null, null);
 this["responses"] = (() => { const __out: any = []; for (const _ of $.iterable($.call($.range, [response_count], null))) { __out.push($.call(FakeResponse, [], null)); } return __out; })();
@@ -171,8 +175,8 @@ payload = $.get(call, "json");
 $.assert($.call($.isinstance, [payload, Mapping], null), "test_vehicle_detail_reads.py:307: isinstance(payload, Mapping)");
 $.call($.attr(payloads, "append"), [payload], null);
 }
-$.assert(($.eq((() => { const __out: any = []; for (const payload of $.iterable(payloads)) { __out.push($.get(payload, "operationName")); } return __out; })(), ["VehicleBatteryStatus", "VehicleBoundaryAlerts", "VehicleClimateStatus", "VehicleCurfewAlerts", "VehicleDoorsStatus", "VehicleModelYear", "VehicleNickname", "VehicleSpeedAlerts", "VehicleStatus", "VehicleStatusAndRecalls", "VehicleValetAlerts"])), "test_vehicle_detail_reads.py:309: [payload['operationName'] for payload in payloads] == ['VehicleBatteryStatus', 'VehicleBoundaryAlerts', 'VehicleClimateStatus', 'VehicleCurfewAlerts', 'VehicleDoorsStatus', 'VehicleModelYear', 'VehicleNickname', 'VehicleSpeedAlerts', 'VehicleStatus', 'VehicleStatusAndRecalls', 'VehicleValetAlerts']");
-$.assert(($.eq((() => { const __out: any = []; for (const payload of $.iterable(payloads)) { __out.push($.get(payload, "variables")); } return __out; })(), [Object.assign({}, {["vin"]: "VIN"}), Object.assign({}, {["vin"]: "VIN"}), Object.assign({}, {["vin"]: "VIN"}, {["temperatureUnit"]: "FAHRENHEIT"}), Object.assign({}, {["vin"]: "VIN"}), Object.assign({}, {["vin"]: "VIN"}), Object.assign({}, {["vin"]: "VIN"}), Object.assign({}, {["vin"]: "VIN"}), Object.assign({}, {["vin"]: "VIN"}), Object.assign({}, {["vin"]: "VIN"}), Object.assign({}, {["vin"]: "VIN"}), Object.assign({}, {["vin"]: "VIN"})])), "test_vehicle_detail_reads.py:322: [payload['variables'] for payload in payloads] == [{'vin': 'VIN'}, {'vin': 'VIN'}, {'vin': 'VIN', 'temperatureUnit': 'FAHRENHEIT'}, {'vin': 'VIN'}, {'vin': 'VIN'}, {'vin': 'VIN'}, {'vin': 'VIN'}, {'vin': 'VIN'}, {'vin': 'VIN'}, {'vin': 'VIN'}, {'vin': 'VIN'}]");
+$.assertEqual((() => { const __out: any = []; for (const payload of $.iterable(payloads)) { __out.push($.get(payload, "operationName")); } return __out; })(), ["VehicleBatteryStatus", "VehicleBoundaryAlerts", "VehicleClimateStatus", "VehicleCurfewAlerts", "VehicleDoorsStatus", "VehicleModelYear", "VehicleNickname", "VehicleSpeedAlerts", "VehicleStatus", "VehicleStatusAndRecalls", "VehicleValetAlerts"], "test_vehicle_detail_reads.py:309: [payload['operationName'] for payload in payloads] == ['VehicleBatteryStatus', 'VehicleBoundaryAlerts', 'VehicleClimateStatus', 'VehicleCurfewAlerts', 'VehicleDoorsStatus', 'VehicleModelYear', 'VehicleNickname', 'VehicleSpeedAlerts', 'VehicleStatus', 'VehicleStatusAndRecalls', 'VehicleValetAlerts']");
+$.assertEqual((() => { const __out: any = []; for (const payload of $.iterable(payloads)) { __out.push($.get(payload, "variables")); } return __out; })(), [Object.assign({}, {["vin"]: "VIN"}), Object.assign({}, {["vin"]: "VIN"}), Object.assign({}, {["vin"]: "VIN"}, {["temperatureUnit"]: "FAHRENHEIT"}), Object.assign({}, {["vin"]: "VIN"}), Object.assign({}, {["vin"]: "VIN"}), Object.assign({}, {["vin"]: "VIN"}), Object.assign({}, {["vin"]: "VIN"}), Object.assign({}, {["vin"]: "VIN"}), Object.assign({}, {["vin"]: "VIN"}), Object.assign({}, {["vin"]: "VIN"}), Object.assign({}, {["vin"]: "VIN"})], "test_vehicle_detail_reads.py:322: [payload['variables'] for payload in payloads] == [{'vin': 'VIN'}, {'vin': 'VIN'}, {'vin': 'VIN', 'temperatureUnit': 'FAHRENHEIT'}, {'vin': 'VIN'}, {'vin': 'VIN'}, {'vin': 'VIN'}, {'vin': 'VIN'}, {'vin': 'VIN'}, {'vin': 'VIN'}, {'vin': 'VIN'}, {'vin': 'VIN'}]");
 }
 
 $.register("test_vehicle_detail_reads.py::test_vehicle_detail_operations_match_service_documents", test_vehicle_detail_operations_match_service_documents, [[["constant", "expected_id"], $.call($.attr(EXPECTED_OPERATIONS, "items"), [], null)]]);

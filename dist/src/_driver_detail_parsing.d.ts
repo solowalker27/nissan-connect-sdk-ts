@@ -1,0 +1,12 @@
+import { _required_bool, _required_datetime, _required_enum, _required_nullable_enum, _required_nullable_string, _required_string, _required_string_tuple, _typed_object, _typename } from "./_driver_value_parsing";
+export { _required_bool, _required_datetime, _required_enum, _required_nullable_enum, _required_nullable_string, _required_string, _required_string_tuple, _typed_object, _typename };
+import { DriverInvite, DriverOperationError, EmergencyContact, EmergencyContactRelationship, InviteDriverSuccess, InviteNotificationType, InviteStatus } from "./driver_models";
+export { DriverInvite, DriverOperationError, EmergencyContact, EmergencyContactRelationship, InviteDriverSuccess, InviteNotificationType, InviteStatus };
+export declare let _BASE_CONNECTED_VEHICLE_TYPES: any;
+export declare let _DRIVER_INVITES_ERROR_TYPES: any;
+export declare let _INVITE_DRIVER_ERROR_TYPES: any;
+export declare let _DRIVER_INVITE_ACTION_ERROR_TYPES: any;
+export declare function _parse_emergency_contact(value: unknown, path: string): EmergencyContact;
+export declare function _parse_driver_invite(value: unknown, path: string): DriverInvite;
+export declare function _parse_invite_driver_success(result: Record<string, unknown>, path: string): InviteDriverSuccess;
+export declare function _parse_error(result: Record<string, unknown>, path: string, typename: string): DriverOperationError;

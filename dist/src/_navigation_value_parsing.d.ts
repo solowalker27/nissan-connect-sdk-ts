@@ -1,0 +1,18 @@
+import { py as $ } from "./_runtime";
+import { ResponseError } from "./exceptions";
+export { ResponseError };
+export declare function _object(value: unknown, path: string): Record<string, unknown>;
+export declare function _optional_object(value: unknown, path: string): Record<string, unknown> | null;
+export declare function _list(value: unknown, path: string): ReadonlyArray<unknown>;
+export declare function _nullable_list(value: unknown, path: string): ReadonlyArray<unknown> | null;
+export declare function _string(value: unknown, path: string): string;
+export declare function _nullable_string(value: unknown, path: string): string | null;
+export declare function _int(value: unknown, path: string): number;
+export declare function _nullable_int(value: unknown, path: string): number | null;
+export declare function _float(value: unknown, path: string): number;
+export declare function _nullable_float(value: unknown, path: string): number | null;
+export declare function _nullable_bool(value: unknown, path: string): boolean | null;
+export declare function _enum(value: unknown, enum_type: any, path: string): any;
+export declare function _nullable_enum(value: unknown, enum_type: any, path: string): any | null;
+export declare function _datetime(value: unknown, path: string): $.DateValue;
+export declare function _nullable_datetime(value: unknown, path: string): $.DateValue | null;

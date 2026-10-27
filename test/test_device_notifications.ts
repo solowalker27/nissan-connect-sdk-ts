@@ -1,6 +1,8 @@
+// @ts-nocheck — generated implementation uses a dynamic keyword adapter; public overloads are checked by consumer tests.
+
 // AUTO-GENERATED from bvdcode/nissan-connect-sdk @ 828bde6. MIT, Copyright (c) 2026 Vadim Belov.
 
-import { py as $ } from "../src/_runtime";
+import { py as $ } from "./_support";
 
 
 
@@ -23,8 +25,9 @@ import { MYNISSAN_ANDROID_APP_NAME, UNSET, DeviceOS, InVehicleMessage, InVehicle
 
 /** Translated upstream FakeResponse. */
 export class FakeResponse {
+constructor(...__args: any[]) { if (__args[0] === $.SKIP) return; if (this.__init__) this.__init__(...__args); else $.superInit(this, FakeResponse, __args); }
 /** Translated upstream __init__. */
-constructor(...__args: any[]) {
+__init__(...__args: any[]): any {
 let {"payload": payload} = $.bind(__args, ["payload"], {}, [], null, null);
 this["status"] = 200;
 this["_payload"] = payload;
@@ -49,8 +52,9 @@ $.classType(FakeResponse);
 
 /** Translated upstream FakeSession. */
 export class FakeSession {
+constructor(...__args: any[]) { if (__args[0] === $.SKIP) return; if (this.__init__) this.__init__(...__args); else $.superInit(this, FakeSession, __args); }
 /** Translated upstream __init__. */
-constructor(...__args: any[]) {
+__init__(...__args: any[]): any {
 let {"responses": responses} = $.bind(__args, [], {}, [], "responses", null);
 this["responses"] = $.call($.list, [responses], null);
 this["calls"] = [];
@@ -91,12 +95,12 @@ let document, payload, tokens;
 let {"session": session, "index": index, "operation_name": operation_name, "variables": variables} = $.bind(__args, ["session", "index", "operation_name", "variables"], {}, [], null, null);
 payload = $.call($.attr($.get($.attr(session, "calls"), index), "get"), ["json"], null);
 $.assert($.call($.isinstance, [payload, Mapping], null), "test_device_notifications.py:101: isinstance(payload, Mapping)");
-$.assert(($.eq($.get(payload, "operationName"), operation_name)), "test_device_notifications.py:102: payload['operationName'] == operation_name");
-$.assert(($.eq($.get(payload, "variables"), variables)), "test_device_notifications.py:103: payload['variables'] == variables");
+$.assertEqual($.get(payload, "operationName"), operation_name, "test_device_notifications.py:102: payload['operationName'] == operation_name");
+$.assertEqual($.get(payload, "variables"), variables, "test_device_notifications.py:103: payload['variables'] == variables");
 document = $.get(payload, "query");
 $.assert($.call($.isinstance, [document, $.str], null), "test_device_notifications.py:105: isinstance(document, str)");
 tokens = $.call($.attr(" ", "join"), [$.call($.attr(re, "findall"), ["\\.\\.\\.|[_A-Za-z][_0-9A-Za-z]*|[$!():{}\\[\\]]", document], null)], null);
-$.assert(($.eq($.call($.attr($.call($.attr(hashlib, "sha256"), [$.call($.attr(tokens, "encode"), [], null)], null), "hexdigest"), [], null), $.get(EXPECTED_QUERY_TOKEN_HASHES, operation_name))), "test_device_notifications.py:107: hashlib.sha256(tokens.encode()).hexdigest() == EXPECTED_QUERY_TOKEN_HASHES[operation_name]");
+$.assertEqual($.call($.attr($.call($.attr(hashlib, "sha256"), [$.call($.attr(tokens, "encode"), [], null)], null), "hexdigest"), [], null), $.get(EXPECTED_QUERY_TOKEN_HASHES, operation_name), "test_device_notifications.py:107: hashlib.sha256(tokens.encode()).hexdigest() == EXPECTED_QUERY_TOKEN_HASHES[operation_name]");
 }
 
 /** Translated upstream test_legacy_push_mutations_use_exact_contracts_and_nullable_results. */
@@ -124,9 +128,9 @@ let {} = $.bind(__args, [], {}, [], null, null);
 root_field = "registerDeviceForPushNotifications";
 session = $.call(FakeSession, [$.call(graphql_response, [Object.assign({}, {[root_field]: Object.assign({}, {["__typename"]: "GeneralMessage"}, {["message"]: "registered"})})], null), $.call(graphql_response, [Object.assign({}, {[root_field]: Object.assign({}, {["__typename"]: "DatabaseError"}, {["errorMessage"]: "database"})})], null), $.call(graphql_response, [Object.assign({}, {[root_field]: Object.assign({}, {["__typename"]: "TokenError"}, {["errorMessage"]: "token"})})], null), $.call(graphql_response, [Object.assign({}, {[root_field]: null})], null)], null);
 client = $.call(make_client, [session], Object.assign({}, {"read_only": false}));
-$.assert(($.eq((await $.call($.attr(client, "async_register_device_for_push_notifications"), [MOBILE_INFO], null)), $.call(PushNotificationSuccess, ["registered"], null))), "test_device_notifications.py:162: await client.async_register_device_for_push_notifications(MOBILE_INFO) == PushNotificationSuccess('registered')");
-$.assert(($.eq((await $.call($.attr(client, "async_register_device_for_push_notifications"), [MOBILE_INFO], null)), $.call(PushNotificationDatabaseError, ["database"], null))), "test_device_notifications.py:165: await client.async_register_device_for_push_notifications(MOBILE_INFO) == PushNotificationDatabaseError('database')");
-$.assert(($.eq((await $.call($.attr(client, "async_register_device_for_push_notifications"), [MOBILE_INFO], null)), $.call(PushNotificationTokenError, ["token"], null))), "test_device_notifications.py:168: await client.async_register_device_for_push_notifications(MOBILE_INFO) == PushNotificationTokenError('token')");
+$.assertEqual((await $.call($.attr(client, "async_register_device_for_push_notifications"), [MOBILE_INFO], null)), $.call(PushNotificationSuccess, ["registered"], null), "test_device_notifications.py:162: await client.async_register_device_for_push_notifications(MOBILE_INFO) == PushNotificationSuccess('registered')");
+$.assertEqual((await $.call($.attr(client, "async_register_device_for_push_notifications"), [MOBILE_INFO], null)), $.call(PushNotificationDatabaseError, ["database"], null), "test_device_notifications.py:165: await client.async_register_device_for_push_notifications(MOBILE_INFO) == PushNotificationDatabaseError('database')");
+$.assertEqual((await $.call($.attr(client, "async_register_device_for_push_notifications"), [MOBILE_INFO], null)), $.call(PushNotificationTokenError, ["token"], null), "test_device_notifications.py:168: await client.async_register_device_for_push_notifications(MOBILE_INFO) == PushNotificationTokenError('token')");
 $.assert((((await $.call($.attr(client, "async_register_device_for_push_notifications"), [MOBILE_INFO], null)) === null)), "test_device_notifications.py:171: await client.async_register_device_for_push_notifications(MOBILE_INFO) is None");
 variables = Object.assign({}, {["mobileInfoInput"]: Object.assign({}, {["mobile"]: Object.assign({}, {["deviceId"]: "device-id"}, {["deviceType"]: "Android"}, {["appName"]: "mynissan-android"}, {["token"]: "push-token"})})});
 for (index of $.iterable($.call($.range, [4], null))) {
@@ -141,9 +145,9 @@ let {} = $.bind(__args, [], {}, [], null, null);
 root_field = "unregisterDeviceForPushNotifications";
 session = $.call(FakeSession, [$.call(graphql_response, [Object.assign({}, {[root_field]: Object.assign({}, {["__typename"]: "GeneralMessage"}, {["message"]: "unregistered"})})], null), $.call(graphql_response, [Object.assign({}, {[root_field]: Object.assign({}, {["__typename"]: "DatabaseError"}, {["errorMessage"]: "database"})})], null), $.call(graphql_response, [Object.assign({}, {[root_field]: Object.assign({}, {["__typename"]: "TokenError"}, {["errorMessage"]: "token"})})], null), $.call(graphql_response, [Object.assign({}, {[root_field]: null})], null)], null);
 client = $.call(make_client, [session], Object.assign({}, {"read_only": false}));
-$.assert(($.eq((await $.call($.attr(client, "async_unregister_device_for_push_notifications"), [MYNISSAN_ANDROID_APP_NAME, "device-id", $.attr(DeviceOS, "ANDROID")], null)), $.call(PushNotificationSuccess, ["unregistered"], null))), "test_device_notifications.py:202: await client.async_unregister_device_for_push_notifications(MYNISSAN_ANDROID_APP_NAME, 'device-id', DeviceOS.ANDROID) == PushNotificationSuccess('unregistered')");
-$.assert(($.eq((await $.call($.attr(client, "async_unregister_device_for_push_notifications"), [MYNISSAN_ANDROID_APP_NAME, "device-id", $.attr(DeviceOS, "ANDROID")], null)), $.call(PushNotificationDatabaseError, ["database"], null))), "test_device_notifications.py:207: await client.async_unregister_device_for_push_notifications(MYNISSAN_ANDROID_APP_NAME, 'device-id', DeviceOS.ANDROID) == PushNotificationDatabaseError('database')");
-$.assert(($.eq((await $.call($.attr(client, "async_unregister_device_for_push_notifications"), [MYNISSAN_ANDROID_APP_NAME, "device-id", $.attr(DeviceOS, "ANDROID")], null)), $.call(PushNotificationTokenError, ["token"], null))), "test_device_notifications.py:212: await client.async_unregister_device_for_push_notifications(MYNISSAN_ANDROID_APP_NAME, 'device-id', DeviceOS.ANDROID) == PushNotificationTokenError('token')");
+$.assertEqual((await $.call($.attr(client, "async_unregister_device_for_push_notifications"), [MYNISSAN_ANDROID_APP_NAME, "device-id", $.attr(DeviceOS, "ANDROID")], null)), $.call(PushNotificationSuccess, ["unregistered"], null), "test_device_notifications.py:202: await client.async_unregister_device_for_push_notifications(MYNISSAN_ANDROID_APP_NAME, 'device-id', DeviceOS.ANDROID) == PushNotificationSuccess('unregistered')");
+$.assertEqual((await $.call($.attr(client, "async_unregister_device_for_push_notifications"), [MYNISSAN_ANDROID_APP_NAME, "device-id", $.attr(DeviceOS, "ANDROID")], null)), $.call(PushNotificationDatabaseError, ["database"], null), "test_device_notifications.py:207: await client.async_unregister_device_for_push_notifications(MYNISSAN_ANDROID_APP_NAME, 'device-id', DeviceOS.ANDROID) == PushNotificationDatabaseError('database')");
+$.assertEqual((await $.call($.attr(client, "async_unregister_device_for_push_notifications"), [MYNISSAN_ANDROID_APP_NAME, "device-id", $.attr(DeviceOS, "ANDROID")], null)), $.call(PushNotificationTokenError, ["token"], null), "test_device_notifications.py:212: await client.async_unregister_device_for_push_notifications(MYNISSAN_ANDROID_APP_NAME, 'device-id', DeviceOS.ANDROID) == PushNotificationTokenError('token')");
 $.assert((((await $.call($.attr(client, "async_unregister_device_for_push_notifications"), [MYNISSAN_ANDROID_APP_NAME, "device-id", $.attr(DeviceOS, "ANDROID")], null)) === null)), "test_device_notifications.py:217: await client.async_unregister_device_for_push_notifications(MYNISSAN_ANDROID_APP_NAME, 'device-id', DeviceOS.ANDROID) is None");
 variables = Object.assign({}, {["appName"]: "mynissan-android"}, {["deviceId"]: "device-id"}, {["deviceType"]: "Android"});
 for (index of $.iterable($.call($.range, [4], null))) {
@@ -158,7 +162,7 @@ let {} = $.bind(__args, [], {}, [], null, null);
 session = $.call(FakeSession, [$.call(graphql_response, [Object.assign({}, {["unregisterDeviceForPushNotifications"]: Object.assign({}, {["__typename"]: "GeneralMessage"}, {["message"]: "unregistered"})})], null)], null);
 client = $.call(make_client, [session], Object.assign({}, {"read_only": false}));
 result = (await $.call($.attr(client, "async_unregister_device_for_push_notifications"), [MYNISSAN_ANDROID_APP_NAME, "device-id", $.attr(DeviceOS, "IOS")], null));
-$.assert(($.eq(result, $.call(PushNotificationSuccess, ["unregistered"], null))), "test_device_notifications.py:259: result == PushNotificationSuccess('unregistered')");
+$.assertEqual(result, $.call(PushNotificationSuccess, ["unregistered"], null), "test_device_notifications.py:259: result == PushNotificationSuccess('unregistered')");
 $.call(assert_graphql_call, [session, 0, "UnregisterDeviceForPushNotifications", Object.assign({}, {["appName"]: "mynissan-android"}, {["deviceId"]: "device-id"}, {["deviceType"]: "Ios"})], null);
 }
 
@@ -183,7 +187,7 @@ let {} = $.bind(__args, [], {}, [], null, null);
 session = $.call(FakeSession, [$.call(graphql_response, [Object.assign({}, {["vehicle"]: Object.assign({}, {["__typename"]: "BaseConnectedVehicle"}, {["inVehicleMessages"]: [null, Object.assign({}, {["__typename"]: "InVehicleMessage"}, {["campaignId"]: null}, {["createdDateTime"]: null}, {["title"]: null}, {["viewed"]: null}), Object.assign({}, {["__typename"]: "InVehicleMessage"}, {["campaignId"]: "campaign-id"}, {["createdDateTime"]: "2026-07-31T10:20:30Z"}, {["title"]: "Service notice"}, {["viewed"]: false})]})})], null)], null);
 client = $.call(make_client, [session], null);
 result = (await $.call($.attr(client, "async_get_in_vehicle_messages"), ["VIN"], null));
-$.assert(($.eq(result, [null, $.call(InVehicleMessageSummary, [null, null, null, null], null), $.call(InVehicleMessageSummary, ["campaign-id", $.call(datetime, [2026, 7, 31, 10, 20, 30], Object.assign({}, {"tzinfo": UTC})), "Service notice", false], null)])), "test_device_notifications.py:324: result == (None, InVehicleMessageSummary(None, None, None, None), InVehicleMessageSummary('campaign-id', datetime(2026, 7, 31, 10, 20, 30, tzinfo=UTC), 'Service notice', False))");
+$.assertEqual(result, [null, $.call(InVehicleMessageSummary, [null, null, null, null], null), $.call(InVehicleMessageSummary, ["campaign-id", $.call(datetime, [2026, 7, 31, 10, 20, 30], Object.assign({}, {"tzinfo": UTC})), "Service notice", false], null)], "test_device_notifications.py:324: result == (None, InVehicleMessageSummary(None, None, None, None), InVehicleMessageSummary('campaign-id', datetime(2026, 7, 31, 10, 20, 30, tzinfo=UTC), 'Service notice', False))");
 $.call(assert_graphql_call, [session, 0, "InVehicleMessages", Object.assign({}, {["vin"]: "VIN"})], null);
 }
 
@@ -194,7 +198,7 @@ let {} = $.bind(__args, [], {}, [], null, null);
 detail = Object.assign({}, {["__typename"]: "InVehicleMessage"}, {["title"]: "Campaign"}, {["campaignId"]: "campaign-id"}, {["viewed"]: null}, {["text"]: null}, {["expireDate"]: "2026-08-01T12:30:00-07:00"});
 session = $.call(FakeSession, [$.call(graphql_response, [Object.assign({}, {["vehicle"]: Object.assign({}, {["__typename"]: "BaseConnectedVehicle"}, {["inVehicleMessage"]: detail})})], null), $.call(graphql_response, [Object.assign({}, {["vehicle"]: null})], null), $.call(graphql_response, [Object.assign({}, {["vehicle"]: null})], null), $.call(graphql_response, [Object.assign({}, {["vehicle"]: null})], null), $.call(graphql_response, [Object.assign({}, {["vehicle"]: null})], null)], null);
 client = $.call(make_client, [session], Object.assign({}, {"read_only": false}));
-$.assert(($.eq((await $.call($.attr(client, "async_get_in_vehicle_message"), ["VIN", "campaign-id"], null)), $.call(InVehicleMessage, [], Object.assign({}, {"title": "Campaign"}, {"campaign_id": "campaign-id"}, {"viewed": null}, {"text": null}, {"expire_date": $.call($.attr(datetime, "fromisoformat"), ["2026-08-01T12:30:00-07:00"], null)})))), "test_device_notifications.py:362: await client.async_get_in_vehicle_message('VIN', 'campaign-id') == InVehicleMessage(title='Campaign', campaign_id='campaign-id', viewed=None, text=None, expire_date=datetime.fromisoformat('2026-08-01T12:30:00-07:00'))");
+$.assertEqual((await $.call($.attr(client, "async_get_in_vehicle_message"), ["VIN", "campaign-id"], null)), $.call(InVehicleMessage, [], Object.assign({}, {"title": "Campaign"}, {"campaign_id": "campaign-id"}, {"viewed": null}, {"text": null}, {"expire_date": $.call($.attr(datetime, "fromisoformat"), ["2026-08-01T12:30:00-07:00"], null)})), "test_device_notifications.py:362: await client.async_get_in_vehicle_message('VIN', 'campaign-id') == InVehicleMessage(title='Campaign', campaign_id='campaign-id', viewed=None, text=None, expire_date=datetime.fromisoformat('2026-08-01T12:30:00-07:00'))");
 $.assert((((await $.call($.attr(client, "async_get_in_vehicle_message"), ["VIN", "campaign-id"], Object.assign({}, {"push": UNSET}))) === null)), "test_device_notifications.py:369: await client.async_get_in_vehicle_message('VIN', 'campaign-id', push=UNSET) is None");
 $.assert((((await $.call($.attr(client, "async_get_in_vehicle_message"), ["VIN", "campaign-id"], Object.assign({}, {"push": null}))) === null)), "test_device_notifications.py:370: await client.async_get_in_vehicle_message('VIN', 'campaign-id', push=None) is None");
 $.assert((((await $.call($.attr(client, "async_get_in_vehicle_message"), ["VIN", "campaign-id"], Object.assign({}, {"push": false}))) === null)), "test_device_notifications.py:371: await client.async_get_in_vehicle_message('VIN', 'campaign-id', push=False) is None");
@@ -270,7 +274,7 @@ await $.raises(ReadOnlyError, null, async () => {
 await $.raises(ReadOnlyError, null, async () => {
 (await $.call($.attr(client, "async_get_in_vehicle_message"), ["VIN", "campaign-id"], null));
 });
-$.assert(($.eq($.attr(session, "calls"), [])), "test_device_notifications.py:486: session.calls == []");
+$.assertEqual($.attr(session, "calls"), [], "test_device_notifications.py:486: session.calls == []");
 }
 
 /** Translated upstream test_unknown_device_os_is_rejected_before_io. */
@@ -292,7 +296,7 @@ await $.raises($.ValueError, "UNKNOWN_VALUE", async () => {
 await $.raises($.ValueError, "UNKNOWN_VALUE", async () => {
 (await $.call($.attr(client, "async_unregister_device_for_push_notifications"), [MYNISSAN_ANDROID_APP_NAME, "device-id", $.attr(DeviceOS, "UNKNOWN_VALUE")], null));
 });
-$.assert(($.eq($.attr(session, "calls"), [])), "test_device_notifications.py:521: session.calls == []");
+$.assertEqual($.attr(session, "calls"), [], "test_device_notifications.py:521: session.calls == []");
 }
 
 $.register("test_device_notifications.py::test_legacy_push_mutations_use_exact_contracts_and_nullable_results", test_legacy_push_mutations_use_exact_contracts_and_nullable_results, []);

@@ -1,6 +1,8 @@
+// @ts-nocheck — generated implementation uses a dynamic keyword adapter; public overloads are checked by consumer tests.
+
 // AUTO-GENERATED from bvdcode/nissan-connect-sdk @ 828bde6. MIT, Copyright (c) 2026 Vadim Belov.
 
-import { py as $ } from "../src/_runtime";
+import { py as $ } from "./_support";
 
 
 
@@ -50,7 +52,7 @@ $.assert((((await $.call($.attr(client, "async_get_shareable_capabilities"), ["V
 $.assert((((await $.call($.attr(client, "async_get_tariff_pricing"), ["VIN", "location-1"], null)) === null)), "test_extended_vehicle_reads_part_01.py:166: await client.async_get_tariff_pricing('VIN', 'location-1') is None");
 required_location_variables = Object.assign({}, {["vin"]: "VIN"}, {["latitude"]: "32.7157"}, {["longitude"]: "-117.1611"}, {["inNetworkOnly"]: true}, {["range"]: 25});
 expected_calls = [["DrivingHistory", Object.assign({}, {["vin"]: "VIN"}, {["aggregator"]: "DAILY"})], ["DrivingHistory", Object.assign({}, {["vin"]: "VIN"}, {["aggregator"]: "MONTHLY"}, {["distanceUnit"]: null}, {["weightUnit"]: null}, {["speedUnit"]: null})], ["DrivingHistory", Object.assign({}, {["vin"]: "VIN"}, {["aggregator"]: "YEARLY"}, {["distanceUnit"]: "KILOMETER"}, {["weightUnit"]: "KILOGRAM"}, {["speedUnit"]: "KPH"})], ["EVChargeStations", Object.assign({}, {["vin"]: "VIN"}, {["coordinate"]: Object.assign({}, {["latitude"]: 32.7157}, {["longitude"]: -(117.1611)})})], ["EVChargeStations", Object.assign({}, {["vin"]: "VIN"}, {["coordinate"]: Object.assign({}, {["latitude"]: 32.7157}, {["longitude"]: -(117.1611)})}, {["plugConnectorTypes"]: null}, {["enableWithinRangeRestriction"]: null})], ["EVChargeStations", Object.assign({}, {["vin"]: "VIN"}, {["coordinate"]: Object.assign({}, {["latitude"]: 32.7157}, {["longitude"]: -(117.1611)})}, {["plugConnectorTypes"]: ["CCS", null, "NACS"]}, {["enableWithinRangeRestriction"]: true})], ["eVehicleEligibility", Object.assign({}, {["vin"]: "VIN"})], ["LastKnownCameraUsageCounter", Object.assign({}, {["vin"]: "VIN"})], ["LocationDetails", required_location_variables], ["LocationDetails", Object.assign({}, required_location_variables, {["operatorName"]: null}, {["evse"]: null}, {["plugType"]: null}, {["chargeLevel"]: null}, {["pncStationsOnly"]: null})], ["LocationDetails", Object.assign({}, {["vin"]: "VIN"}, {["latitude"]: "32.7157"}, {["longitude"]: "-117.1611"}, {["inNetworkOnly"]: false}, {["range"]: 50}, {["operatorName"]: ["Operator", null]}, {["evse"]: "AVAILABLE"}, {["plugType"]: ["CCS", null]}, {["chargeLevel"]: "L3"}, {["pncStationsOnly"]: false})], ["ParkingChargeable", Object.assign({}, {["evseId"]: "EVSE-1"})], ["ShareableCapabilities", Object.assign({}, {["vin"]: "VIN"})], ["ShareableCapabilities", Object.assign({}, {["vin"]: "VIN"}, {["driverId"]: null})], ["ShareableCapabilities", Object.assign({}, {["vin"]: "VIN"}, {["driverId"]: "driver-1"})], ["TariffPricing", Object.assign({}, {["vin"]: "VIN"}, {["locationId"]: "location-1"})]];
-$.assert(($.eq($.call($.len, [$.attr(session, "calls")], null), $.call($.len, [expected_calls], null))), "test_extended_vehicle_reads_part_01.py:257: len(session.calls) == len(expected_calls)");
+$.assertEqual($.call($.len, [$.attr(session, "calls")], null), $.call($.len, [expected_calls], null), "test_extended_vehicle_reads_part_01.py:257: len(session.calls) == len(expected_calls)");
 for ([index, [operation_name, variables]] of $.iterable($.call($.enumerate, [expected_calls], null))) {
 $.call(assert_graphql_call, [session, index, operation_name, variables], null);
 }

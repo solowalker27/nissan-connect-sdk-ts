@@ -1,0 +1,15 @@
+import { _nullable_list, _required_nullable_datetime, _required_nullable_float } from "./_finance_value_parsing";
+export { _nullable_list, _required_nullable_datetime, _required_nullable_float };
+import { _enum, _required_field, _required_nullable_bool, _required_nullable_int, _required_nullable_string, _required_optional_typed_object, _required_string, _typename } from "./account_parsing";
+export { _enum, _required_field, _required_nullable_bool, _required_nullable_int, _required_nullable_string, _required_optional_typed_object, _required_string, _typename };
+import { FinancialVehicle, NCFBillingAddress, NCFCustomerType, NCFFinancialAccount, NCFFinancialContract, NCFFinancialCustomer, NCFFinancialDealer, NCFFinancialRules, NCFFinancialVehicle, NCFLeaseDetails, NCFLoanDetails, NCFUpcomingPayment, UnselectedFinancialVehicle } from "./finance_models";
+export { FinancialVehicle, NCFBillingAddress, NCFCustomerType, NCFFinancialAccount, NCFFinancialContract, NCFFinancialCustomer, NCFFinancialDealer, NCFFinancialRules, NCFFinancialVehicle, NCFLeaseDetails, NCFLoanDetails, NCFUpcomingPayment, UnselectedFinancialVehicle };
+export declare function _parse_financial_vehicle(value: Record<string, unknown>, path: string): FinancialVehicle;
+export declare function _parse_financial_account(value: Record<string, unknown> | null, path: string): NCFFinancialAccount | null;
+export declare function _parse_upcoming_payment(value: Record<string, unknown> | null, path: string): NCFUpcomingPayment | null;
+export declare function _parse_financial_contract(value: Record<string, unknown> | null, path: string): NCFFinancialContract | null;
+export declare function _parse_financial_customer(value: Record<string, unknown>, path: string): NCFFinancialCustomer;
+export declare function _parse_billing_address(value: Record<string, unknown> | null, path: string): NCFBillingAddress | null;
+export declare function _parse_financial_dealer(value: Record<string, unknown> | null, path: string): NCFFinancialDealer | null;
+export declare function _parse_financial_rules(value: Record<string, unknown> | null, path: string): NCFFinancialRules | null;
+export declare function _parse_lease_details(value: Record<string, unknown>, path: string): NCFLeaseDetails;

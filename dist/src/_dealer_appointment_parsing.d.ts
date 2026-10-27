@@ -1,0 +1,23 @@
+import { _nullable_list, _optional_selected_nullable_string, _required_bool, _required_datetime, _required_nullable_float } from "./_dealer_value_parsing";
+export { _nullable_list, _optional_selected_nullable_string, _required_bool, _required_datetime, _required_nullable_float };
+import { _enum, _required_field, _required_int, _required_nullable_bool, _required_nullable_int, _required_nullable_string, _required_optional_typed_object, _required_string, _typed_object } from "./account_parsing";
+export { _enum, _required_field, _required_int, _required_nullable_bool, _required_nullable_int, _required_nullable_string, _required_optional_typed_object, _required_string, _typed_object };
+import { AppointmentServiceOperation, DealerServiceOperation, ServiceAddress, ServiceAdvisor, ServiceAppointment, ServiceAppointmentTimeSlot, ServiceCategory, ServiceCategoryOperation, ServiceContactMethod, ServiceContactMethodType, ServiceDealership, ServiceDiscount, ServiceOperationsAtInterval, ServiceTransportationOption } from "./dealer_models";
+export { AppointmentServiceOperation, DealerServiceOperation, ServiceAddress, ServiceAdvisor, ServiceAppointment, ServiceAppointmentTimeSlot, ServiceCategory, ServiceCategoryOperation, ServiceContactMethod, ServiceContactMethodType, ServiceDealership, ServiceDiscount, ServiceOperationsAtInterval, ServiceTransportationOption };
+import { ResponseError } from "./exceptions";
+export { ResponseError };
+export declare function _parse_service_advisor(value: Record<string, unknown>, path: string): ServiceAdvisor;
+export declare function _parse_time_slot(value: Record<string, unknown>, path: string): ServiceAppointmentTimeSlot;
+export declare function _parse_service_appointment(value: Record<string, unknown>, path: string): ServiceAppointment;
+export declare function _parse_dealership(value: Record<string, unknown>, path: string): ServiceDealership;
+export declare function _parse_service_address(value: Record<string, unknown> | null, path: string, options: {
+    pick_up: boolean;
+}): ServiceAddress | null;
+export declare function _parse_transportation_option(value: Record<string, unknown>, path: string): ServiceTransportationOption;
+export declare function _parse_contact_method(value: Record<string, unknown>, path: string): ServiceContactMethod;
+export declare function _parse_appointment_operation(value: Record<string, unknown>, path: string): AppointmentServiceOperation;
+export declare function _parse_service_category(value: Record<string, unknown>, path: string): ServiceCategory;
+export declare function _parse_category_operation(value: Record<string, unknown>, path: string): ServiceCategoryOperation;
+export declare function _parse_service_operation(value: Record<string, unknown>, path: string): DealerServiceOperation;
+export declare function _parse_discount(value: Record<string, unknown>, path: string): ServiceDiscount;
+export declare function _parse_service_operations_at_interval(value: Record<string, unknown>, path: string): ServiceOperationsAtInterval;

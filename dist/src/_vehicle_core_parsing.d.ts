@@ -1,0 +1,23 @@
+import { _list, _object, _optional_bool, _optional_camera_position, _optional_camera_service, _optional_datetime, _optional_int, _optional_list, _optional_object, _optional_str, _required_str } from "./_parsing_values";
+export { _list, _object, _optional_bool, _optional_camera_position, _optional_camera_service, _optional_datetime, _optional_int, _optional_list, _optional_object, _optional_str, _required_str };
+import { _parse_alert_location, _parse_boundary_alerts, _parse_curfew_alerts, _parse_speed_alerts, _parse_valet_alert } from "./_vehicle_alert_parsing";
+export { _parse_alert_location, _parse_boundary_alerts, _parse_curfew_alerts, _parse_speed_alerts, _parse_valet_alert };
+import { _parse_battery, _parse_climate_status, _parse_distance, _parse_doors, _parse_engine_oil_drain_range, _parse_location, _parse_maintenance_indicator, _parse_mileage, _parse_tires } from "./_vehicle_response_parsing";
+export { _parse_battery, _parse_climate_status, _parse_distance, _parse_doors, _parse_engine_oil_drain_range, _parse_location, _parse_maintenance_indicator, _parse_mileage, _parse_tires };
+import { ResponseError } from "./exceptions";
+export { ResponseError };
+import { BreachAlert, BreachAlerts, DataPrivacyMode, ReminderNotificationsAfterLeavingVehicle, Vehicle, VehicleAlertKind, VehicleAlertRequest, VehicleAlerts, VehicleLocation, VehiclePhoto, VehiclePhotos, VehicleStatus } from "./models";
+export { BreachAlert, BreachAlerts, DataPrivacyMode, ReminderNotificationsAfterLeavingVehicle, Vehicle, VehicleAlertKind, VehicleAlertRequest, VehicleAlerts, VehicleLocation, VehiclePhoto, VehiclePhotos, VehicleStatus };
+export declare function parse_vehicles(data: Record<string, unknown>): ReadonlyArray<Vehicle>;
+export declare function parse_vehicle_status(data: Record<string, unknown>, vin: string): VehicleStatus;
+export declare function parse_vehicle_location(data: Record<string, unknown>, vin: string): VehicleLocation;
+export declare function parse_photos_around_vehicle(data: Record<string, unknown>): VehiclePhotos | null;
+export declare function parse_vehicle_alerts(data: Record<string, unknown>): VehicleAlerts | null;
+export declare function parse_breach_alerts(data: Record<string, unknown>): BreachAlerts | null;
+export declare function parse_alert_request_status(data: Record<string, unknown>, root_field: string, options: {
+    status_required: boolean;
+}): string | null;
+export declare function parse_vehicle_alert_request(data: Record<string, unknown>, root_field: string, kind: VehicleAlertKind): VehicleAlertRequest;
+export declare function parse_reminder_notifications_after_leaving_vehicle(data: Record<string, unknown>): ReminderNotificationsAfterLeavingVehicle | null;
+export declare function parse_toggle_reminder_notifications_after_leaving_vehicle(data: Record<string, unknown>): boolean | null;
+export declare function parse_vehicle_data_privacy_mode(data: Record<string, unknown>): DataPrivacyMode | null;

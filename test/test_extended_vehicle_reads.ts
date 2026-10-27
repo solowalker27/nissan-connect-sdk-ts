@@ -1,6 +1,8 @@
+// @ts-nocheck — generated implementation uses a dynamic keyword adapter; public overloads are checked by consumer tests.
+
 // AUTO-GENERATED from bvdcode/nissan-connect-sdk @ 828bde6. MIT, Copyright (c) 2026 Vadim Belov.
 
-import { py as $ } from "../src/_runtime";
+import { py as $ } from "./_support";
 
 
 
@@ -18,8 +20,9 @@ import { NissanClient, Tokens } from "../src/index";
 
 /** Translated upstream FakeResponse. */
 export class FakeResponse {
+constructor(...__args: any[]) { if (__args[0] === $.SKIP) return; if (this.__init__) this.__init__(...__args); else $.superInit(this, FakeResponse, __args); }
 /** Translated upstream __init__. */
-constructor(...__args: any[]) {
+__init__(...__args: any[]): any {
 let {"payload": payload} = $.bind(__args, ["payload"], {}, [], null, null);
 this["status"] = 200;
 this["_payload"] = payload;
@@ -44,8 +47,9 @@ $.classType(FakeResponse);
 
 /** Translated upstream FakeSession. */
 export class FakeSession {
+constructor(...__args: any[]) { if (__args[0] === $.SKIP) return; if (this.__init__) this.__init__(...__args); else $.superInit(this, FakeSession, __args); }
 /** Translated upstream __init__. */
-constructor(...__args: any[]) {
+__init__(...__args: any[]): any {
 let {"responses": responses} = $.bind(__args, [], {}, [], "responses", null);
 this["responses"] = $.call($.list, [responses], null);
 this["calls"] = [];
@@ -84,10 +88,10 @@ let document, payload, tokens;
 let {"session": session, "index": index, "operation_name": operation_name, "variables": variables} = $.bind(__args, ["session", "index", "operation_name", "variables"], {}, [], null, null);
 payload = $.call($.attr($.get($.attr(session, "calls"), index), "get"), ["json"], null);
 $.assert($.call($.isinstance, [payload, Mapping], null), "test_extended_vehicle_reads.py:75: isinstance(payload, Mapping)");
-$.assert(($.eq($.get(payload, "operationName"), operation_name)), "test_extended_vehicle_reads.py:76: payload['operationName'] == operation_name");
-$.assert(($.eq($.get(payload, "variables"), variables)), "test_extended_vehicle_reads.py:77: payload['variables'] == variables");
+$.assertEqual($.get(payload, "operationName"), operation_name, "test_extended_vehicle_reads.py:76: payload['operationName'] == operation_name");
+$.assertEqual($.get(payload, "variables"), variables, "test_extended_vehicle_reads.py:77: payload['variables'] == variables");
 document = $.get(payload, "query");
 $.assert($.call($.isinstance, [document, $.str], null), "test_extended_vehicle_reads.py:79: isinstance(document, str)");
 tokens = $.call($.attr(" ", "join"), [$.call($.attr(re, "findall"), ["\\.\\.\\.|[_A-Za-z][_0-9A-Za-z]*|[$!():{}\\[\\]]", document], null)], null);
-$.assert(($.eq($.call($.attr($.call($.attr(hashlib, "sha256"), [$.call($.attr(tokens, "encode"), [], null)], null), "hexdigest"), [], null), $.get(EXPECTED_QUERY_TOKEN_HASHES, operation_name))), "test_extended_vehicle_reads.py:81: hashlib.sha256(tokens.encode()).hexdigest() == EXPECTED_QUERY_TOKEN_HASHES[operation_name]");
+$.assertEqual($.call($.attr($.call($.attr(hashlib, "sha256"), [$.call($.attr(tokens, "encode"), [], null)], null), "hexdigest"), [], null), $.get(EXPECTED_QUERY_TOKEN_HASHES, operation_name), "test_extended_vehicle_reads.py:81: hashlib.sha256(tokens.encode()).hexdigest() == EXPECTED_QUERY_TOKEN_HASHES[operation_name]");
 }

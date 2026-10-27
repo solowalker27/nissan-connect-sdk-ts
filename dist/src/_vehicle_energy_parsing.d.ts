@@ -1,0 +1,12 @@
+import { _list, _object, _optional_datetime, _optional_float, _optional_int, _optional_list, _optional_object, _optional_str, _optional_v2l_state, _parse_week_days, _required_datetime, _required_str } from "./_parsing_values";
+export { _list, _object, _optional_datetime, _optional_float, _optional_int, _optional_list, _optional_object, _optional_str, _optional_v2l_state, _parse_week_days, _required_datetime, _required_str };
+import { _parse_climate_parameters, _parse_temperature } from "./_vehicle_response_parsing";
+export { _parse_climate_parameters, _parse_temperature };
+import { ChargeConfig, ChargeHistorySummary, ChargeSchedule, ChargeSession, ClimateDefaults, ClimateSchedule, DelayedClimateSchedule, V2LStatus, VehicleChargeHistory, VehicleClimateSchedules } from "./models";
+export { ChargeConfig, ChargeHistorySummary, ChargeSchedule, ChargeSession, ClimateDefaults, ClimateSchedule, DelayedClimateSchedule, V2LStatus, VehicleChargeHistory, VehicleClimateSchedules };
+export declare function parse_charge_schedules(data: Record<string, unknown>): ReadonlyArray<ChargeSchedule>;
+export declare function parse_charge_config(data: Record<string, unknown>): ChargeConfig | null;
+export declare function parse_v2l_status(data: Record<string, unknown>): V2LStatus | null;
+export declare function parse_vehicle_charge_history(data: Record<string, unknown>): VehicleChargeHistory | null;
+export declare function parse_climate_schedules(data: Record<string, unknown>): VehicleClimateSchedules;
+export declare function parse_climate_defaults(data: Record<string, unknown>): ClimateDefaults | null;

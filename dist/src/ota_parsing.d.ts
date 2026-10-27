@@ -1,0 +1,17 @@
+import { py as $ } from "./_runtime";
+import { ResponseError } from "./exceptions";
+export { ResponseError };
+import { OtaBatteryLevel, OtaCampaignDescription, OtaUpdate, OtaUpdateErrorInfo, OtaUpdateProgress, OtaUpdateState, OtaUpdateStatus } from "./ota_models";
+export { OtaBatteryLevel, OtaCampaignDescription, OtaUpdate, OtaUpdateErrorInfo, OtaUpdateProgress, OtaUpdateState, OtaUpdateStatus };
+export declare function parse_ota_update(data: Record<string, unknown>): OtaUpdate | null;
+export declare function parse_ota_update_progress(data: Record<string, unknown>): OtaUpdateProgress | null;
+export declare function _object(value: unknown, path: string): Record<string, unknown>;
+export declare function _optional_object(value: unknown, path: string): Record<string, unknown> | null;
+export declare function _nullable_list(value: unknown, path: string): ReadonlyArray<unknown> | null;
+export declare function _string(value: unknown, path: string): string;
+export declare function _nullable_string(value: unknown, path: string): string | null;
+export declare function _bool(value: unknown, path: string): boolean;
+export declare function _nullable_int(value: unknown, path: string): number | null;
+export declare function _nullable_float(value: unknown, path: string): number | null;
+export declare function _nullable_state(value: unknown, path: string): OtaUpdateState | null;
+export declare function _nullable_datetime(value: unknown, path: string): $.DateValue | null;

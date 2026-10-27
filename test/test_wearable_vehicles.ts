@@ -1,6 +1,8 @@
+// @ts-nocheck — generated implementation uses a dynamic keyword adapter; public overloads are checked by consumer tests.
+
 // AUTO-GENERATED from bvdcode/nissan-connect-sdk @ 828bde6. MIT, Copyright (c) 2026 Vadim Belov.
 
-import { py as $ } from "../src/_runtime";
+import { py as $ } from "./_support";
 
 
 
@@ -37,11 +39,11 @@ return Object.assign({}, {["__typename"]: "BaseElectric2Vehicle"}, {["vin"]: "JN
 export function test_wearable_vehicles_operation_matches_service_document_and_id(...__args: any[]): any {
 let tokens;
 let {} = $.bind(__args, [], {}, [], null, null);
-$.assert(($.eq($.attr(operations, "WEARABLE_VEHICLES"), EXPECTED_DOCUMENT)), "test_wearable_vehicles.py:55: operations.WEARABLE_VEHICLES == EXPECTED_DOCUMENT");
-$.assert(($.eq($.attr(operations, "WEARABLE_VEHICLES_OPERATION_ID"), EXPECTED_OPERATION_ID)), "test_wearable_vehicles.py:56: operations.WEARABLE_VEHICLES_OPERATION_ID == EXPECTED_OPERATION_ID");
-$.assert(($.eq($.call($.attr($.call($.attr(hashlib, "sha256"), [$.call($.attr($.attr(operations, "WEARABLE_VEHICLES"), "encode"), [], null)], null), "hexdigest"), [], null), EXPECTED_OPERATION_ID)), "test_wearable_vehicles.py:57: hashlib.sha256(operations.WEARABLE_VEHICLES.encode()).hexdigest() == EXPECTED_OPERATION_ID");
+$.assertEqual($.attr(operations, "WEARABLE_VEHICLES"), EXPECTED_DOCUMENT, "test_wearable_vehicles.py:55: operations.WEARABLE_VEHICLES == EXPECTED_DOCUMENT");
+$.assertEqual($.attr(operations, "WEARABLE_VEHICLES_OPERATION_ID"), EXPECTED_OPERATION_ID, "test_wearable_vehicles.py:56: operations.WEARABLE_VEHICLES_OPERATION_ID == EXPECTED_OPERATION_ID");
+$.assertEqual($.call($.attr($.call($.attr(hashlib, "sha256"), [$.call($.attr($.attr(operations, "WEARABLE_VEHICLES"), "encode"), [], null)], null), "hexdigest"), [], null), EXPECTED_OPERATION_ID, "test_wearable_vehicles.py:57: hashlib.sha256(operations.WEARABLE_VEHICLES.encode()).hexdigest() == EXPECTED_OPERATION_ID");
 tokens = $.call($.attr(re, "findall"), ["\\.\\.\\.|[_A-Za-z][_0-9A-Za-z]*|[$!():{}\\[\\]]", $.attr(operations, "WEARABLE_VEHICLES")], null);
-$.assert(($.eq($.call($.attr($.call($.attr(hashlib, "sha256"), [$.call($.attr($.call($.attr(" ", "join"), [tokens], null), "encode"), [], null)], null), "hexdigest"), [], null), EXPECTED_OPERATION_ID)), "test_wearable_vehicles.py:65: hashlib.sha256(' '.join(tokens).encode()).hexdigest() == EXPECTED_OPERATION_ID");
+$.assertEqual($.call($.attr($.call($.attr(hashlib, "sha256"), [$.call($.attr($.call($.attr(" ", "join"), [tokens], null), "encode"), [], null)], null), "hexdigest"), [], null), EXPECTED_OPERATION_ID, "test_wearable_vehicles.py:65: hashlib.sha256(' '.join(tokens).encode()).hexdigest() == EXPECTED_OPERATION_ID");
 }
 
 /** Translated upstream test_parse_wearable_vehicles_preserves_exact_response_shape. */
@@ -49,7 +51,7 @@ export function test_parse_wearable_vehicles_preserves_exact_response_shape(..._
 let result;
 let {} = $.bind(__args, [], {}, [], null, null);
 result = $.call(parse_vehicles_with_capabilities, [Object.assign({}, {["vehicles"]: [$.call(_vehicle_payload, [], null)]})], null);
-$.assert(($.eq(result, [$.call(VehicleWithCapabilities, [], Object.assign({}, {"vin": "JN1DF0CD0RM000001"}, {"nickname": "Ariya"}, {"image_url": "https://example.invalid/ariya.png"}, {"year": "2024"}, {"model": "ARIYA"}, {"driver_type": "PRIMARY"}, {"capabilities": $.call(VehicleCapabilitySummary, [], Object.assign({}, {"telematics_program": "NNA_EV"}, {"enrollment_status": "ENROLLED"}, {"services": [$.call(ServiceCapability, [], Object.assign({}, {"type": "REMOTE_CLIMATE_CONTROL"}, {"enabled": true}, {"subscribed": null})), null]}))}))])), "test_wearable_vehicles.py:71: result == (VehicleWithCapabilities(vin='JN1DF0CD0RM000001', nickname='Ariya', image_url='https://example.invalid/ariya.png', year='2024', model='ARIYA', driver_type='PRIMARY', capabilities=VehicleCapabilitySummary(telematics_program='NNA_EV', enrollment_status='ENROLLED', services=(ServiceCapability(type='REMOTE_CLIMATE_CONTROL', enabled=True, subscribed=None), None))),)");
+$.assertEqual(result, [$.call(VehicleWithCapabilities, [], Object.assign({}, {"vin": "JN1DF0CD0RM000001"}, {"nickname": "Ariya"}, {"image_url": "https://example.invalid/ariya.png"}, {"year": "2024"}, {"model": "ARIYA"}, {"driver_type": "PRIMARY"}, {"capabilities": $.call(VehicleCapabilitySummary, [], Object.assign({}, {"telematics_program": "NNA_EV"}, {"enrollment_status": "ENROLLED"}, {"services": [$.call(ServiceCapability, [], Object.assign({}, {"type": "REMOTE_CLIMATE_CONTROL"}, {"enabled": true}, {"subscribed": null})), null]}))}))], "test_wearable_vehicles.py:71: result == (VehicleWithCapabilities(vin='JN1DF0CD0RM000001', nickname='Ariya', image_url='https://example.invalid/ariya.png', year='2024', model='ARIYA', driver_type='PRIMARY', capabilities=VehicleCapabilitySummary(telematics_program='NNA_EV', enrollment_status='ENROLLED', services=(ServiceCapability(type='REMOTE_CLIMATE_CONTROL', enabled=True, subscribed=None), None))),)");
 }
 
 /** Translated upstream test_parse_wearable_vehicles_preserves_future_enum_values. */
@@ -71,20 +73,20 @@ result = $.call(parse_vehicles_with_capabilities, [Object.assign({}, {["vehicles
 $.assert(((result !== null)), "test_wearable_vehicles.py:110: result is not None");
 parsed_vehicle = $.get(result, 0);
 $.assert(((parsed_vehicle !== null)), "test_wearable_vehicles.py:112: parsed_vehicle is not None");
-$.assert(($.eq($.attr(parsed_vehicle, "driver_type"), "FUTURE_DRIVER")), "test_wearable_vehicles.py:113: parsed_vehicle.driver_type == 'FUTURE_DRIVER'");
+$.assertEqual($.attr(parsed_vehicle, "driver_type"), "FUTURE_DRIVER", "test_wearable_vehicles.py:113: parsed_vehicle.driver_type == 'FUTURE_DRIVER'");
 $.assert((($.attr(parsed_vehicle, "capabilities") !== null)), "test_wearable_vehicles.py:114: parsed_vehicle.capabilities is not None");
-$.assert(($.eq($.attr($.attr(parsed_vehicle, "capabilities"), "telematics_program"), "FUTURE_PROGRAM")), "test_wearable_vehicles.py:115: parsed_vehicle.capabilities.telematics_program == 'FUTURE_PROGRAM'");
-$.assert(($.eq($.attr($.attr(parsed_vehicle, "capabilities"), "enrollment_status"), "FUTURE_STATUS")), "test_wearable_vehicles.py:116: parsed_vehicle.capabilities.enrollment_status == 'FUTURE_STATUS'");
+$.assertEqual($.attr($.attr(parsed_vehicle, "capabilities"), "telematics_program"), "FUTURE_PROGRAM", "test_wearable_vehicles.py:115: parsed_vehicle.capabilities.telematics_program == 'FUTURE_PROGRAM'");
+$.assertEqual($.attr($.attr(parsed_vehicle, "capabilities"), "enrollment_status"), "FUTURE_STATUS", "test_wearable_vehicles.py:116: parsed_vehicle.capabilities.enrollment_status == 'FUTURE_STATUS'");
 $.assert((($.attr($.attr(parsed_vehicle, "capabilities"), "services") !== null)), "test_wearable_vehicles.py:117: parsed_vehicle.capabilities.services is not None");
 parsed_service = $.get($.attr($.attr(parsed_vehicle, "capabilities"), "services"), 0);
 $.assert(((parsed_service !== null)), "test_wearable_vehicles.py:119: parsed_service is not None");
-$.assert(($.eq($.attr(parsed_service, "type"), "FUTURE_SERVICE")), "test_wearable_vehicles.py:120: parsed_service.type == 'FUTURE_SERVICE'");
+$.assertEqual($.attr(parsed_service, "type"), "FUTURE_SERVICE", "test_wearable_vehicles.py:120: parsed_service.type == 'FUTURE_SERVICE'");
 }
 
 /** Translated upstream test_parse_wearable_vehicles_preserves_nullable_root_list_and_items. */
 export function test_parse_wearable_vehicles_preserves_nullable_root_list_and_items(...__args: any[]): any {
 let {"payload": payload, "expected": expected} = $.bind(__args, ["payload", "expected"], {}, [], null, null);
-$.assert(($.eq($.call(parse_vehicles_with_capabilities, [payload], null), expected)), "test_wearable_vehicles.py:135: parse_vehicles_with_capabilities(payload) == expected");
+$.assertEqual($.call(parse_vehicles_with_capabilities, [payload], null), expected, "test_wearable_vehicles.py:135: parse_vehicles_with_capabilities(payload) == expected");
 }
 
 /** Translated upstream test_parse_wearable_vehicle_preserves_nullable_vehicle_fields. */
@@ -120,7 +122,7 @@ $.assert((($.attr(parsed_vehicle, "capabilities") !== null)), "test_wearable_veh
 if ($.truth(((service_capability === null)))) {
 $.assert((($.attr($.attr(parsed_vehicle, "capabilities"), "services") === null)), "test_wearable_vehicles.py:170: parsed_vehicle.capabilities.services is None");
 } else {
-$.assert(($.eq($.attr($.attr(parsed_vehicle, "capabilities"), "services"), [])), "test_wearable_vehicles.py:172: parsed_vehicle.capabilities.services == ()");
+$.assertEqual($.attr($.attr(parsed_vehicle, "capabilities"), "services"), [], "test_wearable_vehicles.py:172: parsed_vehicle.capabilities.services == ()");
 }
 }
 

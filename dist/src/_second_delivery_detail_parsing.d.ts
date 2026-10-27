@@ -1,0 +1,23 @@
+import { _required_datetime, _required_nullable_datetime, _required_nullable_float } from "./_second_delivery_value_parsing";
+export { _required_datetime, _required_nullable_datetime, _required_nullable_float };
+import { _enum, _required_field, _required_nullable_bool, _required_nullable_int, _required_nullable_string, _required_optional_typed_object, _root, _typed_object, _typename } from "./account_parsing";
+export { _enum, _required_field, _required_nullable_bool, _required_nullable_int, _required_nullable_string, _required_optional_typed_object, _root, _typed_object, _typename };
+import { ResponseError } from "./exceptions";
+export { ResponseError };
+import { SecondDeliveryAppointmentMode } from "./second_delivery_inputs";
+export { SecondDeliveryAppointmentMode };
+import { SecondDeliveryAddress, SecondDeliveryAddressNotServiced, SecondDeliveryAppointmentBooked, SecondDeliveryAppointmentCompleted, SecondDeliveryAppointmentReference, SecondDeliveryAppointmentStatus, SecondDeliveryBookedAppointment, SecondDeliveryCallToAction, SecondDeliveryContact, SecondDeliveryCoordinates, SecondDeliveryDealer, SecondDeliveryEligibilityError, SecondDeliveryEligibilityResult, SecondDeliveryEligible, SecondDeliveryHub, SecondDeliveryLeadCar, SecondDeliveryMarketingMessage, SecondDeliveryMarketingVersion, SecondDeliverySlotsByDate, SecondDeliveryTimeSlot, SecondDeliveryTimeSlots, SecondDeliveryTimeSlotsResult, UnselectedSecondDeliveryResult } from "./second_delivery_models";
+export { SecondDeliveryAddress, SecondDeliveryAddressNotServiced, SecondDeliveryAppointmentBooked, SecondDeliveryAppointmentCompleted, SecondDeliveryAppointmentReference, SecondDeliveryAppointmentStatus, SecondDeliveryBookedAppointment, SecondDeliveryCallToAction, SecondDeliveryContact, SecondDeliveryCoordinates, SecondDeliveryDealer, SecondDeliveryEligibilityError, SecondDeliveryEligibilityResult, SecondDeliveryEligible, SecondDeliveryHub, SecondDeliveryLeadCar, SecondDeliveryMarketingMessage, SecondDeliveryMarketingVersion, SecondDeliverySlotsByDate, SecondDeliveryTimeSlot, SecondDeliveryTimeSlots, SecondDeliveryTimeSlotsResult, UnselectedSecondDeliveryResult };
+export declare function _second_delivery(data: Record<string, unknown>): Record<string, unknown> | null;
+export declare function _second_delivery_field(data: Record<string, unknown>, field: string): Record<string, unknown> | null;
+export declare function _parse_booked_appointment(value: Record<string, unknown>, path: string): SecondDeliveryBookedAppointment;
+export declare function _parse_appointment_reference(value: Record<string, unknown> | null, path: string): SecondDeliveryAppointmentReference | null;
+export declare function _parse_time_slots(data: Record<string, unknown>, mode_field: string): SecondDeliveryTimeSlotsResult | null;
+export declare function _parse_slots_by_date(value: Record<string, unknown>, path: string): SecondDeliverySlotsByDate;
+export declare function _parse_eligibility_result(value: Record<string, unknown> | null, path: string): SecondDeliveryEligibilityResult | null;
+export declare function _parse_call_to_action(value: Record<string, unknown> | null, path: string): SecondDeliveryCallToAction | null;
+export declare function _parse_lead_car(value: Record<string, unknown> | null, path: string): SecondDeliveryLeadCar | null;
+export declare function _parse_hub(value: Record<string, unknown> | null, path: string, options: {
+    include_dealer: boolean;
+}): SecondDeliveryHub | null;
+export declare function _parse_address(value: Record<string, unknown> | null, path: string): SecondDeliveryAddress | null;

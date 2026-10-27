@@ -1,0 +1,16 @@
+import { _datetime, _float, _list, _nullable_bool, _nullable_datetime, _nullable_enum, _nullable_list, _nullable_string, _object, _optional_object, _string } from "./_navigation_value_parsing";
+export { _datetime, _float, _list, _nullable_bool, _nullable_datetime, _nullable_enum, _nullable_list, _nullable_string, _object, _optional_object, _string };
+import { _parse_ev_waypoint, _parse_ev_waypoint_error_details, _parse_navigation_route_waypoints, _parse_optional_address, _parse_optional_coordinate, _parse_optional_distance, _parse_optional_notification_interval, _parse_optional_temperature } from "./_navigation_waypoint_parsing";
+export { _parse_ev_waypoint, _parse_ev_waypoint_error_details, _parse_navigation_route_waypoints, _parse_optional_address, _parse_optional_coordinate, _parse_optional_distance, _parse_optional_notification_interval, _parse_optional_temperature };
+import { ResponseError } from "./exceptions";
+export { ResponseError };
+import { RouteStatus } from "./navigation_inputs";
+export { RouteStatus };
+import { EVWaypointLimitReachedError, EVWaypointMinimumRequirementNotMetError, EVWaypointResult, EVWaypointUnableToCompleteRouteError, Journey, JourneyWaypoint, PlannedRoute, PointOfInterestDestination, PointOfInterestDestinationFolder, RouteHistoryEntry, SavedTJunctionLocation, TJunctionLocations, UnsavedTJunctionLocation, VehicleJourneys, VehiclePlannedRoutes, VehiclePointOfInterestDestinations, VehicleRoutesHistory } from "./navigation_models";
+export { EVWaypointLimitReachedError, EVWaypointMinimumRequirementNotMetError, EVWaypointResult, EVWaypointUnableToCompleteRouteError, Journey, JourneyWaypoint, PlannedRoute, PointOfInterestDestination, PointOfInterestDestinationFolder, RouteHistoryEntry, SavedTJunctionLocation, TJunctionLocations, UnsavedTJunctionLocation, VehicleJourneys, VehiclePlannedRoutes, VehiclePointOfInterestDestinations, VehicleRoutesHistory };
+export declare function parse_vehicle_journeys(data: Record<string, unknown>): VehicleJourneys | null;
+export declare function parse_vehicle_planned_routes(data: Record<string, unknown>): VehiclePlannedRoutes | null;
+export declare function parse_vehicle_routes_history(data: Record<string, unknown>): VehicleRoutesHistory | null;
+export declare function parse_vehicle_point_of_interest_destinations(data: Record<string, unknown>): VehiclePointOfInterestDestinations | null;
+export declare function parse_t_junction_locations(data: Record<string, unknown>): TJunctionLocations | null;
+export declare function parse_vehicle_ev_waypoints(data: Record<string, unknown>): EVWaypointResult | null;

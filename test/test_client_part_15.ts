@@ -1,6 +1,8 @@
+// @ts-nocheck — generated implementation uses a dynamic keyword adapter; public overloads are checked by consumer tests.
+
 // AUTO-GENERATED from bvdcode/nissan-connect-sdk @ 828bde6. MIT, Copyright (c) 2026 Vadim Belov.
 
-import { py as $ } from "../src/_runtime";
+import { py as $ } from "./_support";
 
 
 
@@ -35,15 +37,15 @@ client = $.call(make_client, [session], Object.assign({}, {"read_only": false}))
 omitted = (await $.call($.attr(client, "async_wipe_vehicle_data"), ["JN1TESTVIN"], null));
 $null = (await $.call($.attr(client, "async_wipe_vehicle_data"), ["JN1TESTVIN"], Object.assign({}, {"data_wipe_type": null})));
 tcu = (await $.call($.attr(client, "async_wipe_vehicle_data"), ["JN1TESTVIN"], Object.assign({}, {"data_wipe_type": $.attr(DataWipeType, "TCU_WIPE")})));
-$.assert(($.eq(omitted, $.call(ServiceRequest, ["wipe-1", $.attr(ServiceRequestKind, "DATA_WIPE")], null))), "test_client_part_15.py:68: omitted == ServiceRequest('wipe-1', ServiceRequestKind.DATA_WIPE)");
-$.assert(($.eq($null, $.call(ServiceRequest, ["wipe-2", $.attr(ServiceRequestKind, "DATA_WIPE")], null))), "test_client_part_15.py:69: null == ServiceRequest('wipe-2', ServiceRequestKind.DATA_WIPE)");
-$.assert(($.eq(tcu, $.call(ServiceRequest, ["wipe-3", $.attr(ServiceRequestKind, "DATA_WIPE")], null))), "test_client_part_15.py:70: tcu == ServiceRequest('wipe-3', ServiceRequestKind.DATA_WIPE)");
+$.assertEqual(omitted, $.call(ServiceRequest, ["wipe-1", $.attr(ServiceRequestKind, "DATA_WIPE")], null), "test_client_part_15.py:68: omitted == ServiceRequest('wipe-1', ServiceRequestKind.DATA_WIPE)");
+$.assertEqual($null, $.call(ServiceRequest, ["wipe-2", $.attr(ServiceRequestKind, "DATA_WIPE")], null), "test_client_part_15.py:69: null == ServiceRequest('wipe-2', ServiceRequestKind.DATA_WIPE)");
+$.assertEqual(tcu, $.call(ServiceRequest, ["wipe-3", $.attr(ServiceRequestKind, "DATA_WIPE")], null), "test_client_part_15.py:70: tcu == ServiceRequest('wipe-3', ServiceRequestKind.DATA_WIPE)");
 variables = (() => { const __out: any = []; for (const call of $.iterable($.attr(session, "calls"))) { __out.push($.get($.get(call, "json"), "variables")); } return __out; })();
-$.assert(($.eq(variables, [Object.assign({}, {["vin"]: "JN1TESTVIN"}), Object.assign({}, {["vin"]: "JN1TESTVIN"}, {["dataWipeType"]: null}), Object.assign({}, {["vin"]: "JN1TESTVIN"}, {["dataWipeType"]: "TCU_WIPE"})])), "test_client_part_15.py:75: variables == [{'vin': 'JN1TESTVIN'}, {'vin': 'JN1TESTVIN', 'dataWipeType': None}, {'vin': 'JN1TESTVIN', 'dataWipeType': 'TCU_WIPE'}]");
+$.assertEqual(variables, [Object.assign({}, {["vin"]: "JN1TESTVIN"}), Object.assign({}, {["vin"]: "JN1TESTVIN"}, {["dataWipeType"]: null}), Object.assign({}, {["vin"]: "JN1TESTVIN"}, {["dataWipeType"]: "TCU_WIPE"})], "test_client_part_15.py:75: variables == [{'vin': 'JN1TESTVIN'}, {'vin': 'JN1TESTVIN', 'dataWipeType': None}, {'vin': 'JN1TESTVIN', 'dataWipeType': 'TCU_WIPE'}]");
 await $.raises(ResponseError, "does not expose a status operation for data_wipe requests", async () => {
 (await $.call($.attr(client, "async_check_service_request"), ["JN1TESTVIN", tcu], null));
 });
-$.assert(($.eq($.call($.len, [$.attr(session, "calls")], null), 3)), "test_client_part_15.py:86: len(session.calls) == 3");
+$.assertEqual($.call($.len, [$.attr(session, "calls")], null), 3, "test_client_part_15.py:86: len(session.calls) == 3");
 }
 
 /** Translated upstream test_check_ota_service_request_uses_exact_poller. */
@@ -53,10 +55,10 @@ let {} = $.bind(__args, [], {}, [], null, null);
 session = $.call(FakeSession, [$.call(FakeResponse, [200, Object.assign({}, {["data"]: Object.assign({}, {["checkOtaUpdateServiceRequest"]: Object.assign({}, {["status"]: null})})})], null)], null);
 client = $.call(make_client, [session], null);
 result = (await $.call($.attr(client, "async_check_service_request"), ["JN1TESTVIN", $.call(ServiceRequest, ["ota-request", $.attr(ServiceRequestKind, "OTA")], null)], null));
-$.assert(($.eq(result, $.call(ServiceRequestResult, [], Object.assign({}, {"status": null})))), "test_client_part_15.py:104: result == ServiceRequestResult(status=None)");
+$.assertEqual(result, $.call(ServiceRequestResult, [], Object.assign({}, {"status": null})), "test_client_part_15.py:104: result == ServiceRequestResult(status=None)");
 payload = $.get($.get($.attr(session, "calls"), 0), "json");
-$.assert(($.eq($.get(payload, "operationName"), "CheckOtaUpdateServiceRequest")), "test_client_part_15.py:106: payload['operationName'] == 'CheckOtaUpdateServiceRequest'");
-$.assert(($.eq($.get(payload, "variables"), Object.assign({}, {["vin"]: "JN1TESTVIN"}, {["serviceRequestId"]: "ota-request"}))), "test_client_part_15.py:107: payload['variables'] == {'vin': 'JN1TESTVIN', 'serviceRequestId': 'ota-request'}");
+$.assertEqual($.get(payload, "operationName"), "CheckOtaUpdateServiceRequest", "test_client_part_15.py:106: payload['operationName'] == 'CheckOtaUpdateServiceRequest'");
+$.assertEqual($.get(payload, "variables"), Object.assign({}, {["vin"]: "JN1TESTVIN"}, {["serviceRequestId"]: "ota-request"}), "test_client_part_15.py:107: payload['variables'] == {'vin': 'JN1TESTVIN', 'serviceRequestId': 'ota-request'}");
 }
 
 /** Translated upstream test_wait_for_ota_request_accepts_common_terminal_statuses. */
@@ -66,8 +68,8 @@ let {"terminal_status": terminal_status} = $.bind(__args, ["terminal_status"], {
 session = $.call(FakeSession, [$.call(FakeResponse, [200, Object.assign({}, {["data"]: Object.assign({}, {["checkOtaUpdateServiceRequest"]: Object.assign({}, {["status"]: terminal_status})})})], null)], null);
 client = $.call(make_client, [session], null);
 result = (await $.call($.attr(client, "async_wait_for_service_request"), ["JN1TESTVIN", $.call(ServiceRequest, ["ota-request", $.attr(ServiceRequestKind, "OTA")], null)], Object.assign({}, {"poll_interval_seconds": 0.001}, {"timeout_seconds": 1})));
-$.assert(($.eq($.attr(result, "status"), $.call(ServiceRequestStatus, [terminal_status], null))), "test_client_part_15.py:136: result.status == ServiceRequestStatus(terminal_status)");
-$.assert(($.eq($.call($.len, [$.attr(session, "calls")], null), 1)), "test_client_part_15.py:137: len(session.calls) == 1");
+$.assertEqual($.attr(result, "status"), $.call(ServiceRequestStatus, [terminal_status], null), "test_client_part_15.py:136: result.status == ServiceRequestStatus(terminal_status)");
+$.assertEqual($.call($.len, [$.attr(session, "calls")], null), 1, "test_client_part_15.py:137: len(session.calls) == 1");
 }
 
 /** Translated upstream test_ota_and_notification_writes_respect_read_only_mode. */
@@ -85,7 +87,7 @@ await $.raises(ReadOnlyError, null, async () => {
 await $.raises(ReadOnlyError, null, async () => {
 (await $.call($.attr(client, "async_set_notification_preferences"), ["JN1TESTVIN", []], null));
 });
-$.assert(($.eq($.attr(session, "calls"), [])), "test_client_part_15.py:152: session.calls == []");
+$.assertEqual($.attr(session, "calls"), [], "test_client_part_15.py:152: session.calls == []");
 }
 
 /** Translated upstream test_ota_and_notification_inputs_reject_invalid_values_before_io. */
@@ -106,7 +108,7 @@ await $.raises($.ValueError, "UNKNOWN_VALUE", async () => {
 await $.raises($.ValueError, "UNKNOWN_VALUE", async () => {
 (await $.call($.attr(client, "async_set_notification_preferences"), ["JN1TESTVIN", [$.call(NotificationPreferenceInput, [$.attr(NotificationCategory, "ENGINE"), [$.call(NotificationTypeInput, [$.attr(NotificationDestination, "UNKNOWN_VALUE"), true], null)]], null)]], null));
 });
-$.assert(($.eq($.attr(session, "calls"), [])), "test_client_part_15.py:197: session.calls == []");
+$.assertEqual($.attr(session, "calls"), [], "test_client_part_15.py:197: session.calls == []");
 }
 
 $.register("test_client_part_15.py::test_download_ota_update_surfaces_operation_in_progress_error", test_download_ota_update_surfaces_operation_in_progress_error, []);

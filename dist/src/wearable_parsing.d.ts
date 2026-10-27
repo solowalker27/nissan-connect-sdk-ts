@@ -1,0 +1,16 @@
+import { ResponseError } from "./exceptions";
+export { ResponseError };
+import { ServiceCapability } from "./models";
+export { ServiceCapability };
+import { VehicleCapabilitySummary, VehicleWithCapabilities } from "./wearable_models";
+export { VehicleCapabilitySummary, VehicleWithCapabilities };
+export declare function parse_vehicles_with_capabilities(data: Record<string, unknown>): ReadonlyArray<VehicleWithCapabilities | null> | null;
+export declare function _parse_vehicle(value: unknown, path: string): VehicleWithCapabilities;
+export declare function _parse_optional_capabilities(value: unknown, path: string): VehicleCapabilitySummary | null;
+export declare function _parse_service_capability(value: unknown, path: string): ServiceCapability;
+export declare function _typed_object(value: unknown, path: string): Record<string, unknown>;
+export declare function _nullable_list(value: unknown, path: string): ReadonlyArray<unknown> | null;
+export declare function _string(value: unknown, path: string): string;
+export declare function _nullable_string(value: unknown, path: string): string | null;
+export declare function _bool(value: unknown, path: string): boolean;
+export declare function _nullable_bool(value: unknown, path: string): boolean | null;

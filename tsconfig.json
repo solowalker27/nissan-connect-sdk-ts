@@ -8,11 +8,16 @@
     "sourceMap": true,
     "esModuleInterop": true,
     "skipLibCheck": true,
-    "noCheck": true,
-    "rootDir": "."
+    "noCheck": false,
+    "rootDir": ".",
+    "strict": true,
+    "inlineSources": true
   },
   "include": [
     "src/**/*.ts",
     "test/**/*.ts"
+  ],
+  "exclude": [
+    "test/consumer-types.ts"
   ]
 }

@@ -1,0 +1,12 @@
+import { py as $ } from "./_runtime";
+import { _enum, _required_field, _typed_object } from "./account_parsing";
+export { _enum, _required_field, _typed_object };
+import { ResponseError } from "./exceptions";
+export { ResponseError };
+export declare function _parse_nullable_object_list(container: Record<string, unknown>, field: string, parent_path: string, parser: ((arg0: Record<string, unknown>, arg1: string) => any)): ReadonlyArray<any | null> | null;
+export declare function _required_typed_object(container: Record<string, unknown>, field: string, path: string): Record<string, unknown>;
+export declare function _required_list(container: Record<string, unknown>, field: string, path: string): ReadonlyArray<unknown>;
+export declare function _nullable_list(container: Record<string, unknown>, field: string, path: string): ReadonlyArray<unknown> | null;
+export declare function _required_nullable_float(container: Record<string, unknown>, field: string, path: string): number | null;
+export declare function _required_nullable_datetime(container: Record<string, unknown>, field: string, path: string): $.DateValue | null;
+export declare function _required_nullable_enum(container: Record<string, unknown>, field: string, enum_type: any, path: string): any | null;

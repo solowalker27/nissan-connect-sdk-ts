@@ -1,0 +1,11 @@
+import { py as $ } from "./_runtime";
+import { _required_field, _required_nullable_string, _required_string, _root, _typename } from "./account_parsing";
+export { _required_field, _required_nullable_string, _required_string, _root, _typename };
+import { ResponseError } from "./exceptions";
+export { ResponseError };
+import { SecondDeliveryOperationError, SecondDeliveryOperationResult, SecondDeliveryOperationSuccess, UnselectedSecondDeliveryResult } from "./second_delivery_models";
+export { SecondDeliveryOperationError, SecondDeliveryOperationResult, SecondDeliveryOperationSuccess, UnselectedSecondDeliveryResult };
+export declare function _parse_operation_result(data: Record<string, unknown>, field: string, success_typename: string, error_typenames: ReadonlySet<string>): SecondDeliveryOperationResult | null;
+export declare function _required_nullable_float(container: Record<string, unknown>, field: string, path: string): number | null;
+export declare function _required_datetime(container: Record<string, unknown>, field: string, path: string): $.DateValue;
+export declare function _required_nullable_datetime(container: Record<string, unknown>, field: string, path: string): $.DateValue | null;

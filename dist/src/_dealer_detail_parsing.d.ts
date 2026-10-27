@@ -1,0 +1,16 @@
+import { _nullable_list, _optional_selected_nullable_bool, _optional_selected_nullable_list, _optional_selected_nullable_string, _required_bool, _required_nullable_float, _required_string_list } from "./_dealer_value_parsing";
+export { _nullable_list, _optional_selected_nullable_bool, _optional_selected_nullable_list, _optional_selected_nullable_string, _required_bool, _required_nullable_float, _required_string_list };
+import { _enum, _required_field, _required_nullable_bool, _required_nullable_int, _required_nullable_string, _required_optional_typed_object, _required_string } from "./account_parsing";
+export { _enum, _required_field, _required_nullable_bool, _required_nullable_int, _required_nullable_string, _required_optional_typed_object, _required_string };
+import { Dealer, DealerCoupon, DealerCouponImage, DealerSchedule, DealerServiceSchedule, DealerSummary, MaintenanceInterval, MaintenanceServiceOccurrence, MaintenanceVisit, MaintenanceVisitAlignment } from "./dealer_models";
+export { Dealer, DealerCoupon, DealerCouponImage, DealerSchedule, DealerServiceSchedule, DealerSummary, MaintenanceInterval, MaintenanceServiceOccurrence, MaintenanceVisit, MaintenanceVisitAlignment };
+import { ResponseError } from "./exceptions";
+export { ResponseError };
+export declare function _parse_dealer_summary(value: Record<string, unknown>, path: string): DealerSummary;
+export declare function _parse_dealer(value: Record<string, unknown>, path: string): Dealer;
+export declare function _parse_dealer_service_schedule(value: Record<string, unknown>, path: string): DealerServiceSchedule;
+export declare function _parse_dealer_schedule(value: Record<string, unknown>, path: string): DealerSchedule;
+export declare function _parse_coupon(value: Record<string, unknown>, path: string): DealerCoupon;
+export declare function _parse_coupon_image(value: Record<string, unknown>, path: string): DealerCouponImage;
+export declare function _parse_maintenance_visit(value: Record<string, unknown>, path: string): MaintenanceVisit;
+export declare function _parse_maintenance_occurrence(value: Record<string, unknown>, path: string): MaintenanceServiceOccurrence;

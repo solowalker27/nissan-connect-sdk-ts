@@ -1,0 +1,18 @@
+import { ResponseError } from "./exceptions";
+export { ResponseError };
+import { PlugAndChargeCertificateRetryResult, PlugAndChargeServiceData, PlugAndChargeServiceState, PlugAndChargeServiceStatus, PublicChargeLocationCoordinates, PublicChargeSessionData, PublicChargeSessionStartData, PublicChargeSessionStartResult, PublicChargeSessionState, PublicChargeSessionStatus, PublicChargeSessionStopResult } from "./pnc_models";
+export { PlugAndChargeCertificateRetryResult, PlugAndChargeServiceData, PlugAndChargeServiceState, PlugAndChargeServiceStatus, PublicChargeLocationCoordinates, PublicChargeSessionData, PublicChargeSessionStartData, PublicChargeSessionStartResult, PublicChargeSessionState, PublicChargeSessionStatus, PublicChargeSessionStopResult };
+export declare function parse_pnc_service_status(data: Record<string, unknown>): PlugAndChargeServiceStatus | null;
+export declare function parse_update_pnc_service_status(data: Record<string, unknown>): PlugAndChargeServiceStatus | null;
+export declare function parse_start_charge_session(data: Record<string, unknown>): PublicChargeSessionStartResult | null;
+export declare function parse_stop_charge_session(data: Record<string, unknown>): PublicChargeSessionStopResult | null;
+export declare function parse_charge_session_status(data: Record<string, unknown>): PublicChargeSessionStatus | null;
+export declare function parse_retry_certificate_install(data: Record<string, unknown>): PlugAndChargeCertificateRetryResult | null;
+export declare function _parse_pnc_service_status(data: Record<string, unknown>, root_field: string): PlugAndChargeServiceStatus | null;
+export declare function _required_optional_object(container: Record<string, unknown>, field: string, path: string): Record<string, unknown> | null;
+export declare function _typename(value: Record<string, unknown>, path: string): null;
+export declare function _string(value: unknown, path: string): string;
+export declare function _nullable_string(value: unknown, path: string): string | null;
+export declare function _nullable_bool(value: unknown, path: string): boolean | null;
+export declare function _nullable_service_state(value: unknown, path: string): PlugAndChargeServiceState | null;
+export declare function _nullable_session_state(value: unknown, path: string): PublicChargeSessionState | null;
